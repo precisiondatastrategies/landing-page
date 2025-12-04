@@ -1,0 +1,344 @@
+"use client"
+
+// Add TypeScript declaration for Calendly on window
+declare global {
+  interface Window {
+    Calendly?: any;
+  }
+}
+
+import { useState, useEffect, useRef } from "react"
+import { useRouter } from "next/navigation"
+import { X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { GodRays, MeshGradient } from "@paper-design/shaders-react"
+
+export default function Hero() {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    business: "",
+    description: ""
+  })
+  const [submitting, setSubmitting] = useState(false)
+  const [modalStep, setModalStep] = useState<'form' | 'appointment' | 'thankyou'>('form')
+  const calendlyRef = useRef(null)
+  const router = useRouter()
+
+  const handleExpand = () => {
+    setIsExpanded(true)
+    setModalStep('form')
+  }
+
+  const handleClose = () => {
+    setIsExpanded(false)
+    setModalStep('form')
+  }
+
+  useEffect(() => {
+    if (isExpanded) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+  }, [isExpanded])
+
+  const handleChange = (e: any) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setSubmitting(true)
+    setTimeout(() => {
+      setSubmitting(false)
+      setModalStep('appointment')
+    }, 800)
+  }
+
+  // Calendly widget logic
+  useEffect(() => {
+    if (modalStep === 'appointment') {
+      // Load Calendly script if not present
+      if (!document.getElementById('calendly-widget-script')) {
+        const script = document.createElement('script');
+        script.id = 'calendly-widget-script';
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        document.body.appendChild(script);
+      }
+      // Listen for Calendly event
+      function handleCalendlyEvent(e: any) {
+        if (e.data?.event === 'calendly.event_scheduled') {
+          setModalStep('thankyou');
+        }
+      }
+      window.addEventListener('message', handleCalendlyEvent);
+      // Render Calendly inline widget
+      const interval = setInterval(() => {
+        const container = document.getElementById('calendly-inline-widget');
+        if (window.Calendly && container && container.childNodes.length === 0) {
+          window.Calendly.initInlineWidget({
+            url: 'https://calendly.com/hilalaziz-unitzero/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=222b45&primary_color=0069ff',
+            parentElement: container,
+            prefill: {},
+            utm: {}
+          });
+          clearInterval(interval);
+        }
+      }, 100);
+      return () => {
+        window.removeEventListener('message', handleCalendlyEvent);
+        const container = document.getElementById('calendly-inline-widget');
+        if (container) container.innerHTML = '';
+        clearInterval(interval);
+      };
+    }
+  }, [modalStep]);
+
+  return (
+    <>
+      <div className="relative flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-20">
+        {/* GodRays Background */}
+        <div className="absolute inset-0">
+          <GodRays
+            colorBack="#00000000"
+            colors={["#FFFFFF6E", "#F3F3F3F0", "#8A8A8A", "#989898"]}
+            colorBloom="#FFFFFF"
+            offsetX={0.85}
+            offsetY={-1}
+            intensity={1}
+            spotty={0.45}
+            midSize={10}
+            midIntensity={0}
+            density={0.12}
+            bloom={0.15}
+            speed={1}
+            scale={1.6}
+            frame={3332042.8159981333}
+            style={{
+              height: "100%",
+              width: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-normal  tracking-[-0.03em] text-black mix-blend-exclusion max-w-4xl">
+            Automate Your Business with AI Agents that Call, Chat &amp; Work for You — 24/7.
+          </h1>
+
+          <p className="text-base sm:text-lg md:text-xl leading-[160%] text-black max-w-2xl px-4">
+            We design and deploy AI voice, chat, and workflow automations for agencies, healthcare, and real estate.
+          </p>
+
+          <AnimatePresence initial={false}>
+            {!isExpanded && (
+              <motion.div className="inline-block relative">
+                <motion.div
+                  style={{
+                    borderRadius: "100px",
+                  }}
+                  layout
+                  layoutId="cta-card"
+                  className="absolute inset-0 bg-[#004FE5] items-center justify-center transform-gpu will-change-transform"
+                ></motion.div>
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  layout={false}
+                  onClick={handleExpand}
+                  className="h-15 px-6 sm:px-8 py-3 text-lg sm:text-xl font-regular text-[#E3E3E3] tracking-[-0.01em] relative"
+                >
+                  Request a demo
+                </motion.button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+
+      <AnimatePresence initial={false}>
+        {isExpanded && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-2">
+            {/* Modal background and content change by step */}
+            {modalStep === 'form' && (
+              <motion.div
+                layoutId="cta-card"
+                transition={{ duration: 0.3 }}
+                style={{ borderRadius: "24px" }}
+                layout
+                className="relative flex h-full w-full overflow-y-auto bg-[#004FE5] transform-gpu will-change-transform"
+              >
+                {/* ...existing MeshGradient and form content... */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 2 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  layout={false}
+                  transition={{ duration: 0.15, delay: 0.05 }}
+                  className="absolute h-full inset-0 overflow-hidden pointer-events-none"
+                  style={{ borderRadius: "24px" }}
+                >
+                  <MeshGradient
+                    speed={1}
+                    colors={["#2452F1", "#022474", "#163DB9", "#0B1D99"]}
+                    distortion={0.8}
+                    swirl={0.1}
+                    grainMixer={0}
+                    grainOverlay={0}
+                    className="inset-0 sticky top-0"
+                    style={{ height: "100%", width: "100%" }}
+                  />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.15, duration: 0.4 }}
+                  className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center p-6 sm:p-10 lg:p-16 gap-8 lg:gap-16"
+                >
+                  {/* ...existing left and right form content... */}
+                  <div className="flex-1 flex flex-col justify-center space-y-3 w-full">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-none tracking-[-0.03em]">
+                      Talk to sales
+                    </h2>
+                    <div className="space-y-4 sm:space-y-6 pt-4">
+                      <div className="flex gap-3 sm:gap-4">
+                        <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-white/10 flex items-center justify-center">
+                          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                        </div>
+                        <div>
+                          <p className="text-sm sm:text-base text-white leading-[150%]">Learn how Acme can transform your business with tailored solutions and flexible pricing options.</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-3 sm:gap-4">
+                        <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-white/10 flex items-center justify-center">
+                          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <div>
+                          <p className="text-sm sm:text-base text-white leading-[150%]">Experience firsthand how Acme Platform accelerates delivery &amp; drives results.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-white/20">
+                      <p className="text-lg sm:text-xl lg:text-2xl text-white leading-[150%] mb-4">Acme empowers our team to move faster and ship products with confidence.</p>
+                    </div>
+                  </div>
+                  <div className="flex-1 w-full">
+                    <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
+                      {/* ...form fields as before... */}
+                      <div>
+                        <label htmlFor="name" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">FULL NAME *</label>
+                        <input type="text" id="name" name="name" value={form.name} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your name" />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">EMAIL *</label>
+                        <input type="email" id="email" name="email" value={form.email} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your email" />
+                      </div>
+                      <div>
+                        <label htmlFor="business" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">BUSINESS NAME *</label>
+                        <input type="text" id="business" name="business" value={form.business} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your business name" />
+                      </div>
+                      <div>
+                        <label htmlFor="description" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">DESCRIPTION *</label>
+                        <textarea id="description" name="description" value={form.description} onChange={handleChange} required rows={3} className="w-full px-4 py-3 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all resize-none text-sm" placeholder="Describe your needs or project" />
+                      </div>
+                      <button type="submit" disabled={submitting} className="w-full px-8 py-2.5 rounded-full bg-white text-[#0041C1] font-medium hover:bg-white/90 transition-colors tracking-[-0.03em] h-10">{submitting ? "Submitting..." : "Submit"}</button>
+                    </form>
+                  </div>
+                </motion.div>
+                <motion.button
+                  onClick={handleClose}
+                  className="absolute right-6 top-6 z-10 flex h-10 w-10 items-center justify-center text-white bg-transparent transition-colors hover:bg-white/10 rounded-full"
+                  aria-label="Close"
+                >
+                  <X className="h-5 w-5" />
+                </motion.button>
+              </motion.div>
+            )}
+            {modalStep === 'appointment' && (
+              <motion.div
+                layoutId="cta-card"
+                transition={{ duration: 0.3 }}
+                style={{ borderRadius: "24px" }}
+                layout
+                className="relative h-full w-full overflow-y-auto transform-gpu will-change-transform shadow-2xl bg-white border border-blue-100 p-0 overflow-hidden flex flex-col md:flex-row"
+              >
+                <div className="flex-1 flex flex-col justify-center items-start bg-linear-to-br from-blue-100 via-white to-indigo-50 p-8 md:p-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2 animate-slidein">Book Your Appointment</h2>
+                  <p className="text-lg text-blue-700 mb-6 text-left animate-fadein-slow">Schedule a 30-minute call with our expert. Pick a time that works for you and let's accelerate your growth!</p>
+                  <ul className="text-blue-700 text-base mb-6 space-y-2 animate-fadein-slow">
+                    <li className="flex items-center gap-2"><span className="inline-block w-2 h-2 bg-blue-500 rounded-full"></span> Free 30-min consultation</li>
+                    <li className="flex items-center gap-2"><span className="inline-block w-2 h-2 bg-blue-500 rounded-full"></span> Personalized advice</li>
+                    <li className="flex items-center gap-2"><span className="inline-block w-2 h-2 bg-blue-500 rounded-full"></span> No obligation</li>
+                  </ul>
+                  <div className="flex items-center gap-2 animate-fadein-slow">
+                    <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M8 17l4 4 4-4m0-5V3m-8 4v4a4 4 0 004 4h4" /></svg>
+                    <span className="text-blue-600 font-medium">Easy online scheduling</span>
+                  </div>
+                </div>
+                <div className="flex-1 bg-white p-4 md:p-8 flex items-center justify-center animate-fadein">
+                  <div
+                    ref={calendlyRef}
+                    id="calendly-inline-widget"
+                    style={{ minWidth: 320, height: 600, width: '100%' }}
+                    className="rounded-xl border border-blue-100 shadow-md transition-shadow hover:shadow-xl"
+                  ></div>
+                </div>
+                <style jsx global>{`
+                  @keyframes fadein {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                  }
+                  @keyframes fadein-slow {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                  }
+                  @keyframes slidein {
+                    from { transform: translateY(-30px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                  }
+                  .animate-fadein { animation: fadein 0.7s ease; }
+                  .animate-fadein-slow { animation: fadein-slow 1.2s ease; }
+                  .animate-slidein { animation: slidein 0.7s cubic-bezier(.4,2,.6,1); }
+                `}</style>
+                <motion.button
+                  onClick={handleClose}
+                  className="absolute right-6 top-6 z-10 flex h-10 w-10 items-center justify-center text-blue-900 bg-transparent transition-colors hover:bg-blue-100 rounded-full"
+                  aria-label="Close"
+                >
+                  <X className="h-5 w-5" />
+                </motion.button>
+              </motion.div>
+            )}
+            {modalStep === 'thankyou' && (
+              <motion.div
+                layoutId="cta-card"
+                transition={{ duration: 0.3 }}
+                style={{ borderRadius: "24px" }}
+                layout
+                className="min-h-[500px] relative z-10 max-w-xl w-full mx-auto p-8 sm:p-12 rounded-2xl bg-[#001F63] shadow-2xl flex flex-col items-center"
+              >
+                <div className="mb-6">
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="40" fill="#2452F1" />
+                    <path d="M24 40L36 52L56 32" stroke="#fff" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 text-center tracking-[-0.03em]">Thank You!</h2>
+                <p className="text-lg sm:text-xl text-white/90 mb-6 text-center">Your request has been received.<br />Our team will reach out soon to help you accelerate your marketing pipeline!</p>
+                <button className="mt-2 px-8 py-3 rounded-full bg-white text-[#0041C1] font-semibold hover:bg-white/90 transition-colors text-lg shadow-lg" onClick={handleClose}>Back to Home</button>
+              </motion.div>
+            )}
+          </div>
+        )}
+      </AnimatePresence>
+    </>
+  )
+}
