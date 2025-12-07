@@ -11,7 +11,8 @@ import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { GodRays, MeshGradient } from "@paper-design/shaders-react"
+import { MeshGradient } from "@paper-design/shaders-react"
+import Cal, { getCalApi } from "@calcom/embed-react";
 
 export default function Hero() {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -60,39 +61,19 @@ export default function Hero() {
   // Calendly widget logic
   useEffect(() => {
     if (modalStep === 'appointment') {
-      // Load Calendly script if not present
-      if (!document.getElementById('calendly-widget-script')) {
-        const script = document.createElement('script');
-        script.id = 'calendly-widget-script';
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        script.async = true;
-        document.body.appendChild(script);
-      }
-      // Listen for Calendly event
-      function handleCalendlyEvent(e: any) {
-        if (e.data?.event === 'calendly.event_scheduled') {
-          setModalStep('thankyou');
+      (async function () {
+        const cal = await getCalApi({ namespace: "30min" });
+        cal("ui", { hideEventTypeDetails: true, layout: "month_view" });
+      })();
+      // Listen for Cal.com event scheduled
+      function handleCalEvent(e: MessageEvent) {
+        if (e.data?.event === "cal.scheduling.success") {
+          setModalStep("thankyou");
         }
       }
-      window.addEventListener('message', handleCalendlyEvent);
-      // Render Calendly inline widget
-      const interval = setInterval(() => {
-        const container = document.getElementById('calendly-inline-widget');
-        if (window.Calendly && container && container.childNodes.length === 0) {
-          window.Calendly.initInlineWidget({
-            url: 'https://calendly.com/hilalaziz-unitzero/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=222b45&primary_color=0069ff',
-            parentElement: container,
-            prefill: {},
-            utm: {}
-          });
-          clearInterval(interval);
-        }
-      }, 100);
+      window.addEventListener("message", handleCalEvent);
       return () => {
-        window.removeEventListener('message', handleCalendlyEvent);
-        const container = document.getElementById('calendly-inline-widget');
-        if (container) container.innerHTML = '';
-        clearInterval(interval);
+        window.removeEventListener("message", handleCalEvent);
       };
     }
   }, [modalStep]);
@@ -100,40 +81,20 @@ export default function Hero() {
   return (
     <>
       <div className="relative flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-20">
-        {/* GodRays Background */}
-        <div className="absolute inset-0">
-          <GodRays
-            colorBack="#00000000"
-            colors={["#FFFFFF6E", "#F3F3F3F0", "#8A8A8A", "#989898"]}
-            colorBloom="#FFFFFF"
-            offsetX={0.85}
-            offsetY={-1}
-            intensity={1}
-            spotty={0.45}
-            midSize={10}
-            midIntensity={0}
-            density={0.12}
-            bloom={0.15}
-            speed={1}
-            scale={1.6}
-            frame={3332042.8159981333}
-            style={{
-              height: "100%",
-              width: "100%",
-              position: "absolute",
-              top: 0,
-              left: 0,
-            }}
-          />
-        </div>
+        {/* Static Gradient Background - replaces GPU-intensive GodRays */}
+        <div className="absolute inset-0 bg-linear-to-br from-gray-50 via-white to-gray-100"></div>
 
-        <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 text-center">
+        <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 text-center pt-20">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-normal  tracking-[-0.03em] text-black mix-blend-exclusion max-w-4xl">
-            Automate Your Business with AI Agents that Call, Chat &amp; Work for You — 24/7.
+            AI Automation for Every Conversation, Every Lead, Every Workflow.
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl leading-[160%] text-black max-w-2xl px-4">
-            We design and deploy AI voice, chat, and workflow automations for agencies, healthcare, and real estate.
+            Turn calls, chats, emails, forms, and follow-ups into fully automated workflows powered by human-like AI voice agents, smart chatbots, and your central automation dashboard.
+          </p>
+
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl px-4">
+            Trusted by service businesses looking to respond faster, convert more leads, and operate 24/7 — without hiring more staff.
           </p>
 
           <AnimatePresence initial={false}>
@@ -284,30 +245,20 @@ export default function Hero() {
                   </div>
                 </div>
                 <div className="flex-1 bg-white p-4 md:p-8 flex items-center justify-center animate-fadein">
-                  <div
-                    ref={calendlyRef}
-                    id="calendly-inline-widget"
-                    style={{ minWidth: 320, height: 600, width: '100%' }}
-                    className="rounded-xl border border-blue-100 shadow-md transition-shadow hover:shadow-xl"
-                  ></div>
+                  <Cal
+                    namespace="30min"
+                    calLink="shafique-ur-rehman-jme44n/30min"
+                    style={{ minWidth: 320, height: 600, width: '100%', overflow: 'scroll', borderRadius: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
+                    config={{
+                      layout: "month_view",
+                      theme: "light",
+                      hideEventTypeDetails: "true",
+                      hideAvatar: "true",
+                      hideTitle: "true",
+                      branding: "false"
+                    }}
+                  />
                 </div>
-                <style jsx global>{`
-                  @keyframes fadein {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                  }
-                  @keyframes fadein-slow {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                  }
-                  @keyframes slidein {
-                    from { transform: translateY(-30px); opacity: 0; }
-                    to { transform: translateY(0); opacity: 1; }
-                  }
-                  .animate-fadein { animation: fadein 0.7s ease; }
-                  .animate-fadein-slow { animation: fadein-slow 1.2s ease; }
-                  .animate-slidein { animation: slidein 0.7s cubic-bezier(.4,2,.6,1); }
-                `}</style>
                 <motion.button
                   onClick={handleClose}
                   className="absolute right-6 top-6 z-10 flex h-10 w-10 items-center justify-center text-blue-900 bg-transparent transition-colors hover:bg-blue-100 rounded-full"
