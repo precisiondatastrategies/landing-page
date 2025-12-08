@@ -85,16 +85,12 @@ export default function Hero() {
         <div className="absolute inset-0 bg-linear-to-br from-gray-50 via-white to-gray-100"></div>
 
         <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 text-center pt-20">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-normal  tracking-[-0.03em] text-black mix-blend-exclusion max-w-4xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-normal  tracking-[-0.03em] text-[#071A31] mix-blend-exclusion max-w-4xl">
             AI Automation for Every Conversation, Every Lead, Every Workflow.
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl leading-[160%] text-black max-w-2xl px-4">
             Turn calls, chats, emails, forms, and follow-ups into fully automated workflows powered by human-like AI voice agents, smart chatbots, and your central automation dashboard.
-          </p>
-
-          <p className="text-sm sm:text-base text-gray-600 max-w-2xl px-4">
-            Trusted by service businesses looking to respond faster, convert more leads, and operate 24/7 — without hiring more staff.
           </p>
 
           <AnimatePresence initial={false}>
@@ -106,7 +102,7 @@ export default function Hero() {
                   }}
                   layout
                   layoutId="cta-card"
-                  className="absolute inset-0 bg-[#004FE5] items-center justify-center transform-gpu will-change-transform"
+                  className="absolute inset-0 font-semibold bg-linear-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500 items-center justify-center transform-gpu will-change-transform"
                 ></motion.div>
                 <motion.button
                   initial={{ opacity: 0, scale: 0.8 }}

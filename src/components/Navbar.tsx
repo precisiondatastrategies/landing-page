@@ -20,7 +20,7 @@ export default function Navbar() {
                 <div className="rounded-3xl shadow-lg bg-white flex items-center justify-between px-6 py-2 border border-gray-100">
                     {/* Logo - larger and more visible */}
                     <div className="flex items-center h-16 pl-2">
-                        <a href="#" className="flex items-center gap-3">
+                        <a href="/" className="flex items-center gap-3">
                             <Image
                                 width={120}
                                 height={40}
@@ -34,10 +34,6 @@ export default function Navbar() {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        <a href="#hire" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center gap-1">
-                            Hire Developer
-                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-1"><path d="M6 8L10 12L14 8" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        </a>
                         <a href="#services" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center gap-1">
                             Services
                             <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-1"><path d="M6 8L10 12L14 8" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -47,11 +43,7 @@ export default function Navbar() {
                             Industries
                             <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-1"><path d="M6 8L10 12L14 8" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         </a>
-                        <a href="#cases" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Cases</a>
-                        <a href="#company" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center gap-1">
-                            Company
-                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-1"><path d="M6 8L10 12L14 8" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        </a>
+                        <a href="#cases" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Case Studies</a>
                     </div>
 
                     {/* CTA Button */}

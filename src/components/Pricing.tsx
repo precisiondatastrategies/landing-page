@@ -71,15 +71,15 @@ export default function Pricing() {
                     {pricingTiers.map((tier, index) => (
                         <div
                             key={tier.name}
-                            className={`relative bg-white rounded-2xl p-8 ${tier.popular
-                                ? "border-2 border-blue-600 shadow-xl"
+                            className={`relative bg-white rounded-2xl p-8 flex flex-col h-full ${tier.popular
+                                ? "border-2 border-teal-400 shadow-xl"
                                 : "border border-gray-200 shadow-md"
                                 }`}
                         >
                             {/* Popular Badge */}
                             {tier.popular && (
                                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                                    <div className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                                    <div className="bg-linear-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500 px-4 py-1 rounded-full text-sm font-semibold">
                                         Most Popular
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@ export default function Pricing() {
                             <ul className="space-y-4 mb-8">
                                 {tier.features.map((feature, i) => (
                                     <li key={i} className="flex items-start gap-3">
-                                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                                        <div className="shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                                             <Check className="w-3 h-3 text-green-600" />
                                         </div>
                                         <span className="text-gray-700 text-sm leading-relaxed">{feature}</span>
@@ -117,8 +117,8 @@ export default function Pricing() {
 
                             {/* CTA Button */}
                             <button
-                                className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${tier.popular
-                                    ? "bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg"
+                                className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 mt-auto ${tier.popular
+                                    ? "bg-linear-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500 shadow-md hover:shadow-lg"
                                     : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                                     }`}
                             >

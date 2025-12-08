@@ -28,7 +28,7 @@ export default function Contact() {
     }
 
     return (
-        <section className="section-padding bg-gradient-to-br from-blue-50 to-gray-50 relative overflow-hidden">
+        <section className="section-padding bg-linear-to-br from-blue-50 to-gray-50 relative overflow-hidden">
             {/* Dot Pattern Background */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute inset-0" style={{
@@ -45,32 +45,32 @@ export default function Contact() {
                             <p className="text-blue-600 font-semibold mb-4">Contact Us</p>
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                                 This is what will happen, after you{" "}
-                                <span className="text-blue-600">submit form</span>
+                                <span className="bg-linear-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">submit form</span>
                             </h2>
                         </div>
 
                         {/* Benefits List */}
                         <div className="space-y-4">
                             <div className="flex items-start gap-3">
-                                <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                                <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                                 <p className="text-gray-700">
                                     We can <span className="font-semibold">sign NDA</span> for complete secrecy
                                 </p>
                             </div>
                             <div className="flex items-start gap-3">
-                                <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                                <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                                 <p className="text-gray-700">
                                     Discuss your <span className="font-semibold">project details</span>
                                 </p>
                             </div>
                             <div className="flex items-start gap-3">
-                                <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                                <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                                 <p className="text-gray-700">
                                     Playno experts <span className="font-semibold">contact you within 24h</span>
                                 </p>
                             </div>
                             <div className="flex items-start gap-3">
-                                <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                                <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                                 <p className="text-gray-700">
                                     Submit a <span className="font-semibold">comprehensive project proposal</span> with estimates, timelines, team composition, etc
                                 </p>
@@ -78,7 +78,7 @@ export default function Contact() {
                         </div>
 
                         {/* Consultation Card */}
-                        <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-8 text-white shadow-xl max-w-md">
+                        <div className="bg-linear-to-br from-blue-600 to-blue-700 rounded-3xl p-8 text-white shadow-xl max-w-md">
                             <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
                                 <MessageCircle className="w-6 h-6 text-white" />
                             </div>
@@ -92,7 +92,7 @@ export default function Contact() {
 
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-12 h-12 rounded-full bg-white overflow-hidden">
-                                    <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400"></div>
+                                    <div className="w-full h-full bg-linear-to-br from-gray-300 to-gray-400"></div>
                                 </div>
                                 <div>
                                     <p className="font-semibold">Vitaliy Kovalev</p>

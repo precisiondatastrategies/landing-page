@@ -179,7 +179,7 @@ export default function Testimonials() {
                         Why People Love Us
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Discover how UNITZERO's AI automation has helped businesses grow and succeed
+                        Discover how PDS's AI automation has helped businesses grow and succeed
                     </p>
                 </div>
 
