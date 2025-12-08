@@ -52,7 +52,7 @@ export default function Footer() {
                             <Image
                                 width={140}
                                 height={80}
-                                src="/pds-logo.png"
+                                src="/pds.png"
                                 alt="Precision Data Strategies Logo"
                                 className="w-auto h-12 object-contain"
                                 priority

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { CheckCircle, MessageCircle } from "lucide-react"
+import Image from "next/image"
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -66,7 +67,7 @@ export default function Contact() {
                             <div className="flex items-start gap-3">
                                 <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
                                 <p className="text-gray-700">
-                                    Playno experts <span className="font-semibold">contact you within 24h</span>
+                                    PDS experts <span className="font-semibold">contact you within 24h</span>
                                 </p>
                             </div>
                             <div className="flex items-start gap-3">
@@ -87,16 +88,16 @@ export default function Contact() {
                                 Need a custom consultation? Ask me!
                             </h3>
                             <p className="text-blue-100 mb-6">
-                                Playno has a team of experts that ready to start your project. Ask me!
+                                PDS has a team of experts that ready to start your project. Ask me!
                             </p>
 
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-12 h-12 rounded-full bg-white overflow-hidden">
-                                    <div className="w-full h-full bg-linear-to-br from-gray-300 to-gray-400"></div>
+                                    <Image src="/ronald.jpg" alt="Ronald Parent" width={48} height={48} />
                                 </div>
                                 <div>
-                                    <p className="font-semibold">Vitaliy Kovalev</p>
-                                    <p className="text-sm text-blue-100">Sales Manager</p>
+                                    <p className="font-semibold">Ronald Parent</p>
+                                    <p className="text-sm text-blue-100">CEO</p>
                                 </div>
                             </div>
 

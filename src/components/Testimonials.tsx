@@ -1,7 +1,50 @@
 "use client"
 
 import { Star } from "lucide-react"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
+// CountUp component for animated numbers
+function CountUp({ end, duration = 2, className }: { end: number, duration?: number, className?: string }) {
+    const [count, setCount] = useState(0);
+    const ref = useRef<HTMLSpanElement>(null);
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el || hasAnimated) return;
+        const observer = new window.IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setHasAnimated(true);
+                }
+            },
+            { threshold: 0.5 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [hasAnimated]);
+
+    useEffect(() => {
+        if (!hasAnimated) return;
+        let start = 10;
+        const increment = end / (duration * 60); // 60fps
+        let frame = 0;
+        function animate() {
+            frame++;
+            start += increment;
+            if (start < end) {
+                setCount(Math.floor(start));
+                requestAnimationFrame(animate);
+            } else {
+                setCount(end);
+            }
+        }
+        animate();
+    }, [hasAnimated, end, duration]);
+
+    return (
+        <span ref={ref} className={className}>{count}%</span>
+    );
+}
 
 const testimonialsColumn1 = [
     {
@@ -197,20 +240,34 @@ export default function Testimonials() {
                     </div>
                 </div>
 
-                <div className="text-center mt-12">
-                    <p className="text-gray-500 mb-6">Trusted by 500+ businesses worldwide</p>
-                    <div className="flex justify-center gap-8 flex-wrap">
-                        {[
-                            { value: "4.9/5", label: "Average Rating" },
-                            { value: "500+", label: "Happy Clients" },
-                            { value: "99.9%", label: "Uptime" },
-                            { value: "24/7", label: "Support" }
-                        ].map((stat, i) => (
-                            <div key={i} className="text-center">
-                                <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
-                                <p className="text-sm text-gray-600">{stat.label}</p>
-                            </div>
-                        ))}
+                <div className="mt-16 max-w-6xl mx-auto">
+                    <div className="mb-8">
+                        <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2 tracking-tight" style={{lineHeight:1.15}}>ELEVATE YOUR BUSINESS WITH PDS'S PROVEN IMPACT</h3>
+                        <p className="text-gray-600 text-base md:text-lg max-w-3xl">Join the league of forward-thinking businesses that have experienced a remarkable transformation through PDS's AI automation solutions. Our commitment to innovation and excellence has delivered tangible results that speak for themselves.</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12">
+                        <div className="flex flex-col">
+                            <CountUp end={20} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
+                            <span className="text-lg font-semibold text-gray-900 mb-1">REDUCTION IN OPERATIONAL COSTS</span>
+                            <span className="text-gray-500 text-base">Experience substantial savings as AI-driven automation optimizes resource allocation and minimizes wastage.</span>
+                        </div>
+                        <div className="flex flex-col">
+                            <CountUp end={51} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
+                            <span className="text-lg font-semibold text-gray-900 mb-1">CUSTOMER SATISFACTION</span>
+                            <span className="text-gray-500 text-base">Delight your customers with personalized interactions and solutions, leading to heightened satisfaction and loyalty.</span>
+                        </div>
+                        <div className="flex flex-col">
+                            <CountUp end={96} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
+                            <span className="text-lg font-semibold text-gray-900 mb-1">INCREASE IN EFFICIENCY</span>
+                            <span className="text-gray-500 text-base">Say goodbye to manual, time-consuming tasks. PDS's streamlined processes elevate efficiency, allowing you to focus on strategic initiatives.</span>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 mt-10">
+                        <div className="flex flex-col">
+                            <CountUp end={44} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
+                            <span className="text-lg font-semibold text-gray-900 mb-1">RISE IN REVENUE GENERATION</span>
+                            <span className="text-gray-500 text-base">Unlock new revenue streams with data-driven insights and predictive analytics.</span>
+                        </div>
                     </div>
                 </div>
             </div>

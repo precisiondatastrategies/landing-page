@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link"
 import { AreaChart, Area, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 // Chart data
@@ -187,9 +188,11 @@ export default function AutomateBoutique() {
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className="text-center mt-12"
                 >
-                    <button className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg">
+                   <Link href="https://www.automateboutique.app/" target="_blank" rel="noopener noreferrer">
+                       <button className="px-8 py-3 font-semibold rounded-full bg-linear-to-r from-blue-500 to-teal-400 text-white shadow-lg hover:from-blue-600 hover:to-teal-500 transition-all duration-200 hover:shadow-lg">
                         Explore the Platform
                     </button>
+                   </Link>
                 </motion.div>
             </div>
         </section>

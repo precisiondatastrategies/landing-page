@@ -24,7 +24,7 @@ export default function Navbar() {
                             <Image
                                 width={120}
                                 height={40}
-                                src="/pds-logo.png"
+                                src="/pds.png"
                                 alt="Precision Data Strategies Logo"
                                 className="w-auto h-12 object-contain"
                                 priority
@@ -52,7 +52,7 @@ export default function Navbar() {
                             href="#estimate"
                             className="px-6 py-2.5 font-semibold rounded-full bg-linear-to-r from-blue-500 to-teal-400 text-white shadow-lg hover:from-blue-600 hover:to-teal-500 transition-all duration-200 flex items-center gap-2"
                         >
-                            Get Started
+                            Get Free Demo
                         </a>
                     </div>
 

@@ -81,8 +81,54 @@ export default function Hero() {
   return (
     <>
       <div className="relative flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-20">
-        {/* Static Gradient Background - replaces GPU-intensive GodRays */}
-        <div className="absolute inset-0 bg-linear-to-br from-gray-50 via-white to-gray-100"></div>
+        {/* Gradient Background + Grid Lines */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+          {/* Gradient */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(to bottom, #ffffff 0%, #f6f8ff 40%, #e7edff 60%, #93c5fd 100%)',
+            opacity: 1,
+          }} />
+          {/* SVG Grid Lines */}
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 1440 900"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+          >
+            {/* Vertical lines */}
+            {Array.from({ length: 15 }).map((_, i) => (
+              <line
+                key={`v-${i}`}
+                x1={(i * 96).toString()}
+                y1="0"
+                x2={(i * 96).toString()}
+                y2="900"
+                stroke="#dbeafe"
+                strokeWidth="1"
+                opacity="0.5"
+              />
+            ))}
+            {/* Horizontal lines */}
+            {Array.from({ length: 10 }).map((_, i) => (
+              <line
+                key={`h-${i}`}
+                x1="0"
+                y1={(i * 90).toString()}
+                x2="1440"
+                y2={(i * 90).toString()}
+                stroke="#dbeafe"
+                strokeWidth="1"
+                opacity="0.5"
+              />
+            ))}
+          </svg>
+        </div>
 
         <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 text-center pt-20">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-normal  tracking-[-0.03em] text-[#071A31] mix-blend-exclusion max-w-4xl">

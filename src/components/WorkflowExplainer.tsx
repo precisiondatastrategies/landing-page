@@ -13,7 +13,7 @@ export default function WorkflowExplainer() {
         {
             number: "02",
             icon: Users,
-            title: "Meet Playno team",
+            title: "Meet PDS team",
             description: "You share your product idea and ask any questions you have after we sign an NDA"
         },
         {
@@ -25,7 +25,7 @@ export default function WorkflowExplainer() {
     ]
 
     return (
-        <section className="section-padding bg-gradient-to-br from-blue-500 via-blue-500 to-blue-600 relative overflow-hidden">
+        <section className="section-padding bg-linear-to-br from-blue-500 via-blue-500 to-blue-600 relative overflow-hidden">
             {/* Subtle background pattern */}
             <div className="absolute inset-0 opacity-10">
                 <div className="absolute inset-0" style={{
