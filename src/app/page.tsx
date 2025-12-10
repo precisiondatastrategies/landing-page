@@ -15,13 +15,23 @@ export default function Home() {
     <div className="min-h-screen">
         <Hero />
         <Integrations />
+        <div id="solutions">
         <ProductShowcase />
+        </div>
+        <div id="services">
         <AIServices />
+        </div>
         <WorkflowExplainer />
         <AutomateBoutique />
+        <div id="consulting">
         <Consulting />
+        </div>
+        <div id="testimonials">
         <Testimonials />
+        </div>
+        <div id="pricing">
         <Pricing />
+        </div>
         <Contact />
         <FinalCTA />
     </div>

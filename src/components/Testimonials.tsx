@@ -216,7 +216,7 @@ function ScrollingColumn({ testimonials, direction }: { testimonials: typeof tes
 export default function Testimonials() {
     return (
         <section className="py-20 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
                         Why People Love Us
@@ -226,7 +226,7 @@ export default function Testimonials() {
                     </p>
                 </div>
 
-                <div className="relative">
+                <div className="relative max-w-7xl mx-auto px-4">
                     {/* Top blur gradient */}
                     <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-gray-50 to-transparent z-10 pointer-events-none"></div>
                     
@@ -240,19 +240,31 @@ export default function Testimonials() {
                     </div>
                 </div>
 
-                <div className="mt-16 max-w-6xl mx-auto">
-                    <div className="mb-8">
+                <div className="mt-16  relative">
+                    {/* Dot Pattern Background */}
+                    <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.3, zIndex: 0 }}>
+                        <div
+                            className="absolute inset-0"
+                            style={{
+                                backgroundImage:
+                                    "radial-gradient(circle, #d1d5db 1.5px, transparent 1.5px)",
+                                backgroundSize: "20px 20px",
+                                borderRadius: "24px"
+                            }}
+                        ></div>
+                    </div>
+                    <div className="mb-8 relative z-10 max-w-6xl mx-auto">
                         <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2 tracking-tight" style={{lineHeight:1.15}}>ELEVATE YOUR BUSINESS WITH PDS'S PROVEN IMPACT</h3>
                         <p className="text-gray-600 text-base md:text-lg max-w-3xl">Join the league of forward-thinking businesses that have experienced a remarkable transformation through PDS's AI automation solutions. Our commitment to innovation and excellence has delivered tangible results that speak for themselves.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-10 md:gap-8 lg:gap-12 relative z-10">
                         <div className="flex flex-col">
                             <CountUp end={20} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
                             <span className="text-lg font-semibold text-gray-900 mb-1">REDUCTION IN OPERATIONAL COSTS</span>
                             <span className="text-gray-500 text-base">Experience substantial savings as AI-driven automation optimizes resource allocation and minimizes wastage.</span>
                         </div>
                         <div className="flex flex-col">
-                            <CountUp end={51} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
+                            <CountUp end={99} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
                             <span className="text-lg font-semibold text-gray-900 mb-1">CUSTOMER SATISFACTION</span>
                             <span className="text-gray-500 text-base">Delight your customers with personalized interactions and solutions, leading to heightened satisfaction and loyalty.</span>
                         </div>
@@ -262,7 +274,7 @@ export default function Testimonials() {
                             <span className="text-gray-500 text-base">Say goodbye to manual, time-consuming tasks. PDS's streamlined processes elevate efficiency, allowing you to focus on strategic initiatives.</span>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 mt-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-10 md:gap-8 lg:gap-12 mt-10 relative z-10">
                         <div className="flex flex-col">
                             <CountUp end={44} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
                             <span className="text-lg font-semibold text-gray-900 mb-1">RISE IN REVENUE GENERATION</span>

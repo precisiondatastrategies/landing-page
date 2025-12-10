@@ -8,24 +8,33 @@ declare global {
 }
 
 import { useState, useEffect, useRef } from "react"
+import { createClient } from '@supabase/supabase-js'
 import { useRouter } from "next/navigation"
 import { X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { MeshGradient } from "@paper-design/shaders-react"
 import Cal, { getCalApi } from "@calcom/embed-react";
 
-export default function Hero() {
+const Hero = () => {
   const [isExpanded, setIsExpanded] = useState(false)
   const [form, setForm] = useState({
-    name: "",
+    fullName: "",
+    businessName: "",
+    businessType: "",
     email: "",
-    business: "",
+    phone: "",
     description: ""
   })
   const [submitting, setSubmitting] = useState(false)
   const [modalStep, setModalStep] = useState<'form' | 'appointment' | 'thankyou'>('form')
   const calendlyRef = useRef(null)
   const router = useRouter()
+
+  // Supabase client
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
 
   const handleExpand = () => {
     setIsExpanded(true)
@@ -49,13 +58,25 @@ export default function Hero() {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSubmitting(true)
-    setTimeout(() => {
-      setSubmitting(false)
+    // Save to Supabase
+    const { fullName, businessName, businessType, email, phone, description } = form
+    const { error } = await supabase.from('web_leads').insert({
+      full_name: fullName,
+      business_name: businessName,
+      business_type: businessType,
+      email,
+      phone,
+      description
+    })
+    setSubmitting(false)
+    if (!error) {
       setModalStep('appointment')
-    }, 800)
+    } else {
+      alert('Error submitting form. Please try again.')
+    }
   }
 
   // Calendly widget logic
@@ -235,24 +256,41 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 w-full">
                     <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
-                      {/* ...form fields as before... */}
-                      <div>
-                        <label htmlFor="name" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">FULL NAME *</label>
-                        <input type="text" id="name" name="name" value={form.name} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your name" />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">EMAIL *</label>
-                        <input type="email" id="email" name="email" value={form.email} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your email" />
-                      </div>
-                      <div>
-                        <label htmlFor="business" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">BUSINESS NAME *</label>
-                        <input type="text" id="business" name="business" value={form.business} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your business name" />
-                      </div>
-                      <div>
-                        <label htmlFor="description" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">DESCRIPTION *</label>
-                        <textarea id="description" name="description" value={form.description} onChange={handleChange} required rows={3} className="w-full px-4 py-3 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all resize-none text-sm" placeholder="Describe your needs or project" />
-                      </div>
-                      <button type="submit" disabled={submitting} className="w-full px-8 py-2.5 rounded-full bg-white text-[#0041C1] font-medium hover:bg-white/90 transition-colors tracking-[-0.03em] h-10">{submitting ? "Submitting..." : "Submit"}</button>
+                        <div>
+                          <label htmlFor="fullName" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">FULL NAME *</label>
+                          <input type="text" id="fullName" name="fullName" value={form.fullName} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your name" />
+                        </div>
+                        <div>
+                          <label htmlFor="businessName" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">BUSINESS NAME</label>
+                          <input type="text" id="businessName" name="businessName" value={form.businessName} onChange={handleChange} className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your business name" />
+                        </div>
+                        <div className="flex gap-4">
+                          <div className="w-1/2">
+                            <label htmlFor="email" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">EMAIL *</label>
+                            <input type="email" id="email" name="email" value={form.email} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your email" />
+                          </div>
+                          <div className="w-1/2">
+                            <label htmlFor="phone" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">PHONE *</label>
+                            <input type="tel" id="phone" name="phone" value={form.phone} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your phone number" />
+                          </div>
+                        </div>
+                        <div>
+                          <label htmlFor="businessType" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">BUSINESS TYPE *</label>
+                          <select id="businessType" name="businessType" value={form.businessType} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10">
+                            <option value="">Select business type</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Hvac">Hvac</option>
+                            <option value="Real estate">Real estate</option>
+                            <option value="Law firms">Law firms</option>
+                            <option value="Electretions">Electretions</option>
+                            <option value="Other">Other</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label htmlFor="description" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">DESCRIPTION</label>
+                          <textarea id="description" name="description" value={form.description} onChange={handleChange} rows={3} className="w-full px-4 py-3 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all resize-none text-sm" placeholder="Describe your needs or project" />
+                        </div>
+                        <button type="submit" disabled={submitting} className="w-full px-8 py-2.5 rounded-full bg-white text-[#0041C1] font-medium hover:bg-white/90 transition-colors tracking-[-0.03em] h-10">{submitting ? "Submitting..." : "Submit"}</button>
                     </form>
                   </div>
                 </motion.div>
@@ -335,3 +373,5 @@ export default function Hero() {
     </>
   )
 }
+
+export default Hero;

@@ -1,18 +1,27 @@
 "use client"
 
 import { useState } from "react"
+import { createClient } from '@supabase/supabase-js'
 import { CheckCircle, MessageCircle } from "lucide-react"
 import Image from "next/image"
+
+// Supabase client (must be outside component for Next.js)
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 
 export default function Contact() {
     const [formData, setFormData] = useState({
         fullName: "",
-        industry: "",
+        businessName: "",
+        businessType: "",
         email: "",
         phone: "",
         description: "",
         acceptPrivacy: false
     })
+    const [submitted, setSubmitted] = useState(false)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value, type } = e.target
@@ -22,10 +31,23 @@ export default function Contact() {
         }))
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        console.log("Form submitted:", formData)
-        // Handle form submission
+        // Save to Supabase
+        const { fullName, businessName, businessType, email, phone, description } = formData
+        const { error } = await supabase.from('web_leads').insert({
+            full_name: fullName,
+            business_name: businessName,
+            business_type: businessType,
+            email,
+            phone,
+            description
+        })
+        if (!error) {
+            setSubmitted(true)
+        } else {
+            alert('Error submitting form. Please try again.')
+        }
     }
 
     return (
@@ -109,13 +131,14 @@ export default function Contact() {
 
                     {/* Right Column - Contact Form */}
                     <div className="bg-white rounded-3xl p-8 shadow-xl">
+                        {!submitted ? (
+                        <>
                         <h3 className="text-2xl font-bold text-gray-900 mb-2">Get in touch</h3>
                         <p className="text-gray-600 mb-8">
                             Fill in your details below or find us using these contacts. Let us know how we can help.
                         </p>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
-                            {/* Name and Industry */}
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -133,28 +156,20 @@ export default function Contact() {
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="industry" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Industry*
+                                    <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-2">
+                                        Business name
                                     </label>
-                                    <select
-                                        id="industry"
-                                        name="industry"
-                                        value={formData.industry}
+                                    <input
+                                        type="text"
+                                        id="businessName"
+                                        name="businessName"
+                                        value={formData.businessName}
                                         onChange={handleChange}
-                                        required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all appearance-none bg-white"
-                                    >
-                                        <option value="">Select your industry</option>
-                                        <option value="technology">Technology</option>
-                                        <option value="healthcare">Healthcare</option>
-                                        <option value="finance">Finance</option>
-                                        <option value="retail">Retail</option>
-                                        <option value="other">Other</option>
-                                    </select>
+                                        placeholder="Enter your business name"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                                    />
                                 </div>
                             </div>
-
-                            {/* Email and Phone */}
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -181,14 +196,36 @@ export default function Contact() {
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
-                                        placeholder="@-"
+                                        placeholder="Phone number"
                                         required
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                                     />
                                 </div>
                             </div>
-
-                            {/* Description */}
+                            <div className="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label htmlFor="businessType" className="block text-sm font-medium text-gray-700 mb-2">
+                                        Business type*
+                                    </label>
+                                    <select
+                                        id="businessType"
+                                        name="businessType"
+                                        value={formData.businessType}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all appearance-none bg-white"
+                                    >
+                                        <option value="">Select business type</option>
+                                        <option value="Plumbing">Plumbing</option>
+                                        <option value="Hvac">Hvac</option>
+                                        <option value="Real estate">Real estate</option>
+                                        <option value="Law firms">Law firms</option>
+                                        <option value="Electretions">Electretions</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div></div>
+                            </div>
                             <div>
                                 <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
                                     Describe your project (optional)
@@ -203,8 +240,6 @@ export default function Contact() {
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
                                 ></textarea>
                             </div>
-
-                            {/* Privacy Policy */}
                             <div className="flex items-start gap-3">
                                 <input
                                     type="checkbox"
@@ -219,8 +254,6 @@ export default function Contact() {
                                     I accept <span className="font-semibold">Privacy Policy</span> & <span className="font-semibold">Cookie</span>
                                 </label>
                             </div>
-
-                            {/* Submit Button */}
                             <button
                                 type="submit"
                                 className="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
@@ -228,6 +261,13 @@ export default function Contact() {
                                 Send request
                             </button>
                         </form>
+                        </>
+                        ) : (
+                            <div className="flex flex-col items-center justify-center min-h-[300px]">
+                                <h3 className="text-2xl font-bold text-blue-600 mb-4">Thank you!</h3>
+                                <p className="text-gray-700 text-lg mb-2">Your request has been received. Our team will contact you soon.</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

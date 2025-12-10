@@ -6,8 +6,9 @@ import Image from "next/image"
 
 const navLinks = [
     { name: "Services", href: "#services" },
-    { name: "Platform", href: "#platform" },
+    { name: "Solutions", href: "#solutions" },
     { name: "Consulting", href: "#consulting" },
+    { name: "Testimonials", href: "#testimonials" },
     { name: "Pricing", href: "#pricing" },
 ]
 
@@ -17,7 +18,7 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-                <div className="rounded-3xl shadow-lg bg-white flex items-center justify-between px-6 py-2 border border-gray-100">
+                <div className="rounded-3xl shadow-lg bg-white/60 backdrop-blur-3xl flex items-center justify-between px-6 py-2 border border-white/40">
                     {/* Logo - larger and more visible */}
                     <div className="flex items-center h-16 pl-2">
                         <a href="/" className="flex items-center gap-3">
@@ -34,16 +35,15 @@ export default function Navbar() {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        <a href="#services" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center gap-1">
-                            Services
-                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-1"><path d="M6 8L10 12L14 8" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        </a>
-                        <a href="#solutions" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Solutions</a>
-                        <a href="#industries" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center gap-1">
-                            Industries
-                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-1"><path d="M6 8L10 12L14 8" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        </a>
-                        <a href="#cases" className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200">Case Studies</a>
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center gap-1"
+                            >
+                                {link.name}
+                            </a>
+                        ))}
                     </div>
 
                     {/* CTA Button */}
@@ -72,7 +72,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="md:hidden border-t border-gray-200 bg-white">
+                <div className="md:hidden border-t border-white/30 bg-white/60 backdrop-blur-2xl shadow-xl">
                     <div className="px-6 py-4 space-y-3">
                         {navLinks.map((link) => (
                             <a
