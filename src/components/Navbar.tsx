@@ -15,6 +15,11 @@ const navLinks = [
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+    const triggerRequestDemo = () => {
+        if (typeof window === "undefined") return
+        window.dispatchEvent(new Event("open-request-demo"))
+    }
+
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
@@ -48,12 +53,13 @@ export default function Navbar() {
 
                     {/* CTA Button */}
                     <div className="hidden md:flex items-center gap-4">
-                        <a
-                            href="#estimate"
+                        <button
+                            type="button"
+                            onClick={triggerRequestDemo}
                             className="px-6 py-2.5 font-semibold rounded-full bg-linear-to-r from-blue-500 to-teal-400 text-white shadow-lg hover:from-blue-600 hover:to-teal-500 transition-all duration-200 flex items-center gap-2"
                         >
-                            Get Free Demo
-                        </a>
+                            Request a demo
+                        </button>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -84,13 +90,16 @@ export default function Navbar() {
                                 {link.name}
                             </a>
                         ))}
-                        <a
-                            href="#contact"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block px-4 py-2.5 bg-blue-600 text-white font-semibold rounded-lg text-center"
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setMobileMenuOpen(false)
+                                triggerRequestDemo()
+                            }}
+                            className="w-full px-4 py-2.5 bg-blue-600 text-white font-semibold rounded-lg text-center"
                         >
-                            Get Started
-                        </a>
+                            Request a demo
+                        </button>
                     </div>
                 </div>
             )}

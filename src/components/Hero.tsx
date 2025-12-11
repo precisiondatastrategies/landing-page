@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { createClient } from '@supabase/supabase-js'
 import { useRouter } from "next/navigation"
 import { X } from "lucide-react"
@@ -36,15 +36,15 @@ const Hero = () => {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   )
 
-  const handleExpand = () => {
+  const handleExpand = useCallback(() => {
     setIsExpanded(true)
     setModalStep('form')
-  }
+  }, [])
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsExpanded(false)
     setModalStep('form')
-  }
+  }, [])
 
   useEffect(() => {
     if (isExpanded) {
@@ -53,6 +53,15 @@ const Hero = () => {
       document.body.style.overflow = "unset"
     }
   }, [isExpanded])
+
+  useEffect(() => {
+    const handleGlobalOpen = () => handleExpand()
+    window.addEventListener("open-request-demo", handleGlobalOpen)
+
+    return () => {
+      window.removeEventListener("open-request-demo", handleGlobalOpen)
+    }
+  }, [handleExpand])
 
   const handleChange = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value })

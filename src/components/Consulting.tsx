@@ -1,105 +1,52 @@
 "use client"
 
-import { Search, Workflow, Rocket, ArrowRight } from "lucide-react"
-
-const services = [
-    {
-        icon: Search,
-        title: "AI Readiness Assessment",
-        description: "Find exactly what you can automate today.",
-        gradient: "from-blue-500 to-cyan-500"
-    },
-    {
-        icon: Workflow,
-        title: "Custom Workflow Design",
-        description: "We map and build workflows around your business process.",
-        gradient: "from-purple-500 to-pink-500"
-    },
-    {
-        icon: Rocket,
-        title: "Full Implementation",
-        description: "We handle setup, integrations, and deployment from start to finish.",
-        gradient: "from-green-500 to-emerald-500"
-    }
-]
+import {
+    ArrowRight,
+} from "lucide-react"
 
 export default function Consulting() {
     return (
-        <section className="section-padding bg-linear-to-b from-white to-gray-50">
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        AI Consulting & Custom Automation Services
-                    </h2>
-                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-                        Get expert guidance and fully built automation systems tailored to your operations.
-                    </p>
-                    <p className="text-base text-gray-600 max-w-3xl mx-auto">
-                        We help businesses understand where automation fits, design custom workflows, train AI agents, integrate their tools, and build end-to-end systems that run on autopilot.
-                    </p>
-                </div>
+        <section className="relative overflow-hidden section-padding bg-linear-to-br from-white via-[#f6f8fb] to-white">
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute -left-24 top-10 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+                <div className="absolute right-0 bottom-10 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
+            </div>
 
-                {/* Service Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    {services.map((service) => {
-                        const Icon = service.icon
-                        return (
-                            <div
-                                key={service.title}
-                                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
-                            >
-                                {/* Icon */}
-                                <div className={`w-16 h-16 rounded-xl bg-linear-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                                    <Icon className="w-8 h-8 text-white" />
-                                </div>
-
-                                {/* Content */}
-                                <h3 className="text-2xl font-bold mb-3 text-gray-900">
-                                    {service.title}
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    {service.description}
-                                </p>
-
-                                {/* Hover gradient background */}
-                                <div className={`absolute inset-0 rounded-2xl bg-linear-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+            <div className="relative max-w-7xl mx-auto space-y-14">
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                    <div className="w-full lg:max-w-xl">
+                        <div className="relative grid gap-4">
+                            <div className="absolute inset-0 bg-linear-to-br from-blue-500/12 via-purple-500/10 to-cyan-400/10 blur-3xl" />
+                            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/70 bg-white/70 backdrop-blur aspect-5/3">
+                                <img
+                                    src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1200&q=80"
+                                    alt="Consultant presenting to team"
+                                    className="h-full w-full object-cover"
+                                    loading="lazy"
+                                />
                             </div>
-                        )
-                    })}
-                </div>
-
-                {/* Engagement Process */}
-                <div className="bg-linear-to-br from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white shadow-2xl">
-                    <h3 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-                        Our Engagement Process
-                    </h3>
-
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4">
-                        {[
-                            { step: "1", title: "Discovery Call", desc: "Understand your needs" },
-                            { step: "2", title: "Strategy Design", desc: "Map your automation" },
-                            { step: "3", title: "Implementation", desc: "Build & deploy" },
-                            { step: "4", title: "Support", desc: "Ongoing optimization" }
-                        ].map((item, index) => (
-                            <div key={item.step} className="flex items-center gap-4">
-                                <div className="shrink-0 text-center">
-                                    <div className="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center mb-2 shadow-lg">
-                                        <span className="text-2xl font-bold text-blue-600">{item.step}</span>
-                                    </div>
-                                    <p className="font-semibold text-sm">{item.title}</p>
-                                    <p className="text-xs text-white/80">{item.desc}</p>
-                                </div>
-                                {index < 3 && (
-                                    <ArrowRight className="hidden md:block w-6 h-6 text-white/60 shrink-0" />
-                                )}
-                            </div>
-                        ))}
+        
+                        </div>
                     </div>
 
-                    <div className="text-center mt-10">
-                        <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-                            Schedule a Consultation
-                        </button>
+                    <div className="flex-1 space-y-6 w-full">
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                            AI consulting built to ship fast and stay accountable.
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl">
+                            We partner with your execs, ops, and engineering to move from idea to controlled rollout without burning trust. Every engagement ships a playbook, ownership model, and live automation in your stack.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <button className="px-6 py-3 rounded-full bg-linear-to-r from-blue-500 to-teal-400 text-white shadow-lg hover:from-blue-600 hover:to-teal-500 transition-all duration-200 font-semibold  shadow-gray-900/10 hover:-translate-y-1 hover:shadow-xl   flex items-center justify-center gap-2">
+                                Schedule a consultation
+                                <ArrowRight className="w-4 h-4" />
+                            </button>
+                            <button className="px-6 py-3 rounded-full bg-white text-gray-900 font-semibold border border-gray-200 shadow-sm hover:border-gray-300 transition">
+                                View sample playbook
+                            </button>
+                        </div>
+ 
                     </div>
                 </div>
             </div>

@@ -1,19 +1,29 @@
 "use client"
 
-import Link from "next/link"
-import AIChatbotLottie from "./lottie/ai-chatbot"
-import ConfirmationEmailLottie from "./lottie/confirmation-email"
-import ContractAutomationLottie from "./lottie/contract-automation"
-import MiniCRMLottie from "./lottie/mini-crm"
-import VoiceReceptionistLottie from "./lottie/voice-receptionist"
-import KnowledgeBaseLottie from "./lottie/knowledge-base"
-import AITicketingWorkflowLottie from "./lottie/ai-ticketing-workflow"
-import MultiChannelLeadCaptureLottie from "./lottie/multi-channel-lead"
-import AIFollowUpSequencesLottie from "./lottie/ai-follow-up-sequences"
-import RealTimeQualificationLottie from "./lottie/real-time-qualification"
+import AIChatbotLottie from "@/components/lottie/ai-chatbot"
+import ConfirmationEmailLottie from "@/components/lottie/confirmation-email"
+import ContractAutomationLottie from "@/components/lottie/contract-automation"
+import MiniCRMLottie from "@/components/lottie/mini-crm"
+import VoiceReceptionistLottie from "@/components/lottie/voice-receptionist"
+import KnowledgeBaseLottie from "@/components/lottie/knowledge-base"
+import AITicketingWorkflowLottie from "@/components/lottie/ai-ticketing-workflow"
+import MultiChannelLeadCaptureLottie from "@/components/lottie/multi-channel-lead"
+import AIFollowUpSequencesLottie from "@/components/lottie/ai-follow-up-sequences"
+import RealTimeQualificationLottie from "@/components/lottie/real-time-qualification"
 
-type AIServicesProps = {
-    showAll?: boolean
+const buildVector = (primary: string, secondary: string, accent: string) => {
+    const svg = `
+    <svg width="320" height="200" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="320" height="200" rx="28" fill="${primary}" fill-opacity="0.08"/>
+        <circle cx="68" cy="76" r="42" fill="${secondary}" fill-opacity="0.35"/>
+        <rect x="112" y="32" width="152" height="26" rx="13" fill="${primary}" fill-opacity="0.35"/>
+        <rect x="112" y="72" width="118" height="26" rx="13" fill="${accent}" fill-opacity="0.45"/>
+        <rect x="112" y="112" width="92" height="26" rx="13" fill="${secondary}" fill-opacity="0.35"/>
+        <circle cx="252" cy="134" r="30" fill="${accent}" fill-opacity="0.4"/>
+        <path d="M72 130L108 146L72 162" stroke="${accent}" stroke-opacity="0.8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`
+
+    return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
 }
 
 const services = [
@@ -89,9 +99,7 @@ const services = [
     }
 ]
 
-export default function AIServices({ showAll = false }: AIServicesProps) {
-    const visibleServices = showAll ? services : services.slice(0, 6)
-
+export default function AIServices() {
     return (
         <section
             id="services"
@@ -115,7 +123,7 @@ export default function AIServices({ showAll = false }: AIServicesProps) {
                 </div>
 
                 <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {visibleServices.map((service) => (
+                    {services.map((service) => (
                         <div
                             key={service.title}
                             className="group relative overflow-hidden rounded-3xl bg-transparent  shadow-[0_20px_60px_rgba(124,58,237,0.08)]  transition duration-300   hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
@@ -132,17 +140,6 @@ export default function AIServices({ showAll = false }: AIServicesProps) {
                         </div>
                     ))}
                 </div>
-                {!showAll && (
-                    <div className="mt-12 flex justify-center">
-                        <Link
-                            href="/services"
-                            className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-blue-500 to-teal-400 text-white shadow-lg hover:from-blue-600 hover:to-teal-500 transition-all duration-200 px-6 py-3 text-sm font-semibold hover:translate-y-0.5"
-                        >
-                            Explore more services
-                    
-                        </Link>
-                    </div>
-                )}
             </div>
         </section>
     )

@@ -65,9 +65,9 @@ export default function Footer() {
 
                         {/* Contact Info */}
                         <div className="space-y-3">
-                            <a href="mailto:hello@unitzero.ai" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                            <a href="mailto:services@pds.com" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
                                 <Mail className="w-4 h-4" />
-                                <span className="text-sm">hello@unitzero.ai</span>
+                                <span className="text-sm">services@pds.com</span>
                             </a>
                             <a href="tel:+1234567890" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
                                 <Phone className="w-4 h-4" />

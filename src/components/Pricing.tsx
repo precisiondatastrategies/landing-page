@@ -5,7 +5,7 @@ import { Check } from "lucide-react"
 const pricingTiers = [
     {
         name: "Starter",
-        price: "$499",
+        price: "$299",
         period: "/month",
         description: "Perfect for small businesses getting started with automation",
         features: [
@@ -20,7 +20,7 @@ const pricingTiers = [
     },
     {
         name: "Professional",
-        price: "$1,299",
+        price: "$499",
         period: "/month",
         description: "For growing businesses ready to scale with AI",
         features: [
@@ -126,12 +126,6 @@ export default function Pricing() {
                             </button>
                         </div>
                     ))}
-                </div>
-
-                {/* Additional Info */}
-                <div className="text-center mt-12">
-                    <p className="text-gray-600 mb-4">All plans include a 14-day free trial • No credit card required</p>
-                    <p className="text-sm text-gray-500">Need a custom solution? <a href="#" className="text-blue-600 hover:underline font-medium">Talk to our team</a></p>
                 </div>
             </div>
         </section>
