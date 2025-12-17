@@ -9,6 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import FinalCTA from "@/components/FinalCTA";
+import WhoNeedsThis from "@/components/WhoNeedsThis";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <div id="services">
         <AIServices />
         </div>
+        <WhoNeedsThis />
         <WorkflowExplainer />
         <AutomateBoutique />
         <div id="consulting">

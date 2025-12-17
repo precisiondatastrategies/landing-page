@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
+    "@gsap/react": "^2.1.2",
     "@paper-design/shaders-react": "^0.0.67",
     "@supabase/supabase-js": "^2.87.1",
     "framer-motion": "^12.23.25",
+    "gsap": "^3.14.2",
     "lucide-react": "^0.555.0",
     "motion": "^12.23.26",
     "next": "^16.0.8",

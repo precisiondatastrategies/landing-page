@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
 
@@ -14,6 +14,39 @@ const navLinks = [
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [isVisible, setIsVisible] = useState(true)
+    const lastScrollY = useRef(0)
+
+    // Hide navbar on downward scroll, reveal on upward scrolls near the top
+    useEffect(() => {
+        if (typeof window === "undefined") return
+
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY
+
+            if (currentScrollY < 80) {
+                setIsVisible(true)
+            } else if (currentScrollY > lastScrollY.current) {
+                setIsVisible(false)
+            } else {
+                setIsVisible(true)
+            }
+
+            lastScrollY.current = currentScrollY
+        }
+
+        window.addEventListener("scroll", handleScroll, { passive: true })
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }, [])
+
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            setIsVisible(true)
+        }
+    }, [mobileMenuOpen])
 
     const triggerRequestDemo = () => {
         if (typeof window === "undefined") return
@@ -21,7 +54,9 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+        <nav
+            className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
                 <div className="rounded-3xl shadow-lg bg-white/60 backdrop-blur-3xl flex items-center justify-between px-6 py-2 border border-white/40">
                     {/* Logo - larger and more visible */}

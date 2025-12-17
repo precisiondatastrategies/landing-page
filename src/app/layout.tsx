@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-// import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "PDS",
+  title: "Precision Data Strategies",
   description: "AI Automation Company",
 };
 
@@ -19,6 +19,19 @@ export default function RootLayout({
       <body
         className="antialiased"
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-GRW4M8WRTJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-GRW4M8WRTJ');
+          `}
+        </Script>
         <Navbar />
         {children}
         <Footer />
@@ -26,3 +39,21 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+// -1200-1500 words
+// -keyword density between 1%-1.5%
+// -2-3 internal links with anchor text
+// -3-5 external links from non-competing anchor text
+// using Focus Keyword in the SEO Title.
+// Focus Keyword used inside SEO Meta Description.
+// Focus Keyword used in the URL.
+// Focus Keyword appears in the first 10% of the content.
+// Focus Keyword found in the subheading(s).
+// Focus Keyword found in image alt attribute(s).
+// URL under 70 characters total
+// Focus Keyword used at the beginning of SEO title.
+// Your title has a positive or a negative sentiment.
+// Table of Contents plugin to break-down your text.
+// You are using short paragraphs.
+// Your content contains images and/or video(s).
