@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 // import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "PDS",
+  title: "Precision Data Strategies",
   description: "AI Automation Company",
 };
 
