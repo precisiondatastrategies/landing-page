@@ -120,19 +120,19 @@ const PinnedScrollSections = () => {
                     <section
                         key={section.title}
                         ref={el => { sectionsRef.current[index] = el; }}
-                        className="relative flex h-screen items-center justify-center p-6"
+                        className="relative flex sm:h-screen items-center justify-center p-6"
                         style={{ zIndex: index + 1 }}
                     >
-                        <div className={`relative flex h-full w-full px-10 items-center justify-center rounded-3xl overflow-hidden ${section.bgColor} ${section.textColor}`}>
+                        <div className={`relative flex h-full w-full sm:px-10 items-center justify-center rounded-3xl overflow-hidden ${section.bgColor} ${section.textColor}`}>
                             <div className="grid h-full w-full items-center gap-10 p-10 sm:p-14 lg:grid-cols-2">
                                 <div className="mx-auto flex w-full max-w-xl flex-col text-left">
-                                    <div className="mb-4 text-sm font-semibold tracking-[0.4em] opacity-75">
+                                    <div className="mb-4 text-xs sm:text-sm font-semibold tracking-[0.4em] opacity-75">
                                         {section.subtitle}
                                     </div>
-                                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                                    <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                                         {section.title}
                                     </h2>
-                                    <p className="text-lg sm:text-xl opacity-90">
+                                    <p className="text-sm sm:text-xl opacity-90">
                                         {section.description}
                                     </p>
                                     <div className="mt-8 grid gap-3 text-sm sm:text-base">
@@ -145,7 +145,7 @@ const PinnedScrollSections = () => {
                                     </div>
                                 </div>
                                 <div className="relative flex h-full w-full items-center justify-center">
-                                    <div className="relative aspect-square w-full max-w-sm sm:max-w-md lg:max-w-xl">
+                                    <div className="relative sm:block hidden aspect-square w-full max-w-sm sm:max-w-md lg:max-w-xl">
                                         <Image
                                             src={section.imageSrc}
                                             alt={section.imageAlt}

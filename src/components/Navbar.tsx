@@ -65,7 +65,7 @@ export default function Navbar() {
                             <Image
                                 width={120}
                                 height={40}
-                                src="/pds.png"
+                                src="/pds-logo.png"
                                 alt="Precision Data Strategies Logo"
                                 className="w-auto h-12 object-contain"
                                 priority

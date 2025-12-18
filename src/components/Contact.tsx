@@ -60,7 +60,7 @@ export default function Contact() {
                 }}></div>
             </div>
 
-            <div className="max-w-7xl mx-auto relative z-10">
+            <div className="sm:max-w-7xl mx-auto relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-start">
                     {/* Left Column */}
                     <div className="space-y-8">

@@ -161,11 +161,11 @@ const Hero = () => {
         </div>
 
         <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 text-center pt-20">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-normal  tracking-[-0.03em] text-[#071A31] mix-blend-exclusion max-w-4xl">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-normal  tracking-[-0.03em] text-[#071A31] mix-blend-exclusion max-w-4xl">
             AI Automation for Every Conversation, Every Lead, Every Workflow.
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl leading-[160%] text-black max-w-2xl px-4">
+          <p className="text-sm sm:text-lg md:text-xl leading-[160%] text-black max-w-2xl px-4">
             Turn calls, chats, emails, forms, and follow-ups into fully automated workflows powered by human-like AI voice agents, smart chatbots, and your central automation dashboard.
           </p>
 

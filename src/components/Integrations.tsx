@@ -22,12 +22,12 @@ export default function Integrations() {
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                         Works Seamlessly With Your Existing Tools
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+                    <p className="sm:text-xl text-sm text-gray-600 max-w-3xl mx-auto mb-4">
                         Connect your automations to the platforms you already use — from scheduling and CRM to communication apps.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-6">
+                <div className="hidden md:grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-6">
                     {integrations.map((integration) => (
                         <div
                             key={integration.name}
@@ -47,6 +47,30 @@ export default function Integrations() {
                             </span>
                         </div>
                     ))}
+                </div>
+
+                {/* Mobile Scrolling View */}
+                <div className="md:hidden overflow-hidden relative w-full">
+                    <div className="flex animate-scroll">
+                        {[...integrations, ...integrations].map((integration, index) => (
+                            <div key={`${integration.name}-${index}`} className="shrink-0 w-28 flex flex-col items-center gap-3 mx-4">
+                                <div className="w-16 h-16 rounded-xl bg-white border border-gray-200 flex items-center justify-center">
+                                    <Image
+                                        src={integration.icon}
+                                        alt={integration.name + ' logo'}
+                                        width={48}
+                                        height={48}
+                                        className="object-contain w-8 h-8"
+                                    />
+                                </div>
+                                <span className="text-xs font-medium text-gray-700 text-center">
+                                    {integration.name}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="absolute top-0 left-0 bottom-0 w-16 bg-linear-to-r from-gray-50 to-transparent pointer-events-none"></div>
+                    <div className="absolute top-0 right-0 bottom-0 w-16 bg-linear-to-l from-gray-50 to-transparent pointer-events-none"></div>
                 </div>
             </div>
         </section>

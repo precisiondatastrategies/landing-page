@@ -165,6 +165,70 @@ function TestimonialCard({ testimonial }: { testimonial: typeof testimonialsColu
     )
 }
 
+function ScrollingRow({ testimonials, direction }: { testimonials: typeof testimonialsColumn1, direction: 'left' | 'right' }) {
+    const rowRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const row = rowRef.current;
+        if (!row) return;
+
+        const content = row.children[0] as HTMLElement;
+        if (!content) return;
+
+        // Duplicate content for seamless loop
+        const originalContent = content.innerHTML;
+        content.innerHTML = originalContent + originalContent;
+
+        let scrollPos = direction === 'right' ? 0 : content.scrollWidth / 2;
+        const speed = 0.5; // pixels per frame
+
+        let animationFrameId: number;
+
+        const scroll = () => {
+            if (row) {
+                if (direction === 'right') {
+                    scrollPos += speed;
+                    if (scrollPos >= content.scrollWidth / 2) {
+                        scrollPos = 0;
+                    }
+                } else { // direction 'left'
+                    scrollPos -= speed;
+                    if (scrollPos <= 0) {
+                        scrollPos = content.scrollWidth / 2;
+                    }
+                }
+                row.scrollLeft = scrollPos;
+                animationFrameId = requestAnimationFrame(scroll);
+            }
+        };
+
+        animationFrameId = requestAnimationFrame(scroll);
+
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+            if (content) {
+                content.innerHTML = originalContent;
+            }
+        };
+    }, [direction, testimonials]);
+
+    return (
+        <div
+            ref={rowRef}
+            className="overflow-hidden w-full"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+            <div className="flex w-max">
+                {testimonials.map((testimonial, index) => (
+                    <div key={index} className="w-[300px] sm:w-[350px] shrink-0 mr-4">
+                        <TestimonialCard testimonial={testimonial} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
 function ScrollingColumn({ testimonials, direction }: { testimonials: typeof testimonialsColumn1, direction: 'up' | 'down' }) {
     const columnRef = useRef<HTMLDivElement>(null)
     
@@ -233,14 +297,20 @@ export default function Testimonials() {
                     {/* Bottom blur gradient */}
                     <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-gray-50 to-transparent z-10 pointer-events-none"></div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6">
                         <ScrollingColumn testimonials={testimonialsColumn1} direction="up" />
                         <ScrollingColumn testimonials={testimonialsColumn2} direction="down" />
                         <ScrollingColumn testimonials={testimonialsColumn3} direction="up" />
                     </div>
+
+                    <div className="md:hidden space-y-4">
+                        <ScrollingRow testimonials={testimonialsColumn1} direction="right" />
+                        <ScrollingRow testimonials={testimonialsColumn2} direction="left" />
+                        <ScrollingRow testimonials={testimonialsColumn3} direction="right" />
+                    </div>
                 </div>
 
-                <div className="mt-16  relative">
+                <div className="mt-16 px-4 sm:px-0 relative">
                     {/* Dot Pattern Background */}
                     <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.3, zIndex: 0 }}>
                         <div

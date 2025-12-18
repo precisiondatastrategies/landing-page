@@ -52,7 +52,7 @@ export default function Footer() {
                             <Image
                                 width={140}
                                 height={80}
-                                src="/pds.png"
+                                src="/pds-logo.png"
                                 alt="Precision Data Strategies Logo"
                                 className="w-auto h-12 object-contain"
                                 priority
@@ -142,7 +142,7 @@ export default function Footer() {
                     <div className="max-w-md">
                         <h3 className="text-white font-semibold mb-2" style={{color: '#fff', opacity: 1}}>Stay Updated</h3>
                         <p className="text-gray-400 text-sm mb-4">Get the latest AI automation insights and updates.</p>
-                        <div className="flex gap-2">
+                        <div className="flex flex-col sm:flex-row gap-2">
                             <input
                                 type="email"
                                 placeholder="Enter your email"
