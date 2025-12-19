@@ -8,6 +8,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Precision Data Strategies",
   description: "AI Automation Company",
+  verification: {
+    google: "qM1TDlwmBgF556RxKEoHVkz_HRCSrfG4-kyOmk8DFSM",
+  },
 };
 
 export default function RootLayout({
