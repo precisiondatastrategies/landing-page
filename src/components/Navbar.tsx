@@ -58,9 +58,9 @@ export default function Navbar() {
             className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-                <div className="rounded-3xl shadow-lg bg-white/60 backdrop-blur-3xl flex items-center justify-between px-6 py-2 border border-white/40">
+                <div className="sm:rounded-3xl rounded-2xl shadow-lg bg-white/60 backdrop-blur-3xl flex items-center justify-between px-4 sm:px-6 sm:py-2 border border-white/40">
                     {/* Logo - larger and more visible */}
-                    <div className="flex items-center h-16 pl-2">
+                    <div className="flex items-center h-16">
                         <a href="/" className="flex items-center gap-3">
                             <Image
                                 width={120}

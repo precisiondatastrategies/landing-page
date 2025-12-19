@@ -12,7 +12,6 @@ import { createClient } from '@supabase/supabase-js'
 import { useRouter } from "next/navigation"
 import { X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { MeshGradient } from "@paper-design/shaders-react"
 import Cal, { getCalApi } from "@calcom/embed-react";
 
 const Hero = () => {
@@ -219,16 +218,6 @@ const Hero = () => {
                   className="absolute h-full inset-0 overflow-hidden pointer-events-none"
                   style={{ borderRadius: "24px" }}
                 >
-                  <MeshGradient
-                    speed={1}
-                    colors={["#2452F1", "#022474", "#163DB9", "#0B1D99"]}
-                    distortion={0.8}
-                    swirl={0.1}
-                    grainMixer={0}
-                    grainOverlay={0}
-                    className="inset-0 sticky top-0"
-                    style={{ height: "100%", width: "100%" }}
-                  />
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0 }}

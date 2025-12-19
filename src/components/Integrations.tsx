@@ -53,7 +53,7 @@ export default function Integrations() {
                 <div className="md:hidden overflow-hidden relative w-full">
                     <div className="flex animate-scroll">
                         {[...integrations, ...integrations].map((integration, index) => (
-                            <div key={`${integration.name}-${index}`} className="shrink-0 w-28 flex flex-col items-center gap-3 mx-4">
+                            <div key={`${integration.name}-${index}`} className="shrink-0 w-28 flex flex-col items-center">
                                 <div className="w-16 h-16 rounded-xl bg-white border border-gray-200 flex items-center justify-center">
                                     <Image
                                         src={integration.icon}

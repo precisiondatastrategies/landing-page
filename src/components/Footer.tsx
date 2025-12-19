@@ -8,25 +8,25 @@ const footerLinks = {
         { name: "AI Voice Agents", href: "#" },
         { name: "Website Chatbots", href: "#" },
         { name: "Workflow Automation", href: "#" },
-        { name: "Automate Boutique", href: "#" },
+        { name: "Automate Boutique", href: "https://www.automateboutique.app/" },
         { name: "Pricing", href: "#pricing" },
     ],
     company: [
-        { name: "About Us", href: "#" },
+        { name: "About Us", href: "about-us" },
         { name: "Consulting", href: "#consulting" },
         { name: "Case Studies", href: "#" },
         { name: "Blog", href: "#" },
         { name: "Careers", href: "#" },
     ],
     resources: [
-        { name: "Documentation", href: "#" },
+        { name: "Documentation", href: "/" },
         { name: "API Reference", href: "#" },
         { name: "Support Center", href: "#" },
         { name: "Community", href: "#" },
         { name: "Status", href: "#" },
     ],
     legal: [
-        { name: "Privacy Policy", href: "#" },
+        { name: "Privacy Policy", href: "/privacy-policy" },
         { name: "Terms of Service", href: "#" },
         { name: "Cookie Policy", href: "#" },
         { name: "GDPR", href: "#" },
@@ -36,7 +36,7 @@ const footerLinks = {
 const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/precision-data-strategies/posts/?feedView=all", label: "LinkedIn" },
     { icon: Instagram, href: "#", label: "Instagram" },
 ]
 
@@ -158,7 +158,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-400 text-sm">
-                        © {new Date().getFullYear()} UNITZERO. All rights reserved.
+                        © {new Date().getFullYear()} Precision Data Strategies. All rights reserved.
                     </p>
 
                     {/* Social Links */}
