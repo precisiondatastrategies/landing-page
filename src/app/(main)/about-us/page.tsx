@@ -1,10 +1,57 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, CheckCircle2, Users, Target, Lightbulb, BrainCircuit } from "lucide-react";
+import { Play, Users, Target, Lightbulb, BrainCircuit } from "lucide-react";
 import Image from "next/image";
 import Team from "@/components/Team";
 import FinalCTA from "@/components/FinalCTA";
+import { useEffect, useRef, useState } from "react"
+
+
+// CountUp component for animated numbers
+function CountUp({ end, duration = 2, className }: { end: number, duration?: number, className?: string }) {
+    const [count, setCount] = useState(0);
+    const ref = useRef<HTMLSpanElement>(null);
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el || hasAnimated) return;
+        const observer = new window.IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setHasAnimated(true);
+                }
+            },
+            { threshold: 0.5 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [hasAnimated]);
+
+    useEffect(() => {
+        if (!hasAnimated) return;
+        let start = 10;
+        const increment = end / (duration * 60); // 60fps
+        let frame = 0;
+        function animate() {
+            frame++;
+            start += increment;
+            if (start < end) {
+                setCount(Math.floor(start));
+                requestAnimationFrame(animate);
+            } else {
+                setCount(end);
+            }
+        }
+        animate();
+    }, [hasAnimated, end, duration]);
+
+    return (
+        <span ref={ref} className={className}>{count}%</span>
+    );
+}
+
 
 export default function AboutUsPage() {
   return (
@@ -185,28 +232,49 @@ export default function AboutUsPage() {
       </section>
 
       {/* --- STATS SECTION --- */}
-      <section className="py-16 border-b border-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <h3 className="text-4xl font-bold text-gray-900 mb-2">5310</h3>
-              <p className="text-gray-500 text-sm uppercase tracking-wider">Happy Clients</p>
+        <div className="relative py-10">
+                {/* Dot Pattern Background */}
+                <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.3, zIndex: 0 }}>
+                    <div
+                        className="absolute inset-0"
+                        style={{
+                            backgroundImage:
+                                "radial-gradient(circle, #d1d5db 1.5px, transparent 1.5px)",
+                            backgroundSize: "20px 20px",
+                            borderRadius: "24px"
+                        }}
+                    ></div>
+                </div>
+                <div className="mb-8 relative z-10 max-w-6xl mx-auto">
+                    <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2 tracking-tight" style={{ lineHeight: 1.15 }}>ELEVATE YOUR BUSINESS WITH PDS'S PROVEN IMPACT</h3>
+                    <p className="text-gray-600 text-base md:text-lg max-w-3xl">Join the league of forward-thinking businesses that have experienced a remarkable transformation through PDS's AI automation solutions. Our commitment to innovation and excellence has delivered tangible results that speak for themselves.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-10 md:gap-8 lg:gap-12 relative z-10">
+                    <div className="flex flex-col">
+                        <CountUp end={20} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
+                        <span className="text-lg font-semibold text-gray-900 mb-1">REDUCTION IN OPERATIONAL COSTS</span>
+                        <span className="text-gray-500 text-base">Experience substantial savings as AI-driven automation optimizes resource allocation and minimizes wastage.</span>
+                    </div>
+                    <div className="flex flex-col">
+                        <CountUp end={99} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
+                        <span className="text-lg font-semibold text-gray-900 mb-1">CUSTOMER SATISFACTION</span>
+                        <span className="text-gray-500 text-base">Delight your customers with personalized interactions and solutions, leading to heightened satisfaction and loyalty.</span>
+                    </div>
+                    <div className="flex flex-col">
+                        <CountUp end={96} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
+                        <span className="text-lg font-semibold text-gray-900 mb-1">INCREASE IN EFFICIENCY</span>
+                        <span className="text-gray-500 text-base">Say goodbye to manual, time-consuming tasks. PDS's streamlined processes elevate efficiency, allowing you to focus on strategic initiatives.</span>
+                    </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-10 md:gap-8 lg:gap-12 mt-10 relative z-10">
+                    <div className="flex flex-col">
+                        <CountUp end={44} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
+                        <span className="text-lg font-semibold text-gray-900 mb-1">RISE IN REVENUE GENERATION</span>
+                        <span className="text-gray-500 text-base">Unlock new revenue streams with data-driven insights and predictive analytics.</span>
+                    </div>
+                </div>
             </div>
-            <div>
-              <h3 className="text-4xl font-bold text-gray-900 mb-2">5310</h3>
-              <p className="text-gray-500 text-sm uppercase tracking-wider">Finished Projects</p>
-            </div>
-            <div>
-              <h3 className="text-4xl font-bold text-gray-900 mb-2">5310</h3>
-              <p className="text-gray-500 text-sm uppercase tracking-wider">Skilled Experts</p>
-            </div>
-            <div>
-              <h3 className="text-4xl font-bold text-gray-900 mb-2">5310</h3>
-              <p className="text-gray-500 text-sm uppercase tracking-wider">Media Posts</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* --- SECTION 3: CENTERED CONTENT --- */}
       <section className="py-20 bg-[#F9F9F7]">

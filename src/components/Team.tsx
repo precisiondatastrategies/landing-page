@@ -55,7 +55,7 @@ export default function Team() {
           <div>
             <span className="text-orange-500 font-medium mb-2 block">Meet Our Team</span>
             <h2 className="text-4xl font-bold text-gray-900">
-              Experience<br />Team Members
+              Experienced<br />Team Members
             </h2>
           </div>
           {/* <button className="hidden md:inline-flex items-center px-6 py-3 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">

@@ -28,6 +28,18 @@ const Hero = () => {
   const [modalStep, setModalStep] = useState<'form' | 'appointment' | 'thankyou'>('form')
   const calendlyRef = useRef(null)
   const router = useRouter()
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+    
+    window.addEventListener("mousemove", handleMouseMove)
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
+    }
+  }, [])
 
   // Supabase client
   const supabase = createClient(
@@ -110,53 +122,52 @@ const Hero = () => {
   return (
     <>
       <div className="relative flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-20">
-        {/* Gradient Background + Grid Lines */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-          {/* Gradient */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            background: 'linear-gradient(to bottom, #ffffff 0%, #f6f8ff 40%, #e7edff 60%, #93c5fd 100%)',
-            opacity: 1,
-          }} />
-          {/* SVG Grid Lines */}
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 1440 900"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-          >
-            {/* Vertical lines */}
-            {Array.from({ length: 15 }).map((_, i) => (
-              <line
-                key={`v-${i}`}
-                x1={(i * 96).toString()}
-                y1="0"
-                x2={(i * 96).toString()}
-                y2="900"
-                stroke="#dbeafe"
-                strokeWidth="1"
-                opacity="0.5"
-              />
-            ))}
-            {/* Horizontal lines */}
-            {Array.from({ length: 10 }).map((_, i) => (
-              <line
-                key={`h-${i}`}
-                x1="0"
-                y1={(i * 90).toString()}
-                x2="1440"
-                y2={(i * 90).toString()}
-                stroke="#dbeafe"
-                strokeWidth="1"
-                opacity="0.5"
-              />
-            ))}
-          </svg>
+        {/* Interactive Background */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden" style={{ zIndex: 0 }}>
+          {/* Base Gradient */}
+          <div className="absolute inset-0 bg-linear-to-br from-slate-50 via-blue-50/30 to-white" />
+          
+          {/* Animated Orbs */}
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.2, 0.4, 0.2], 
+              x: [0, 50, 0],
+              y: [0, -30, 0]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-blue-400/20 blur-[80px] pointer-events-none" 
+          />
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.1, 1],
+              opacity: [0.2, 0.5, 0.2],
+              x: [0, -30, 0],
+              y: [0, 50, 0]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-indigo-400/20 blur-[80px] pointer-events-none" 
+          />
+
+          {/* Grid Pattern */}
+          <div 
+            className="absolute inset-0 opacity-[0.08] pointer-events-none"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, #0066FF 1px, transparent 1px),
+                linear-gradient(to bottom, #0066FF 1px, transparent 1px)
+              `,
+              backgroundSize: '40px 40px',
+            }}
+          />
+
+          {/* Mouse Spotlight */}
+          <div 
+            className="absolute inset-0 pointer-events-none transition-opacity duration-300"
+            style={{
+              background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 102, 255, 0.08), transparent 40%)`,
+            }}
+          />
         </div>
 
         <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 text-center pt-20">
