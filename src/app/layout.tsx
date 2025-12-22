@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://precisiondatastrategies.com"),
   title: "Precision Data Strategies",
-  description: "AI Automation Company",
+  description: "AI Automation for Every Conversation, Every Lead, Every Workflow.",
   openGraph: {
     title: "Precision Data Strategies",
     description: "AI Automation for Every Conversation, Every Lead, Every Workflow.",
@@ -17,8 +17,6 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/pds-logo.png",
-        width: 1200,
-        height: 630,
         alt: "Precision Data Strategies Logo",
       },
     ],
@@ -26,7 +24,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Precision Data Strategies",
     description: "AI Automation for Every Conversation, Every Lead, Every Workflow.",
     images: ["/pds-logo.png"],
