@@ -6,8 +6,31 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://precisiondatastrategies.com"),
   title: "Precision Data Strategies",
   description: "AI Automation Company",
+  openGraph: {
+    title: "Precision Data Strategies",
+    description: "AI Automation for Every Conversation, Every Lead, Every Workflow.",
+    url: "https://precisiondatastrategies.com",
+    siteName: "Precision Data Strategies",
+    images: [
+      {
+        url: "/pds-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Precision Data Strategies Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Precision Data Strategies",
+    description: "AI Automation for Every Conversation, Every Lead, Every Workflow.",
+    images: ["/pds-logo.png"],
+  },
   verification: {
     google: "qM1TDlwmBgF556RxKEoHVkz_HRCSrfG4-kyOmk8DFSM",
   },
