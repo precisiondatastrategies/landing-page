@@ -65,18 +65,22 @@ export default function Footer() {
 
                         {/* Contact Info */}
                         <div className="space-y-3">
-                            <a href="mailto:services@pds.com" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                                <Mail className="w-4 h-4" />
-                                <span className="text-sm">services@pds.com</span>
-                            </a>
-                            <a href="tel:+1234567890" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                                <Phone className="w-4 h-4" />
-                                <span className="text-sm">+1 (234) 567-890</span>
-                            </a>
-                            <div className="flex items-center gap-2 text-gray-400">
-                                <MapPin className="w-4 h-4" />
-                                <span className="text-sm">San Francisco, CA</span>
+                            <div className="flex items-start gap-2 text-gray-400">
+                                <MapPin className="w-4 h-4 mt-1 shrink-0" />
+                                <span className="text-sm">
+                                    Precision Data Strategies LLC<br />
+                                    8605 Santa Monica Blvd #724006<br />
+                                    West Hollywood, CA 90069
+                                </span>
                             </div>
+                            <a href="tel:+14247223282" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                                <Phone className="w-4 h-4" />
+                                <span className="text-sm">(424) 722-3282</span>
+                            </a>
+                            <a href="mailto:info@precisiondatastrategies.com" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                                <Mail className="w-4 h-4" />
+                                <span className="text-sm">info@precisiondatastrategies.com</span>
+                            </a>
                         </div>
                     </div>
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { CheckCircle, MessageCircle } from "lucide-react"
+import { CheckCircle, MessageCircle, MapPin, Phone, Mail } from "lucide-react"
 import Image from "next/image"
 
 type HighLevelWindow = Window & {
@@ -134,9 +134,10 @@ export default function Contact() {
                     <div>
                         <div className="p-8 mt-2">
                             <h3 className="text-2xl font-bold text-gray-900 mb-2">Get in touch</h3>
-                            <p className="text-gray-600 ">
+                            <p className="text-gray-600 mb-6">
                                 Fill in your details below or find us using these contacts. Let us know how we can help.
                             </p>
+
                         </div>
                         <div className="rounded-2xl overflow-hidden" style={{ minHeight: "502px" }}>
                             <iframe
