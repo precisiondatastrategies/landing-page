@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { TextReveal } from "./ui/TextReveal"
 
 export default function Consulting() {
     return (
@@ -11,21 +12,17 @@ export default function Consulting() {
             {/* Background Decorative Elements */}
             <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[800px] h-[800px] bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none" />
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-4 sm:px-20 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
                     {/* Left Content */}
                     <div className="w-full lg:w-1/2 space-y-8">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
+                        <TextReveal
+                            as="h2"
                             className="text-4xl md:text-5xl font-bold text-gray-900 leading-[1.15]"
                         >
-                            AI Consulting Built To <br />
-                            <span className="text-blue-600">Ship Fast</span> & Stay Accountable
-                        </motion.h2>
+                            AI Consulting Built To Ship Fast & Stay Accountable
+                        </TextReveal>
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}

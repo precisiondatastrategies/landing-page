@@ -54,7 +54,7 @@ const features: Feature[] = [
         title: "24/7 AI Voice Receptionist",
         description:
             "Never miss a call with our AI-powered voice receptionist that handles calls, answers questions, and books appointments around the clock.",
-        videoFile: "step_3.mp4",
+        videoFile: "voice.mp4",
         points: [
             "24/7 call handling and response",
             "Automated Q&A for common questions",
@@ -70,7 +70,7 @@ const features: Feature[] = [
         title: "SEO-Optimized Website to Grow Your Presence",
         description:
             "Boost your online visibility with a professionally designed, SEO-optimized website that captures leads and drives growth.",
-        videoFile: "step_4.mp4",
+        videoFile: "web.mp4",
         points: [
             "Improved search engine visibility",
             "Built-in lead capture forms",

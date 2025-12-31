@@ -1,8 +1,12 @@
 "use client"
 
 import { ArrowRight, Check } from "lucide-react"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { BookingModal } from "./BookingModal"
 
 export default function FinalCTA() {
+    const [isExpanded, setIsExpanded] = useState(false)
     // List of icon filenames in public/videos or public/icons (update as needed)
     const icons = [
         '/ghl.png',
@@ -15,10 +19,10 @@ export default function FinalCTA() {
         '/gmail.png',
         '/lovable.png',
         '/zoho.png',
-   
+
     ];
 
-// Positions for floating icons (matching the image layout)
+    // Positions for floating icons (matching the image layout)
     const iconPositions = [
         { name: 'ghl', top: '10%', left: '9%', rotate: '20deg' },    // top left corner
         { name: 'notion', top: '8%', left: '26%', rotate: '8deg' },      // top left-center
@@ -66,15 +70,36 @@ export default function FinalCTA() {
                 <p className="text-lg text-gray-600 mb-6">
                     Automate workflows, boost productivity, and integrate your favorite tools with precision AI solutions.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                    <button className="group px-8 py-4 font-semibold rounded-full bg-linear-to-r from-blue-500 to-teal-400 text-white shadow-lg hover:from-blue-600 hover:to-teal-500 transition-all duration-200 hover:bg-gray-800  flex items-center gap-2">
-                        Start Automating
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button className="px-8 py-4 bg-white border border-gray-300 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition-all duration-200">
-                        Talk to an Expert
-                    </button>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 min-h-[80px]">
+                    <AnimatePresence mode="wait">
+                        {!isExpanded && (
+                            <>
+                                <motion.div className="relative inline-block">
+                                    <motion.div
+                                        layoutId="final-cta-card"
+                                        className="absolute inset-0 bg-linear-to-r from-blue-500 to-teal-400 rounded-full"
+                                        style={{ borderRadius: "9999px" }}
+                                    />
+                                    <motion.button
+                                        onClick={() => setIsExpanded(true)}
+                                        className="relative z-10 group px-8 py-4 font-semibold text-white shadow-lg flex items-center gap-2 rounded-full"
+                                    >
+                                        Request a Demo
+                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </motion.button>
+                                </motion.div>
+                                <motion.button
+                                    initial={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    className="px-8 py-4 bg-white border border-gray-300 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition-all duration-200"
+                                >
+                                    Talk to an Expert
+                                </motion.button>
+                            </>
+                        )}
+                    </AnimatePresence>
                 </div>
+                <BookingModal isOpen={isExpanded} onClose={() => setIsExpanded(false)} layoutId="final-cta-card" />
             </div>
 
             {/* Custom floating animation keyframes */}

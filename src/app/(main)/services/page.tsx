@@ -1,15 +1,6 @@
 "use client"
 
-import AIChatbotLottie from "@/components/lottie/ai-chatbot"
-import ConfirmationEmailLottie from "@/components/lottie/confirmation-email"
-import ContractAutomationLottie from "@/components/lottie/contract-automation"
-import MiniCRMLottie from "@/components/lottie/mini-crm"
-import VoiceReceptionistLottie from "@/components/lottie/voice-receptionist"
-import KnowledgeBaseLottie from "@/components/lottie/knowledge-base"
-import AITicketingWorkflowLottie from "@/components/lottie/ai-ticketing-workflow"
-import MultiChannelLeadCaptureLottie from "@/components/lottie/multi-channel-lead"
-import AIFollowUpSequencesLottie from "@/components/lottie/ai-follow-up-sequences"
-import RealTimeQualificationLottie from "@/components/lottie/real-time-qualification"
+import Image from "next/image"
 
 const buildVector = (primary: string, secondary: string, accent: string) => {
     const svg = `
@@ -32,70 +23,70 @@ const services = [
         description: "Instant replies, lead capture, FAQs — available 24/7 on your site.",
         tag: "Web Chat",
         metric: "Response <2.3s",
-        component: <AIChatbotLottie className="h-full w-full" />
+        image: "/services/chatbot1.jpg" // Add image URL here
     },
     {
         title: "AI Voice Receptionist",
         description: "Answers calls, books jobs, qualifies leads, and handles follow-ups.",
         tag: "Voice",
         metric: "Missed calls 0",
-        component: <VoiceReceptionistLottie className="h-full w-full" />
+        image: "/services/voice2.png" // Add image URL here
     },
     {
         title: "Mini CRM + Lead Tracker",
         description: "Track leads, notes, follow-ups, tasks, and customer journeys.",
         tag: "CRM",
         metric: "Pipeline live",
-        component: <MiniCRMLottie className="h-full w-full" />
-    },
-    {
-        title: "Contract Automation",
-        description: "Generate, send, and store digital contracts automatically.",
-        tag: "Docs",
-        metric: "E-sign ready",
-        component: <ContractAutomationLottie className="h-full w-full" />
-    },
-    {
-        title: "Confirmation Email Engine",
-        description: "Automatic confirmation emails after calls, chats, or bookings.",
-        tag: "Email",
-        metric: "Send in 30s",
-        component: <ConfirmationEmailLottie className="h-full w-full" />
-    },
-    {
-        title: "Knowledge Base AI",
-        description: "AI trained on your documents for accurate, real-time answers.",
-        tag: "Docs AI",
-        metric: "On-brand answers",
-        component: <KnowledgeBaseLottie className="h-full w-full" />
+        image: "/services/mini.jpg" // Add image URL here
     },
     {
         title: "AI Ticketing Workflow",
         description: "Turn conversations into tickets automatically with smart routing.",
         tag: "Support",
         metric: "Smart routing",
-        component: <AITicketingWorkflowLottie className="h-full w-full" />
+        image: "/services/tick.jpg"
     },
     {
+        title: "Confirmation Email Engine",
+        description: "Automatic confirmation emails after calls, chats, or bookings.",
+        tag: "Email",
+        metric: "Send in 30s",
+        image: "/services/email1.png" // Add image URL here
+    },
+        {
         title: "Multi-Channel Lead Capture Hub",
         description: "Capture leads from WhatsApp, Instagram, website, email, and phone.",
         tag: "Omni-Channel",
         metric: "6+ channels",
-        component: <MultiChannelLeadCaptureLottie className="h-full w-full" />
+        image: "/services/mc.jpg" // Add image URL here
+    },
+    {
+        title: "Knowledge Base AI",
+        description: "AI trained on your documents for accurate, real-time answers.",
+        tag: "Docs AI",
+        metric: "On-brand answers",
+        image: "/services/aa1.jpg" // Add image URL here
+    },
+    {
+        title: "Contract Automation",
+        description: "Generate, send, and store digital contracts automatically.",
+        tag: "Docs",
+        metric: "E-sign ready",
+        image: "/services/contract.jpg" // Add image URL here
     },
     {
         title: "AI Follow-Up Sequences",
         description: "Automated follow-up messaging across SMS, email, and chat.",
         tag: "Sequences",
         metric: "Hands-free",
-        component: <AIFollowUpSequencesLottie className="h-full w-full" />
+        image: "/services/follow.jpg" // Add image URL here
     },
     {
         title: "Real-Time Qualification Bot",
         description: "Qualifies leads with AI-driven logic before sending them to your team.",
         tag: "Qualification",
         metric: "Hot lead alerts",
-        component: <RealTimeQualificationLottie className="h-full w-full" />
+        image: "/services/bot.jpg" // Add image URL here
     }
 ]
 
@@ -129,8 +120,15 @@ export default function AIServices() {
                             className="group relative overflow-hidden rounded-3xl bg-transparent  shadow-[0_20px_60px_rgba(124,58,237,0.08)]  transition duration-300   hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
                         >
                             <div className="relative rounded-2xl bg-[#f5f3ff]">
-                                <div className="relative h-40 md:h-80 overflow-hidden rounded-xl border border-white/70 bg-white/80 shadow-inner">
-                                    {service.component}
+                                <div className="relative h-40 md:h-80 overflow-hidden rounded-xl  shadow-inner">
+                                    {service.image && (
+                                        <Image
+                                            src={service.image}
+                                            alt={service.title}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    )}
                                 </div>
                             </div>
                             <div className="p-5">
