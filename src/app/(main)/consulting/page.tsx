@@ -2,7 +2,7 @@
 
 import FinalCTA from "@/components/FinalCTA"
 import { motion } from "framer-motion"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowRight, CheckCircle2, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
@@ -60,9 +60,51 @@ const fadeInUp = {
     transition: { duration: 0.6 }
 }
 
+function BookingModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+    useEffect(() => {
+        if (isOpen) {
+            const script = document.createElement('script')
+            script.src = "https://links.precisiondatastrategies.com/js/form_embed.js"
+            script.type = "text/javascript"
+            script.async = true
+            document.body.appendChild(script)
+
+            return () => {
+                document.body.removeChild(script)
+            }
+        }
+    }, [isOpen])
+
+    if (!isOpen) return null
+
+    return (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
+            <div className="relative w-full max-w-4xl bg-white rounded-2xl overflow-hidden shadow-2xl h-[80vh]">
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 z-10 p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-colors"
+                >
+                    <X className="w-6 h-6" />
+                </button>
+                <div className="w-full h-full overflow-y-auto">
+                     <iframe 
+                        src="https://links.precisiondatastrategies.com/widget/booking/rJB0jBymQkMjBrohd5rA" 
+                        style={{ width: '100%', border: 'none', overflow: 'hidden', height: '100%' }} 
+                        scrolling="no" 
+                        id="rJB0jBymQkMjBrohd5rA_1767891929353"
+                    />
+                </div>
+            </div>
+        </div>
+    )
+}
+
 export default function ConsultingPage() {
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     return (
         <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-100">
+            <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
@@ -93,9 +135,12 @@ export default function ConsultingPage() {
                                 transition={{ delay: 0.2 }}
                                 className="flex items-center gap-4 pt-4"
                             >
-                                <Link href="/contact" className="px-8 py-4 rounded-full bg-linear-to-r from-blue-500 to-teal-400 text-white shadow-lg hover:from-blue-600 hover:to-teal-500 transition-all duration-200 hover:shadow-xl">
+                                <button
+                                    onClick={() => setIsModalOpen(true)}
+                                    className="px-8 py-4 rounded-full bg-linear-to-r from-blue-500 to-teal-400 text-white shadow-lg hover:from-blue-600 hover:to-teal-500 transition-all duration-200 hover:shadow-xl"
+                                >
                                     Get Free Consultation
-                                </Link>
+                                </button>
                             </motion.div>
                         </div>
 

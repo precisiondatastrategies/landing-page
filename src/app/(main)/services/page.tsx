@@ -1,21 +1,9 @@
 "use client"
 
 import Image from "next/image"
-
-const buildVector = (primary: string, secondary: string, accent: string) => {
-    const svg = `
-    <svg width="320" height="200" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="320" height="200" rx="28" fill="${primary}" fill-opacity="0.08"/>
-        <circle cx="68" cy="76" r="42" fill="${secondary}" fill-opacity="0.35"/>
-        <rect x="112" y="32" width="152" height="26" rx="13" fill="${primary}" fill-opacity="0.35"/>
-        <rect x="112" y="72" width="118" height="26" rx="13" fill="${accent}" fill-opacity="0.45"/>
-        <rect x="112" y="112" width="92" height="26" rx="13" fill="${secondary}" fill-opacity="0.35"/>
-        <circle cx="252" cy="134" r="30" fill="${accent}" fill-opacity="0.4"/>
-        <path d="M72 130L108 146L72 162" stroke="${accent}" stroke-opacity="0.8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`
-
-    return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
-}
+import { motion } from "framer-motion"
+import FinalCTA from "@/components/FinalCTA"
+import Link from "next/link"
 
 const services = [
     {
@@ -23,21 +11,21 @@ const services = [
         description: "Instant replies, lead capture, FAQs — available 24/7 on your site.",
         tag: "Web Chat",
         metric: "Response <2.3s",
-        image: "/services/chatbot1.jpg" // Add image URL here
+        image: "/services/chatbot1.jpg"
     },
     {
         title: "AI Voice Receptionist",
         description: "Answers calls, books jobs, qualifies leads, and handles follow-ups.",
         tag: "Voice",
         metric: "Missed calls 0",
-        image: "/services/voice2.png" // Add image URL here
+        image: "/services/voice2.png"
     },
     {
         title: "Mini CRM + Lead Tracker",
         description: "Track leads, notes, follow-ups, tasks, and customer journeys.",
         tag: "CRM",
         metric: "Pipeline live",
-        image: "/services/mini.jpg" // Add image URL here
+        image: "/services/mini.jpg"
     },
     {
         title: "AI Ticketing Workflow",
@@ -51,94 +39,136 @@ const services = [
         description: "Automatic confirmation emails after calls, chats, or bookings.",
         tag: "Email",
         metric: "Send in 30s",
-        image: "/services/email1.png" // Add image URL here
+        image: "/services/email1.png"
     },
         {
         title: "Multi-Channel Lead Capture Hub",
         description: "Capture leads from WhatsApp, Instagram, website, email, and phone.",
         tag: "Omni-Channel",
         metric: "6+ channels",
-        image: "/services/mc.jpg" // Add image URL here
+        image: "/services/mc.jpg"
     },
     {
         title: "Knowledge Base AI",
         description: "AI trained on your documents for accurate, real-time answers.",
         tag: "Docs AI",
         metric: "On-brand answers",
-        image: "/services/aa1.jpg" // Add image URL here
+        image: "/services/aa1.jpg"
     },
     {
         title: "Contract Automation",
         description: "Generate, send, and store digital contracts automatically.",
         tag: "Docs",
         metric: "E-sign ready",
-        image: "/services/contract.jpg" // Add image URL here
+        image: "/services/contract.jpg"
     },
     {
         title: "AI Follow-Up Sequences",
         description: "Automated follow-up messaging across SMS, email, and chat.",
         tag: "Sequences",
         metric: "Hands-free",
-        image: "/services/follow.jpg" // Add image URL here
+        image: "/services/follow.jpg"
     },
     {
         title: "Real-Time Qualification Bot",
         description: "Qualifies leads with AI-driven logic before sending them to your team.",
         tag: "Qualification",
         metric: "Hot lead alerts",
-        image: "/services/bot.jpg" // Add image URL here
+        image: "/services/bot.jpg"
     }
 ]
 
-export default function AIServices() {
+export default function ServicesPage() {
     return (
-        <section
-            id="services"
-            className="section-padding relative overflow-hidden bg-[#f8f6ff]"
-        >
-            <div className="absolute inset-0">
-                <div className="absolute -top-24 right-10 h-64 w-64 rounded-full bg-linear-to-br from-[#a855f7]/30 to-[#6366f1]/20 blur-3xl" />
-                <div className="absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-4xl bg-linear-to-tr from-[#f9a8d4]/30 via-[#c4b5fd]/40 to-transparent blur-3xl" />
-            </div>
-
-            <div className="relative z-10 max-w-6xl mx-auto">
-                <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-                    <div className="max-w-2xl space-y-6">
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                            Our Powerful <span className="bg-linear-to-r from-[#7c3aed] via-[#ec4899] to-[#6366f1] bg-clip-text text-transparent">AI Solutions</span>
-                        </h2>
-                        <p className="text-lg text-gray-600">
-                            Launch a concierge-level automation layer with animated chat previews, multilingual playbooks, and instant handoffs. Pick a template, sync your knowledge base, and go live.
-                        </p>
+        <main className="min-h-screen bg-white font-sans selection:bg-blue-100">
+            {/* --- HEADER SECTION --- */}
+            <section className="relative pt-32 pb-20 bg-[#F9F9F7] overflow-hidden">
+                <div className="container mx-auto px-4 text-center relative z-10">
+                    <div className="flex justify-center items-center gap-2 text-sm text-gray-500 mb-4">
+                        <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+                        <span>/</span>
+                        <span className="text-gray-900">Services</span>
                     </div>
+                    <motion.h1 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight"
+                    >
+                        Our <span className="text-blue-600">Solutions</span>
+                    </motion.h1>
+                    <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+                    >
+                        Comprehensive AI automation tools designed to streamline your operations and boost growth.
+                    </motion.p>
                 </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                    <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
+                    <div className="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-50"></div>
+                </div>
+            </section>
 
-                <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {services.map((service) => (
-                        <div
-                            key={service.title}
-                            className="group relative overflow-hidden rounded-3xl bg-transparent  shadow-[0_20px_60px_rgba(124,58,237,0.08)]  transition duration-300   hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
-                        >
-                            <div className="relative rounded-2xl bg-[#f5f3ff]">
-                                <div className="relative h-40 md:h-80 overflow-hidden rounded-xl  shadow-inner">
+            {/* --- SERVICES GRID --- */}
+            <section className="py-20 bg-white relative overflow-hidden">
+                <div className="container mx-auto px-4 max-w-7xl relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {services.map((service, index) => (
+                            <motion.div
+                                key={service.title}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.05 }}
+                                className="group relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col"
+                            >
+                                {/* Image Container */}
+                                <div className="relative h-56 w-full overflow-hidden bg-gray-100">
                                     {service.image && (
                                         <Image
                                             src={service.image}
                                             alt={service.title}
                                             fill
-                                            className="object-cover"
+                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
                                     )}
+                                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-600 shadow-sm">
+                                        {service.tag}
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="p-5">
-                                <div className="text-lg font-semibold text-gray-900">{service.title}</div>
-                                <p className="mt-2 text-sm text-gray-600">{service.description}</p>
-                            </div>
-                        </div>
-                    ))}
+
+                                {/* Content */}
+                                <div className="p-6 flex flex-col grow">
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                                        {service.title}
+                                    </h3>
+                                    <p className="text-gray-600 mb-6 grow leading-relaxed">
+                                        {service.description}
+                                    </p>
+                                    
+                                    <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                        <div className="flex items-center gap-2 text-sm font-medium text-gray-500">
+                                            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                                            {service.metric}
+                                        </div>
+                                        <span className="text-blue-600 font-semibold text-sm group-hover:translate-x-1 transition-transform cursor-pointer">
+                                            Learn more →
+                                        </span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <FinalCTA />
+        </main>
     )
 }
+

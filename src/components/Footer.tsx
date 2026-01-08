@@ -4,32 +4,22 @@ import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "luc
 import Image from "next/image"
 
 const footerLinks = {
-    product: [
-        { name: "AI Voice Agents", href: "#" },
-        { name: "Website Chatbots", href: "#" },
-        { name: "Workflow Automation", href: "#" },
-        { name: "Automate Boutique", href: "https://www.automateboutique.app/" },
-        { name: "Pricing", href: "#pricing" },
-    ],
     company: [
         { name: "About Us", href: "about-us" },
         { name: "Consulting", href: "/consulting" },
-        { name: "Case Studies", href: "#" },
-        { name: "Blog", href: "#" },
-        { name: "Careers", href: "#" },
+        { name: "Our Services", href: "/services" },
+        { name: "Contact Us", href: "/contact" },
+        { name: "Blog", href: "/blog" },
     ],
-    resources: [
-        { name: "Documentation", href: "/" },
-        { name: "API Reference", href: "#" },
-        { name: "Support Center", href: "#" },
-        { name: "Community", href: "#" },
-        { name: "Status", href: "#" },
+    product: [
+        { name: "AI Voice Receptionist", href: "https://assistant.precisiondatastrategies.com/" },
+        { name: "All-in-One CRM", href: "https://crm.precisiondatastrategies.com" },
+        { name: "Automate Boutique", href: "https://www.automateboutique.app/" },
     ],
     legal: [
         { name: "Privacy Policy", href: "/privacy-policy" },
-        { name: "Terms of Service", href: "#" },
-        { name: "Cookie Policy", href: "#" },
-        { name: "GDPR", href: "#" },
+        { name: "Terms of Service", href: "/terms-of-service" },
+        { name: "Cookie Policy", href: "/cookie-policy" },
     ],
 }
 
@@ -44,8 +34,8 @@ export default function Footer() {
     return (
         <footer className="bg-gray-900 text-gray-300">
             {/* Main Footer Content */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 overflow-x-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-1 mb-12">
                     {/* Brand Column */}
                     <div className="lg:col-span-2">
                         <div className="flex items-center gap-3 mb-4">
@@ -84,23 +74,9 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Product Links */}
-                    <div>
-                        <h3 className="text-white font-semibold mb-4" style={{color: '#fff', opacity: 1}}>Product</h3>
-                        <ul className="space-y-3">
-                            {footerLinks.product.map((link) => (
-                                <li key={link.name}>
-                                    <a href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
-                                        {link.name}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
                     {/* Company Links */}
                     <div>
-                        <h3 className="text-white font-semibold mb-4" style={{color: '#fff', opacity: 1}}>Company</h3>
+                        <h3 className="text-white font-semibold mb-4" style={{ color: '#fff', opacity: 1 }}>Company</h3>
                         <ul className="space-y-3">
                             {footerLinks.company.map((link) => (
                                 <li key={link.name}>
@@ -112,11 +88,11 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Resources Links */}
+                    {/* Product Links */}
                     <div>
-                        <h3 className="text-white font-semibold mb-4" style={{color: '#fff', opacity: 1}}>Resources</h3>
+                        <h3 className="text-white font-semibold mb-4" style={{ color: '#fff', opacity: 1 }}>Product</h3>
                         <ul className="space-y-3">
-                            {footerLinks.resources.map((link) => (
+                            {footerLinks.product.map((link) => (
                                 <li key={link.name}>
                                     <a href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
                                         {link.name}
@@ -128,7 +104,7 @@ export default function Footer() {
 
                     {/* Legal Links */}
                     <div>
-                        <h3 className="text-white font-semibold mb-4" style={{color: '#fff', opacity: 1}}>Legal</h3>
+                        <h3 className="text-white font-semibold mb-4" style={{ color: '#fff', opacity: 1 }}>Legal</h3>
                         <ul className="space-y-3">
                             {footerLinks.legal.map((link) => (
                                 <li key={link.name}>
@@ -139,25 +115,24 @@ export default function Footer() {
                             ))}
                         </ul>
                     </div>
-                </div>
 
-                {/* Newsletter Signup */}
-                <div className="border-t border-gray-800 pt-8 mb-8">
-                    <div className="max-w-md">
-                        <h3 className="text-white font-semibold mb-2" style={{color: '#fff', opacity: 1}}>Stay Updated</h3>
+                    {/* Newsletter Signup */}
+                    <div>
+                        <h3 className="text-white font-semibold mb-2" style={{ color: '#fff', opacity: 1 }}>Stay Updated</h3>
                         <p className="text-gray-400 text-sm mb-4">Get the latest AI automation insights and updates.</p>
-                        <div className="flex flex-col sm:flex-row gap-2">
+                        <div className="flex flex-col gap-2">
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
-                            <button className="px-6 py-2 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all">
+                            <button className="px-6 py-2 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all whitespace-nowrap">
                                 Subscribe
                             </button>
                         </div>
                     </div>
                 </div>
+
 
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">

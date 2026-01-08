@@ -14,7 +14,7 @@ type HighLevelWindow = Window & {
 
 export default function Contact() {
     const [showCalendar, setShowCalendar] = useState(false)
-    
+
     // Ensure GHL form script is available before rendering the iframe
     useEffect(() => {
         const scriptId = "ghl-form-embed"
@@ -45,9 +45,9 @@ export default function Contact() {
             </div>
 
             <div className="sm:max-w-7xl mx-auto relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 items-start">
+                <div className="grid lg:grid-cols-5 gap-12 items-start">
                     {/* Left Column */}
-                    <div className="space-y-8">
+                    <div className="space-y-8 lg:col-span-2">
                         <div>
                             <p className="text-blue-600 font-semibold mb-4">Contact Us</p>
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -84,7 +84,7 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        {/* Consultation Card */}
+                        {/* Consultation Card
                         <div className="max-w-lg">
                             {!showCalendar ? (
                                 <div className="bg-linear-to-br from-blue-600 to-blue-700 rounded-3xl p-8 text-white shadow-xl max-w-md">
@@ -109,7 +109,7 @@ export default function Contact() {
                                         </div>
                                     </div>
 
-                                    <button 
+                                    <button
                                         onClick={() => setShowCalendar(true)}
                                         className="w-full bg-white text-blue-600 font-semibold py-3 px-6 rounded-xl hover:bg-blue-50 transition-colors"
                                     >
@@ -118,31 +118,26 @@ export default function Contact() {
                                 </div>
                             ) : (
                                 <div className="w-full bg-white rounded-xl overflow-hidden" style={{ minHeight: "700px" }}>
-                                    <iframe 
-                                        src="https://api.leadconnectorhq.com/widget/booking/zGOl6MishBHEkjPRUkmp" 
-                                        style={{ width: "100%", height: "700px", border: "none" }} 
-                                        scrolling="yes" 
+                                    <iframe
+                                        src="https://api.leadconnectorhq.com/widget/booking/zGOl6MishBHEkjPRUkmp"
+                                        style={{ width: "100%", height: "700px", border: "none" }}
+                                        scrolling="yes"
                                         id="zGOl6MishBHEkjPRUkmp_1766107105322"
                                         title="Schedule a call"
                                     />
                                 </div>
                             )}
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Right Column - Contact Form */}
-                    <div>
-                        <div className="p-8 mt-2">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Get in touch</h3>
-                            <p className="text-gray-600 mb-6">
-                                Fill in your details below or find us using these contacts. Let us know how we can help.
-                            </p>
-
-                        </div>
+                    <div className="lg:col-span-3">
+               
                         <div className="rounded-2xl overflow-hidden" style={{ minHeight: "502px" }}>
                             <iframe
-                                src="https://api.leadconnectorhq.com/widget/form/CaxxvWR3a7PQwpzQWPQN"
-                                id="inline-CaxxvWR3a7PQwpzQWPQN"
+                                src="https://links.precisiondatastrategies.com/widget/form/YlUfjXQoR2QqxQfaK3g6"
+                                style={{width:'100%',height:'100%',border:'none',borderRadius:'15px'}}
+                                id="inline-YlUfjXQoR2QqxQfaK3g6"
                                 data-layout="{'id':'INLINE'}"
                                 data-trigger-type="alwaysShow"
                                 data-trigger-value=""
@@ -150,13 +145,13 @@ export default function Contact() {
                                 data-activation-value=""
                                 data-deactivation-type="neverDeactivate"
                                 data-deactivation-value=""
-                                data-form-name="Website Form"
-                                data-height="602"
-                                data-layout-iframe-id="inline-CaxxvWR3a7PQwpzQWPQN"
-                                data-form-id="CaxxvWR3a7PQwpzQWPQN"
-                                title="Website Form"
-                                style={{ width: "100%", height: "100%", border: "none", borderRadius: "20px" }}
-                            />
+                                data-form-name="website contact form"
+                                data-height="569"
+                                data-layout-iframe-id="inline-YlUfjXQoR2QqxQfaK3g6"
+                                data-form-id="YlUfjXQoR2QqxQfaK3g6"
+                                title="website contact form"
+                            >
+                            </iframe>
                         </div>
                     </div>
                 </div>

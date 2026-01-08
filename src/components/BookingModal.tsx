@@ -13,22 +13,7 @@ interface BookingModalProps {
 }
 
 export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) => {
-    const [form, setForm] = useState({
-        fullName: "",
-        businessName: "",
-        businessType: "",
-        email: "",
-        phone: "",
-        description: ""
-    })
-    const [submitting, setSubmitting] = useState(false)
     const [modalStep, setModalStep] = useState<'form' | 'appointment' | 'thankyou'>('form')
-
-    // Supabase client
-    const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
 
     useEffect(() => {
         if (isOpen) {
@@ -38,31 +23,6 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
             document.body.style.overflow = "unset"
         }
     }, [isOpen])
-
-    const handleChange = (e: any) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
-    }
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        setSubmitting(true)
-        // Save to Supabase
-        const { fullName, businessName, businessType, email, phone, description } = form
-        const { error } = await supabase.from('web_leads').insert({
-            full_name: fullName,
-            business_name: businessName,
-            business_type: businessType,
-            email,
-            phone,
-            description
-        })
-        setSubmitting(false)
-        if (!error) {
-            setModalStep('appointment')
-        } else {
-            alert('Error submitting form. Please try again.')
-        }
-    }
 
     // Calendly widget logic
     useEffect(() => {
@@ -80,6 +40,25 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
             window.addEventListener("message", handleCalEvent);
             return () => {
                 window.removeEventListener("message", handleCalEvent);
+            };
+        }
+    }, [modalStep]);
+
+    useEffect(() => {
+        if (modalStep === 'form') {
+            const handleFormSubmit = (event: MessageEvent) => {
+                if (
+                    event.origin === "https://links.precisiondatastrategies.com" &&
+                    event.data.type === 'form-submit'
+                ) {
+                    setModalStep('appointment');
+                }
+            };
+
+            window.addEventListener('message', handleFormSubmit);
+
+            return () => {
+                window.removeEventListener('message', handleFormSubmit);
             };
         }
     }, [modalStep]);
@@ -111,9 +90,9 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.15, duration: 0.4 }}
-                                className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center p-6 sm:p-10 lg:p-16 gap-8 lg:gap-16"
+                                className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1200px] mx-auto items-center p-6 sm:p-10 lg:p-12 gap-8 lg:gap-12"
                             >
-                                <div className="flex-1 flex flex-col justify-center space-y-3 w-full">
+                                <div className="lg:w-2/5 flex flex-col justify-center space-y-3 w-full">
                                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-none tracking-[-0.03em]">
                                         Talk to sales
                                     </h2>
@@ -139,44 +118,25 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
                                         <p className="text-lg sm:text-xl lg:text-2xl text-white leading-[150%] mb-4">Acme empowers our team to move faster and ship products with confidence.</p>
                                     </div>
                                 </div>
-                                <div className="flex-1 w-full">
-                                    <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
-                                        <div>
-                                            <label htmlFor="fullName" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">FULL NAME *</label>
-                                            <input type="text" id="fullName" name="fullName" value={form.fullName} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your name" />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="businessName" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">BUSINESS NAME</label>
-                                            <input type="text" id="businessName" name="businessName" value={form.businessName} onChange={handleChange} className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your business name" />
-                                        </div>
-                                        <div className="flex gap-4">
-                                            <div className="w-1/2">
-                                                <label htmlFor="email" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">EMAIL *</label>
-                                                <input type="email" id="email" name="email" value={form.email} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your email" />
-                                            </div>
-                                            <div className="w-1/2">
-                                                <label htmlFor="phone" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">PHONE *</label>
-                                                <input type="tel" id="phone" name="phone" value={form.phone} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10" placeholder="Enter your phone number" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <label htmlFor="businessType" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">BUSINESS TYPE *</label>
-                                            <select id="businessType" name="businessType" value={form.businessType} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-lg bg-[#001F63] border-0 text-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all text-sm h-10">
-                                                <option value="">Select business type</option>
-                                                <option value="Plumbing">Plumbing</option>
-                                                <option value="Hvac">Hvac</option>
-                                                <option value="Real estate">Real estate</option>
-                                                <option value="Law firms">Law firms</option>
-                                                <option value="Electretions">Electretions</option>
-                                                <option value="Other">Other</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label htmlFor="description" className="block text-[10px] font-mono font-normal text-white mb-2 tracking-[0.5px] uppercase">DESCRIPTION</label>
-                                            <textarea id="description" name="description" value={form.description} onChange={handleChange} rows={3} className="w-full px-4 py-3 rounded-lg bg-[#001F63] border-0 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all resize-none text-sm" placeholder="Describe your needs or project" />
-                                        </div>
-                                        <button type="submit" disabled={submitting} className="w-full px-8 py-2.5 rounded-full bg-white text-[#0041C1] font-medium hover:bg-white/90 transition-colors tracking-[-0.03em] h-10">{submitting ? "Submitting..." : "Submit"}</button>
-                                    </form>
+                                <div className="lg:w-3/5 w-full h-[570px]">
+                                    <iframe
+                                        src="https://links.precisiondatastrategies.com/widget/form/YlUfjXQoR2QqxQfaK3g6"
+                                        style={{ width: '100%', height: '100%', border: 'none', borderRadius: '15px' }}
+                                        id="inline-YlUfjXQoR2QqxQfaK3g6"
+                                        data-layout="{'id':'INLINE'}"
+                                        data-trigger-type="alwaysShow"
+                                        data-trigger-value=""
+                                        data-activation-type="alwaysActivated"
+                                        data-activation-value=""
+                                        data-deactivation-type="neverDeactivate"
+                                        data-deactivation-value=""
+                                        data-form-name="website contact form"
+                                        data-height="569"
+                                        data-layout-iframe-id="inline-YlUfjXQoR2QqxQfaK3g6"
+                                        data-form-id="YlUfjXQoR2QqxQfaK3g6"
+                                        title="website contact form"
+                                    >
+                                    </iframe>
                                 </div>
                             </motion.div>
                             <motion.button
