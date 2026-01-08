@@ -35,7 +35,7 @@ export default function Contact() {
     }, [])
 
     return (
-        <section className="section-padding bg-linear-to-br from-blue-50 to-gray-50 relative overflow-hidden">
+        <section className="section-padding bg-[#FFFFFFFF] relative overflow-hidden">
             {/* Dot Pattern Background */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute inset-0" style={{

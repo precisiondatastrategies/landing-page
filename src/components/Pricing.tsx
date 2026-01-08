@@ -1,6 +1,7 @@
 "use client"
 
 import { Check } from "lucide-react"
+import Link from "next/link"
 
 const pricingTiers = [
     {
@@ -116,14 +117,15 @@ export default function Pricing() {
                             </ul>
 
                             {/* CTA Button */}
-                            <button
-                                className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 mt-auto ${tier.popular
+                            <Link
+                                href="/contact"
+                                className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 mt-auto text-center block ${tier.popular
                                     ? "bg-linear-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500 shadow-md hover:shadow-lg"
                                     : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                                     }`}
                             >
                                 {tier.name === "Enterprise" ? "Contact Sales" : "Get Started"}
-                            </button>
+                            </Link>
                         </div>
                     ))}
                 </div>

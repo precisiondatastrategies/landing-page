@@ -3,6 +3,7 @@
 import { ArrowRight, Check } from "lucide-react"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Link from "next/link"
 import { BookingModal } from "./BookingModal"
 
 export default function FinalCTA() {
@@ -70,7 +71,7 @@ export default function FinalCTA() {
                 <p className="text-lg text-gray-600 mb-6">
                     Automate workflows, boost productivity, and integrate your favorite tools with precision AI solutions.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 min-h-[80px]">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 min-h-20">
                     <AnimatePresence mode="wait">
                         {!isExpanded && (
                             <>
@@ -88,13 +89,14 @@ export default function FinalCTA() {
                                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </motion.button>
                                 </motion.div>
-                                <motion.button
-                                    initial={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    className="px-8 py-4 bg-white border border-gray-300 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition-all duration-200"
-                                >
-                                    Talk to an Expert
-                                </motion.button>
+                                <motion.div initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                                    <Link
+                                        href="/consulting"
+                                        className="inline-block px-8 py-4 bg-white border border-gray-300 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition-all duration-200"
+                                    >
+                                        Talk to an Expert
+                                    </Link>
+                                </motion.div>
                             </>
                         )}
                     </AnimatePresence>
