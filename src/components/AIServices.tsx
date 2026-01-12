@@ -5,7 +5,6 @@ import Image from "next/image"
 import { TextReveal } from "./ui/TextReveal"
 import { useRef, useEffect } from "react"
 import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 type AIServicesProps = {
     showAll?: boolean
@@ -86,25 +85,25 @@ const services = [
 
 export default function AIServices({ showAll = false }: AIServicesProps) {
     const visibleServices = showAll ? services : services.slice(0, 6)
-    const gridRef = useRef<HTMLDivElement>(null)
+    // const gridRef = useRef<HTMLDivElement>(null)
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.to(".service-card", {
-                scrollTrigger: {
-                    trigger: gridRef.current,
-                    start: "top 80%",
-                },
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: "power3.out",
-            })
-        }, gridRef)
+    // useEffect(() => {
+    //     const ctx = gsap.context(() => {
+    //         gsap.to(".service-card", {
+    //             scrollTrigger: {
+    //                 trigger: gridRef.current,
+    //                 start: "top 80%",
+    //             },
+    //             opacity: 1,
+    //             y: 0,
+    //             duration: 0.8,
+    //             stagger: 0.1,
+    //             ease: "power3.out",
+    //         })
+    //     }, gridRef)
 
-        return () => ctx.revert()
-    }, [])
+    //     return () => ctx.revert()
+    // }, [])
 
     return (
         <section
@@ -128,14 +127,14 @@ export default function AIServices({ showAll = false }: AIServicesProps) {
                     </div>
                 </div>
 
-                <div ref={gridRef} className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {visibleServices.map((service) => (
                         <div
                             key={service.title}
-                            className="service-card group relative overflow-hidden rounded-3xl bg-transparent  shadow-[0_20px_60px_rgba(124,58,237,0.08)]  transition duration-300   hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)] opacity-0 translate-y-10"
+                            className="service-card group relative overflow-hidden rounded-3xl bg-transparent  shadow-[0_20px_60px_rgba(124,58,237,0.08)]  transition duration-300   hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
                         >
                             <div className="relative rounded-2xl bg-[#f5f3ff]">
-                                <div className="relative h-40 md:h-80 overflow-hidden rounded-xl  shadow-inner">
+                                <div className="relative h-80 overflow-hidden rounded-xl  shadow-inner">
                                     {service.image && (
                                         <Image
                                             src={service.image}

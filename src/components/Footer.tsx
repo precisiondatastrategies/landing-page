@@ -26,7 +26,7 @@ const footerLinks = {
 const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/precision-data-strategies/posts/?feedView=all", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/precision-data-strategies-llc", label: "LinkedIn" },
     { icon: Instagram, href: "#", label: "Instagram" },
 ]
 

@@ -45,7 +45,7 @@ export default function FinalCTA() {
                     key={icon}
                     src={icon}
                     alt="integration icon"
-                    className="absolute drop-shadow-lg rounded-xl"
+                    className="absolute sm:block hidden drop-shadow-lg rounded-xl"
                     style={{
                         width: 64,
                         height: 64,
