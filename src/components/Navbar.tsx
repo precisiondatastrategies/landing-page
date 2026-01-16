@@ -131,7 +131,7 @@ export default function Navbar() {
                                 setMobileMenuOpen(false)
                                 triggerRequestDemo()
                             }}
-                            className="w-full px-4 py-2.5 bg-blue-600 text-white font-semibold rounded-lg text-center"
+                            className="w-full px-4 py-2.5 bg-linear-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500 font-semibold rounded-full text-center"
                         >
                             Request a demo
                         </button>

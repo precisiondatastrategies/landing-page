@@ -38,9 +38,9 @@ const Hero = () => {
 
   return (
     <>
-      <div className="flex min-h-screen flex-col items-center justify-center px-4 py-12 sm:py-32 lg:py-20 overflow-x-hidden">
+      <div className="flex min-h-screen flex-col items-center justify-start lg:justify-center px-4 pt-24 pb-12 sm:py-32 lg:py-20 overflow-x-hidden">
 
-        <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 items-center sm:px-10 lg:px-20 md:mt-0 mt-20">
+        <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 items-center sm:gap-12 lg:gap-6 sm:px-10 lg:px-20">
           <div className="flex flex-col items-center lg:items-start gap-6 text-center lg:text-left mt-5">
             <TextReveal as="h2" className="text-2xl sm:text-4xl md:text-5xl font-normal tracking-[-0.03em] text-[#071A31] mix-blend-exclusion">
               AI Automation for Every Conversation, Every Lead, Every Workflow.
@@ -81,7 +81,7 @@ const Hero = () => {
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative w-full lg:w-[700px] h-[400px] sm:h-[600px] lg:h-[500px] flex items-center justify-center"
+            className="relative w-full lg:w-[700px] h-[340px] sm:h-[520px] lg:h-[500px] flex items-center justify-center"
           >
 
             <Image
@@ -91,6 +91,7 @@ const Hero = () => {
               className="object-contain"
               priority
               quality={100}
+              sizes="(min-width: 1024px) 700px, 100vw"
             />
 
           </motion.div>

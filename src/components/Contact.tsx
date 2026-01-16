@@ -45,9 +45,9 @@ export default function Contact() {
             </div>
 
             <div className="sm:max-w-7xl mx-auto relative z-10">
-                <div className="grid lg:grid-cols-5 gap-12 items-start">
+                <div className="grid lg:grid-cols-5 items-center">
                     {/* Left Column */}
-                    <div className="space-y-8 lg:col-span-2">
+                    <div className="space-y-8 lg:col-span-2 md:pl-10">
                         <div>
                             <p className="text-blue-600 font-semibold mb-4">Contact Us</p>
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -132,7 +132,6 @@ export default function Contact() {
 
                     {/* Right Column - Contact Form */}
                     <div className="lg:col-span-3">
-               
                         <div className="rounded-2xl overflow-hidden" style={{ minHeight: "502px" }}>
                             <iframe
                                 src="https://links.precisiondatastrategies.com/widget/form/YlUfjXQoR2QqxQfaK3g6"
