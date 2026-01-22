@@ -1,4 +1,4 @@
-export const WORDPRESS_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://public-api.wordpress.com/wp/v2/sites/example.wordpress.com';
+export const WORDPRESS_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://public-api.wordpress.com/wp/v2/sites/mytestweb55.wordpress.com';
 
 export interface Post {
   id: number;
@@ -28,10 +28,6 @@ export async function getAllPosts(): Promise<Post[]> {
   });
 
   if (!res.ok) {
-    // Check if we are using the example URL, if so, return empty list or mock data effectively to avoid error crashing page
-    if (WORDPRESS_API_URL.includes('example.wordpress.com')) {
-       return [];
-    }
     throw new Error('Failed to fetch posts');
   }
 
@@ -44,9 +40,6 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   });
 
   if (!res.ok) {
-     if (WORDPRESS_API_URL.includes('example.wordpress.com')) {
-       return null;
-    }
     throw new Error('Failed to fetch post');
   }
 

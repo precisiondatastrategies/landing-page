@@ -27,18 +27,25 @@ export default async function BlogPage() {
         
         {posts.length === 0 ? (
            <div className="mt-16 text-center text-gray-500">
-             <p>No posts found. Please configure your WordPress API URL.</p>
+             <p>No posts found.</p>
            </div>
         ) : (
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {posts.map((post) => {
-              const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+              let featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+
+              if (!featuredImage && post.content?.rendered) {
+                const imgMatch = post.content.rendered.match(/<img[^>]+src=["']([^"']+)["']/);
+                if (imgMatch) {
+                  featuredImage = imgMatch[1];
+                }
+              }
               
               return (
-                <article key={post.id} className="flex flex-col items-start justify-between">
+                <article key={post.id} className="flex flex-col items-start">
                   <div className="relative w-full">
                     {featuredImage ? (
-                       <div className="relative aspect-video w-full mb-5 rounded-2xl overflow-hidden bg-gray-100 sm:aspect-2/1 lg:aspect-3/2">
+                       <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-gray-100 sm:aspect-2/1 lg:aspect-3/2">
                          <Image
                            src={featuredImage}
                            alt={post.title.rendered}
@@ -47,31 +54,30 @@ export default async function BlogPage() {
                          />
                        </div>
                     ) : (
-                        <div className="relative aspect-video w-full mb-5 rounded-2xl overflow-hidden bg-gray-200 sm:aspect-2/1 lg:aspect-3/2 flex items-center justify-center text-gray-400">
+                        <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-gray-200 sm:aspect-2/1 lg:aspect-3/2 flex items-center justify-center text-gray-400">
                            <span>No Image</span>
                         </div>
                     )}
                   </div>
-                  <div className="max-w-xl">
-                    <div className="flex items-center gap-x-4 text-xs">
-                      <time dateTime={post.date} className="text-gray-500">
-                        {new Date(post.date).toLocaleDateString(undefined, {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </time>
-                      {/* You can add category here if available */}
-                    </div>
+                  <div className="max-w-xl mt-4">
                     <div className="group relative">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                      <h3 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                         <Link href={`/${post.slug}`}>
                           <span className="absolute inset-0" />
                           <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                         </Link>
                       </h3>
+                      <div className="flex items-center gap-x-4 text-xs mt-2">
+                        <time dateTime={post.date} className="text-gray-500">
+                          {new Date(post.date).toLocaleDateString(undefined, {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                          })}
+                        </time>
+                      </div>
                       <div 
-                        className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"
+                        className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600"
                         dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
                       />
                     </div>
