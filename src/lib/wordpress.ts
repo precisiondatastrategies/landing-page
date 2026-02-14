@@ -24,7 +24,7 @@ export interface Post {
 
 export async function getAllPosts(): Promise<Post[]> {
   const res = await fetch(`${WORDPRESS_API_URL}/posts?_embed`, {
-    next: { revalidate: 3600 },
+    cache: 'no-store',
   });
 
   if (!res.ok) {

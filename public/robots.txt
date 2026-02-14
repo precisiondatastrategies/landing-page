@@ -1,0 +1,5 @@
+# robots.txt for precision-data website
+User-agent: *
+Disallow:
+
+Sitemap: /sitemap.xml
