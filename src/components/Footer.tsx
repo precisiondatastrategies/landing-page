@@ -2,6 +2,8 @@
 
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react"
 import Image from "next/image"
+import { BsTwitterX } from "react-icons/bs"
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"
 
 const footerLinks = {
     company: [
@@ -24,10 +26,11 @@ const footerLinks = {
 }
 
 const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/precision-data-strategies-llc", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/precision-data-strategies-llc", label: "LinkedIn" },
+    { icon: FaFacebookF, href: "https://www.facebook.com/precisiondatastrategies", label: "Facebook" },
+    { icon: FaInstagram, href: "https://www.instagram.com/precisiondatastrategies", label: "Instagram" },
+    { icon: BsTwitterX, href: "https://x.com/PrecisionDatStr", label: "X" },
+    { icon: FaYoutube, href: "https://www.youtube.com/@PrecisionDataStrategies", label: "Youtube" },
 ]
 
 export default function Footer() {
@@ -149,6 +152,7 @@ export default function Footer() {
                                     key={social.label}
                                     href={social.href}
                                     aria-label={social.label}
+                                    target="_blank"
                                     className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition-all"
                                 >
                                     <Icon className="w-5 h-5" />
