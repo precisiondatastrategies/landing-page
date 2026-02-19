@@ -134,15 +134,15 @@ export default function AboutUsPage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <span className="text-orange-500 font-medium mb-2 block">About Company</span>
-                <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                  We Are Business Consulting & Credit Repair Experts
+                <span className="text-orange-500 font-medium mb-2 block">Who We Are</span>
+                <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                  We Are The <span className="text-orange-500">Premier Agency</span> For Business Process Automation & AI Consulting
                 </h2>
                 <p className="text-gray-500 mb-6">
-                  We help you to develop your business and generate new leads. We are a team of experts who are ready to help you to grow your business.
+                  Precision Data Strategies transforms how businesses operate. We specialize in deploying intelligent AI agents, voice receptionists, and seamless data workflows that function 24/7.
                 </p>
                 <p className="text-gray-500 mb-8">
-                  Our mission is to provide the best service to our customers. We are always ready to help you to grow your business.
+                  Our mission is to bridge the gap between complex AI technology and practical business application, helping you scale efficiently without the growing pains.
                 </p>
 
                 <div className="flex flex-wrap gap-4">
@@ -173,8 +173,8 @@ export default function AboutUsPage() {
                 viewport={{ once: true }}
               >
                 <span className="text-orange-500 font-medium mb-2 block">Why Choose Us</span>
-                <h2 className="text-4xl font-bold text-gray-900 mb-10 leading-tight">
-                  Reasons Why We are Best Business Consulting Agency
+                <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-10 leading-tight">
+                  Why We Are The <span className="text-orange-500">Trusted Partner</span> For AI Innovation
                 </h2>
 
                 <div className="space-y-8">
@@ -183,8 +183,8 @@ export default function AboutUsPage() {
                       <Users className="text-gray-700" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Professional Advisors</h3>
-                      <p className="text-gray-500 text-sm">We have a team of professional advisors who are ready to help you.</p>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Expert AI Engineers</h3>
+                      <p className="text-gray-500 text-sm">A dedicated team of AI specialists and engineers committed to your deployment success.</p>
                     </div>
                   </div>
 
@@ -193,8 +193,8 @@ export default function AboutUsPage() {
                       <Target className="text-gray-700" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Strategic Planning</h3>
-                      <p className="text-gray-500 text-sm">We help you to create a strategic plan for your business.</p>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Tailored Workflows</h3>
+                      <p className="text-gray-500 text-sm">We build customized automation architectures designed specifically for your business processes.</p>
                     </div>
                   </div>
 
@@ -203,8 +203,8 @@ export default function AboutUsPage() {
                       <Lightbulb className="text-gray-700" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Experience Design</h3>
-                      <p className="text-gray-500 text-sm">We create the best experience for your customers.</p>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Seamless Integration</h3>
+                      <p className="text-gray-500 text-sm">Our solutions integrate smoothly with your existing CRM, calendar, and communication tools.</p>
                     </div>
                   </div>
 
@@ -213,8 +213,8 @@ export default function AboutUsPage() {
                       <BrainCircuit className="text-gray-700" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Artificial Intelligence</h3>
-                      <p className="text-gray-500 text-sm">We use AI to help you to grow your business.</p>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Cutting-Edge AI</h3>
+                      <p className="text-gray-500 text-sm">We leverage the latest LLMs and automation technologies to keep you ahead of the curve.</p>
                     </div>
                   </div>
                 </div>
@@ -298,12 +298,12 @@ export default function AboutUsPage() {
         <section className="py-20 bg-[#F9F9F7]">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <span className="text-orange-500 font-medium mb-2 block">Our Story</span>
+              <span className="text-orange-500 font-medium mb-2 block">Our Vision</span>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                We Are Business Consulting & Credit Repair Experts
+                Driven by Innovation, Defined by Results
               </h2>
               <p className="text-gray-500">
-                We help you to develop your business and generate new leads. We are a team of experts who are ready to help you to grow your business.
+                In a rapidly evolving digital landscape, staying ahead means embracing automation. We help you navigate this transformation with clarity and precision.
               </p>
             </div>
 
@@ -324,7 +324,7 @@ export default function AboutUsPage() {
 
             <div className="max-w-4xl mx-auto mt-12 text-center text-gray-500 leading-relaxed">
               <p>
-                We are a team of experts who are ready to help you to grow your business. We help you to develop your business and generate new leads. We are a team of experts who are ready to help you to grow your business. We help you to develop your business and generate new leads.
+                We believe that AI should be accessible, practical, and immediately impactful. Whether simple chatbots or complex multi-channel lead capture hubs, our solutions are built to deliver rigorous efficiency and measurable growth. We partner with you to uncover hidden opportunities in your data and operations, turning potential into performance.
               </p>
             </div>
           </div>
