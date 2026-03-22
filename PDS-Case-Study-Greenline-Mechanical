@@ -1,0 +1,408 @@
+PRECISION DATA STRATEGIES
+Case Study:
+Greenline Mechanical Services
+How AI Deployment Across a PE Portfolio Company
+Drove $1.8M in Annual EBITDA Improvement
+in Under 6 Months
+Engagement Period: September 2025 - March 2026
+PE Sponsor: Ridgecrest Capital Partners (Fictional)
+ILLUSTRATIVE CASE STUDY
+PDS | Greenline Mechanical Case Study
+Page 2
+The Players
+The PE Firm: Ridgecrest Capital Partners
+Ridgecrest Capital Partners is a mid-market private equity firm based in Chicago with $2.8
+billion in assets under management across three active funds. They focus on acquiring and
+growing fragmented service-industry businesses in the $15M-$75M revenue range, primarily
+across commercial and residential services, healthcare services, and facility management. Their
+current Fund III holds 14 portfolio companies.
+Six months ago, Ridgecrest hired their first Technology Operating Partner, David Kaplan, a
+former Deloitte senior manager who spent 8 years advising PE clients on digital transformation.
+David was brought on with one mandate: figure out how to deploy AI across the portfolio to
+improve margins before the next round of exits in 18-24 months. He has a $500K annual budget
+for external AI vendors and the authority to deploy them into any portfolio company with CEO
+buy-in.
+David's problem: he knows the strategy side cold, but he does not have an implementation
+team. He is one person. Ridgecrest does not have in-house developers. And the two consulting
+firms he reached out to (a Big 4 and a mid-tier digital agency) quoted $300K-$500K per portfolio
+company for a 6-month engagement, which would burn through his entire budget on a single
+company.
+The Portfolio Company: Greenline Mechanical Services
+Greenline is a commercial HVAC and plumbing company headquartered in Phoenix, Arizona,
+with 8 branch locations across Arizona, Nevada, and New Mexico. Ridgecrest acquired
+Greenline 2 years ago as a platform company and has since completed 3 add-on acquisitions,
+bringing the company from $22M to $48M in annual revenue and from 85 to 310 employees.
+Company Profile Details
+Revenue $48M annually
+EBITDA $5.8M (12.1% margin)
+Employees 310 (180 field technicians, 42 office/admin, 88 management/sales)
+Locations 8 branches across AZ, NV, NM
+CRM / Dispatch ServiceTitan (primary), Salesforce (sales team only)
+Phone System RingCentral (8 main lines, 22 extensions)
+Monthly Inbound Calls ~4,200 across all locations
+After-Hours Call Volume ~1,100/month (26% of total), handled by answering service at
+$1.85/call
+Avg. Ticket Size $2,800 (service), $18,500 (install/replacement)
+PDS | Greenline Mechanical Case Study
+Page 3
+Current Pain Points 28% of inbound calls abandoned or sent to voicemail. After-hours
+answering service books appointments only 31% of the time. 3 full-
+time CSRs handling dispatch and scheduling manually. Sales team
+spending 40% of time on unqualified leads.
+Why Greenline? Why Now?
+Ridgecrest plans to exit Greenline in 18-24 months at a target of 8-9x EBITDA. At the current $5.8M
+EBITDA, that is a $46M-$52M exit. Every $1M improvement in EBITDA adds $8M-$9M to the exit
+price. David Kaplan estimated that if AI could improve Greenline's margin by even 2-3 percentage
+points, it could add $10M-$15M to the exit valuation. That is the math that made David pick up the
+phone.
+How PDS Got the Deal
+David Kaplan found PDS through a combination of three touchpoints over a 6-week period:
+1. LinkedIn article: Ronald Parent published an article titled 'The $2M Phone Call
+Problem: Why PE-Backed Service Companies Are Bleeding Revenue After Hours.'
+David saw it because a former Deloitte colleague liked it. The article did not pitch PDS. It
+laid out the math of missed calls in service businesses and what that means for EBITDA.
+David bookmarked it.
+2. Cold email: Two weeks later, a personalized email from PDS landed in David's inbox
+through Smartlead. The email referenced Ridgecrest's service-industry portfolio and
+asked a simple question: 'How are your portfolio companies handling the 25-30% of
+inbound calls that go unanswered after hours?' No pitch. Just a question that hit a nerve
+because David had just reviewed Greenline's call data and seen the exact same
+problem.
+3. Discovery call: David replied. Ronald got on a 30-minute call where he asked about
+Greenline's tech stack, call volumes, and pain points. Ronald did not pitch. He listened.
+Then he said: 'I can do a full AI readiness audit of Greenline in 3 weeks for $15K. You
+will get a prioritized roadmap of every AI opportunity with projected EBITDA impact for
+each one. If the numbers do not justify a full engagement, you have a document you can
+use for any other vendor.' David said yes that day.
+Phase 1: AI Readiness Assessment
+Duration: 3 weeks
+PDS Fee: $15,000
+PDS Team: Ronald Parent (lead), Hilal Aziz (technical assessment), Talha Farooq (systems
+review)
+Week 1: Discovery and Data Collection
+PDS | Greenline Mechanical Case Study
+Page 4
+PDS conducted a deep operational audit, not a technology audit. The goal was to understand
+where the business loses money, misses revenue, or wastes labor hours, and then determine
+which of those problems AI can solve.
+• Call recording analysis: PDS requested 2 weeks of call recordings from RingCentral.
+Talha built an automated pipeline that transcribed the recordings using Deepgram, then
+classified each call by type (new customer, existing service request, sales inquiry, billing
+question, vendor/spam). The findings were stark.
+– 4,218 inbound calls in the sample period
+– 1,181 (28%) abandoned, sent to voicemail, or handled by the answering service
+– Of the 1,181 missed calls, an estimated 340 were new customer inquiries based
+on caller ID matching and voicemail content
+– At Greenline's average service ticket of $2,800, those 340 missed new-customer
+calls represented roughly $952K in monthly revenue exposure
+– The after-hours answering service was booking appointments on only 31% of
+calls. The rest were told 'someone will call you back,' and 44% of those callbacks
+never happened.
+• CSR workflow observation: Ronald spent one full day at the Phoenix headquarters
+sitting with the 3 customer service representatives. He documented every task they
+performed across an 8-hour shift.
+– 62% of their time was spent on scheduling, rescheduling, and confirming
+appointments, work that could be automated
+– 18% was spent on calls that could be handled by an AI agent (hours of operation,
+service area questions, pricing estimates, appointment confirmations)
+– Only 20% of their time was spent on tasks that genuinely required a human:
+complex customer complaints, insurance coordination, multi-trade project
+scheduling
+• Sales pipeline review: PDS reviewed 90 days of Salesforce data from the 6-person
+commercial sales team.
+– The sales team was spending 40% of their time qualifying leads that came in
+through the website and phone
+– Of those leads, 55% were unqualified (residential callers, out-of-area, tire
+kickers)
+– Average time from lead to first meaningful sales contact: 4.2 days. Industry best
+practice is under 1 hour.
+• Dispatch and technician scheduling: Hilal reviewed the ServiceTitan configuration
+and identified that dispatching was largely manual. Office managers at each branch
+were spending 2-3 hours per day playing Tetris with technician schedules, often leaving
+gaps or sending the wrong-skilled tech to a job.
+Week 2: Opportunity Mapping and ROI Modeling
+PDS | Greenline Mechanical Case Study
+Page 5
+PDS built a detailed opportunity matrix that mapped each AI use case to a projected financial
+impact. Every number was grounded in Greenline's actual data, not industry benchmarks.
+AI Use Case Problem Cost Projected
+Savings /
+Revenue
+Confidence Complexity Priority
+AI Voice Agent
+(after-hours +
+overflow)
+$952K/mo in
+missed revenue
+exposure
+$480K-$720K
+annual
+revenue
+capture
+High (call data
+validated)
+Medium 1
+Automated
+scheduling and
+confirmation
+3 CSRs at $45K
+fully loaded =
+$135K/yr
+Reallocate 2
+CSRs to
+revenue roles
+= $90K
+savings +
+revenue
+upside
+High Low-Med 2
+AI lead qualification
++ routing
+Sales team at
+40% wasted
+time on
+unqualified
+leads
+20% sales
+productivity
+gain = ~$340K
+additional
+closed
+revenue
+Medium-High Medium 3
+Intelligent dispatch
+optimization
+2-3 hrs/day
+manual
+scheduling per
+branch
+$180K annual
+labor savings
++ 8%
+improvement
+in
+jobs/tech/day
+Medium High 4
+Review generation
+and reputation
+management
+3.6 avg Google
+rating across
+locations
+Improved
+close rate on
+inbound (+5-
+8% est.)
+Medium Low 5
+Week 3: Deliverable and Recommendation
+PDS delivered a 32-page AI Readiness Assessment report to David Kaplan that included the full
+data analysis, the opportunity matrix, a phased 90-day implementation roadmap, and a
+projected aggregate EBITDA impact of $1.4M-$2.1M annually. The report was formatted for
+investment committee review, meaning it included sensitivity analysis, implementation risk
+factors, and a clear breakeven timeline.
+The Moment That Closed the Deal
+During the presentation, Ronald showed David a recording of one of Greenline's missed after-hours
+calls. It was a property manager with a 200-unit apartment complex who needed emergency HVAC
+service for 14 units. The answering service told the caller someone would return the call in the
+morning. By morning, the property manager had already booked a competitor. Estimated lost
+revenue from that single call: $41,000.
+PDS | Greenline Mechanical Case Study
+Page 6
+David approved the full implementation engagement that afternoon.
+Phase 2: Implementation Sprint
+Duration: 12 weeks
+PDS Fee: $95,000 (fixed project fee, paid in 3 monthly installments)
+PDS Team: Ronald Parent (project lead, client-facing), Hilal Aziz (architecture and integration),
+Shafique Ur Rehman (backend development), Talha Farooq (AI engineering and voice agent
+development)
+Sprint 1: AI Voice Agent (Weeks 1-4)
+This was the highest-priority deployment because the ROI was the most immediate and the
+most visible.
+What PDS Built
+A 24/7 AI voice agent deployed across all 8 Greenline locations, integrated with ServiceTitan
+and RingCentral. The agent handles calls in three scenarios: after-hours (replacing the
+answering service entirely), overflow during business hours (when all CSRs are on other calls),
+and first-ring pickup (answering before a human CSR, handling simple requests, and warm-
+transferring complex calls).
+Voice and personality: The agent was configured with a female voice named 'Sarah' with a
+warm, professional tone. The persona was calibrated to match the Southwest market, friendly
+but efficient, no corporate stiffness. Sarah introduces herself as being with Greenline
+Mechanical and never pretends to be human. If a caller asks, she identifies as an AI assistant.
+Capabilities deployed:
+• Books service appointments directly into ServiceTitan, checking technician availability in
+real time
+• Qualifies new customer inquiries: captures property type, square footage, system type,
+urgency level, and preferred appointment windows
+• Handles emergency triage: routes true emergencies (gas leak, flooding, no heat in
+winter) to the on-call technician's cell phone with a warm handoff
+• Answers FAQs: service areas, hours of operation, accepted payment methods, license
+numbers, and insurance information
+• Captures caller information for follow-up when a job cannot be booked immediately
+• Sends automated text confirmations to callers after booking
+Integration architecture:
+• Vapi for voice AI orchestration with ElevenLabs for voice synthesis
+PDS | Greenline Mechanical Case Study
+Page 7
+• Claude API for natural language understanding and conversation management
+• ServiceTitan API for real-time scheduling and customer record lookup
+• RingCentral API for call routing, recording, and transfer logic
+• n8n workflow automation connecting all systems, with error handling and fallback routing
+to a human if the AI encounters an edge case it cannot handle
+• GoHighLevel for lead capture and follow-up sequencing on commercial inquiries
+Week 1 Results (Soft Launch at Phoenix HQ Only)
+Metric Before Week 1
+After-hours calls answered 31% (answering service) 97% (AI agent)
+After-hours appointments
+booked
+31% of answered calls 68% of answered calls
+Average speed to answer 38 seconds (answering service) 1.2 seconds
+Customer satisfaction (post-call
+survey)
+Not measured 4.2 / 5.0
+Calls requiring human
+escalation
+N/A 14% of total calls handled
+After the soft launch validated performance, PDS rolled the voice agent out to all 8 locations
+over the next 2 weeks. The answering service contract was canceled, saving $24,000 per year
+immediately.
+Sprint 2: Customer Service Automation + Lead Qualification (Weeks 5-
+8)
+What PDS Built
+Automated scheduling engine: An n8n workflow that processes all appointment requests
+(from the AI voice agent, the website, and email) and auto-schedules them in ServiceTitan
+based on technician skills, location proximity, and availability. Customers receive instant text
+and email confirmations. The system also handles automated reminders (24 hours and 2 hours
+before the appointment) and enables one-tap rescheduling via text.
+AI lead qualification for the commercial sales team: A chatbot deployed on Greenline's
+website and an AI layer added to the Salesforce integration that automatically scores and routes
+incoming commercial leads. The system evaluates: property size, number of units, service
+history, contract potential, and urgency. Hot leads (scored 80+) are routed instantly to the
+nearest commercial sales rep with a notification and full lead dossier. Warm leads (50-79) enter
+an automated nurture sequence. Cold leads (below 50) receive a polite automated response
+with self-service resources.
+CSR redeployment: With the AI voice agent handling 62% of previously human-handled calls
+and the scheduling engine automating appointment management, 2 of the 3 CSRs were
+redeployed. One moved into a newly created 'Customer Success Coordinator' role focused on
+commercial account retention. The other moved into an inside sales position focused on
+PDS | Greenline Mechanical Case Study
+Page 8
+proactive outbound calls to past customers for preventive maintenance agreements. Neither
+was laid off; both received raises tied to their new revenue-generating responsibilities.
+Sprint 3: Reporting Dashboard + Optimization (Weeks 9-12)
+What PDS Built
+PE-grade performance dashboard: A real-time dashboard (built on PDS's internal platform)
+that David Kaplan and Greenline's CEO can access at any time. The dashboard shows AI
+performance metrics tied directly to financial outcomes, not vanity tech metrics. Every number
+connects to EBITDA.
+Dashboard views include:
+• Revenue capture: Total calls handled by AI, appointments booked, estimated revenue
+from AI-booked jobs vs. jobs that would have been lost
+• Cost savings: Answering service eliminated, CSR hours redirected, scheduling
+automation labor savings
+• Sales pipeline: Lead qualification volume, response time improvement, conversion rate
+by lead score tier
+• AI performance: Resolution rate (calls handled without human escalation), customer
+satisfaction scores, common escalation reasons for continuous improvement
+• Monthly EBITDA impact: A single number that rolls all AI-driven improvements into a
+projected EBITDA contribution, updated in real time
+Voice agent optimization: Talha conducted a full review of every call that required human
+escalation during weeks 1-8. The most common escalation reasons were: multi-system quotes
+requiring on-site assessment (acceptable), customer anger over a previous visit (acceptable),
+and requests for specific technicians by name (trainable). After retraining the agent to handle
+technician-specific requests, the escalation rate dropped from 14% to 9%.
+Review generation workflow: An automated post-service workflow that texts customers 2
+hours after job completion with a satisfaction check. Happy customers (4-5 stars) are routed to
+leave a Google review. Unhappy customers (1-3 stars) are routed to the Customer Success
+Coordinator for immediate follow-up before they post a negative review publicly.
+Phase 3: Results at 6 Months
+Metric Before PDS 6 Months After Change
+Inbound call answer rate 72% 98.4% +26.4%
+After-hours booking rate 31% 71% +129%
+Monthly revenue from AI-
+booked jobs
+$0 (tracked) $127K/month +$127K/mo
+Average lead response time
+(commercial)
+4.2 days 11 minutes -99.8%
+PDS | Greenline Mechanical Case Study
+Page 9
+Sales team qualified lead ratio 45% 78% +73%
+Answering service cost $24K/year $0 -100%
+CSR labor (3 FTEs on admin) $135K/year $45K (1 CSR
+remaining on admin)
+-$90K/yr
+Google review average 3.6 stars 4.4 stars +0.8 stars
+Monthly EBITDA contribution
+(AI-attributable)
+$0 $148K/month +$1.78M
+annualized
+The Exit Math
+Greenline's EBITDA before PDS engagement: $5.8M
+Greenline's projected EBITDA 12 months after full AI deployment: $7.6M
+At an 8.5x exit multiple, the AI-driven EBITDA improvement of $1.8M adds approximately $15.3M to
+the exit valuation.
+Total PDS engagement cost (audit + implementation): $110,000
+Return on AI investment: 139x (based on exit value created)
+What Happened Next
+This is the part that matters for PDS's business model.
+Month 4: David Kaplan presented the Greenline results to the Ridgecrest partners at their
+quarterly portfolio review. He showed the dashboard, the EBITDA improvement, and the exit
+math. The partners asked one question: 'Which portfolio companies are next?'
+Month 5: PDS signed a Master Services Agreement with Ridgecrest Capital Partners covering
+the entire Fund III portfolio. The agreement authorized PDS to conduct AI Readiness
+Assessments at 6 additional portfolio companies over the next 90 days, with implementation
+engagements to follow based on assessment findings. The MSA established PDS as
+Ridgecrest's preferred AI implementation partner.
+Month 6: PDS began assessments at three more Ridgecrest portfolio companies: a regional
+pest control platform (12 locations), a commercial cleaning company (18 locations), and a multi-
+site dental support organization (9 practices). All three had similar call handling and scheduling
+problems to Greenline. All three converted to full implementation engagements.
+Month 8: At a PE Operating Partners Forum event, David Kaplan mentioned PDS by name
+during a panel discussion about AI deployment. Two other operating partners from different PE
+firms approached Ronald after the panel. Both requested introductory calls.
+Revenue Summary: Ridgecrest Relationship, Year 1
+Revenue Line Amount
+PDS | Greenline Mechanical Case Study
+Page 10
+AI Readiness Assessments (7 companies x $15K) $105,000
+Implementation Sprints (4 completed x avg. $95K) $380,000
+Implementation Sprints (3 in progress, partially
+billed)
+$142,500
+Managed AI Services (4 companies x avg.
+$8K/mo x avg. 5 months)
+$160,000
+Total Year 1 Revenue from One PE Firm $787,500
+Projected Year 2 (all 14 portfolio companies
+active)
+$1.4M - $1.8M
+Key Lessons for Future PE Engagements
+1. The audit is the sale. The $15K assessment is not a loss leader. It is the product that
+proves your value and creates the internal business case for the larger engagement.
+Over-deliver on it. Make it investment-committee ready. The operating partner will use
+your document to get budget approval.
+2. Lead with the recording, not the slide. Playing that one missed call, the $41K
+apartment complex HVAC job that walked to a competitor, was worth more than 30
+slides of projected ROI. PE people are data-driven, but they are also human. One
+concrete example of money walking out the door hits harder than any financial model.
+3. Never fire their people. Redeploy them. The fact that PDS moved those 2 CSRs into
+revenue-generating roles instead of recommending layoffs was noticed by David, by the
+Greenline CEO, and by the Ridgecrest partners. PE firms are sensitive to workforce
+disruption. If you walk in and say 'AI will replace 3 jobs,' you will face resistance. If you
+say 'AI will free up 3 people to do higher-value work that grows revenue,' you get buy-in
+from everyone: the PE firm, the management team, and the employees themselves.
+4. Build the dashboard for the PE firm, not the portfolio company. The Greenline CEO
+cares about day-to-day operations. David Kaplan cares about EBITDA. The dashboard
+that won the portfolio-wide deal was the one that showed David a single number:
+monthly AI-attributable EBITDA contribution. Make the operating partner look good to
+the partners, and the operating partner will open every door in the portfolio.
+5. Speed is the moat. The Big 4 firms that David originally contacted quoted 6-month
+timelines and $300K-$500K per company. PDS delivered a working voice agent in 4
+weeks at a fraction of the cost. In PE, time is literally money because of the hold period.
+Every month you save them on implementation is a month of additional value creation
+before exit.
+6. The portfolio multiplier is real. One successful engagement at Greenline turned into 7
+assessments and 7 implementations within 8 months. The per-company sales cycle for
+companies 2-7 was essentially zero because David was the one making the introduction
+and recommending the engagement. You sell once to the operating partner. They sell
+for you across the portfolio.

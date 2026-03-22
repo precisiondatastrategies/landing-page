@@ -19,23 +19,16 @@ const PinnedScrollSections = () => {
             const sections = sectionsRef.current;
 
             sections.forEach((section, index) => {
-                if (!section || index === sections.length - 1) {
-                    return;
-                }
+                if (!section || index === sections.length - 1) return;
 
-                // Pin the panel while keeping previous ones hidden on scroll.
                 ScrollTrigger.create({
                     trigger: section,
                     start: 'top top',
                     end: 'bottom top',
                     pin: true,
                     pinSpacing: false,
-                    onLeave: () => {
-                        gsap.set(section, { autoAlpha: 0 });
-                    },
-                    onEnterBack: () => {
-                        gsap.set(section, { autoAlpha: 1 });
-                    }
+                    onLeave: () => { gsap.set(section, { autoAlpha: 0 }); },
+                    onEnterBack: () => { gsap.set(section, { autoAlpha: 1 }); }
                 });
 
                 gsap.to(section, {
@@ -62,56 +55,56 @@ const PinnedScrollSections = () => {
 
     const sections = [
         {
-            title: 'Real Estate',
-            subtitle: 'Property Management',
-            description: 'Automate lead qualification, schedule property viewings, and handle tenant inquiries 24/7 with intelligent AI agents.',
-            features: ['Lead capture & qualification', 'Automated scheduling', 'Property info delivery'],
-            bgColor: 'bg-gradient-to-br from-purple-900 to-indigo-900',
+            title: 'Mid-Market PE Firms',
+            subtitle: 'Primary Target',
+            description: 'Firms with $500M–$5B AUM and 5–30 portfolio companies. You have the mandate to drive AI value creation but no internal implementation team. We are your execution arm.',
+            features: ['Portfolio-wide AI deployment', 'EBITDA impact reporting', 'Operating partner dashboard'],
+            bgColor: 'bg-gradient-to-br from-slate-900 to-blue-950',
             textColor: 'text-white',
-            imageSrc: '/industries/real.png',
-            imageAlt: 'Illustrated smart home dashboard for real estate teams'
+            imageSrc: '/industries/am.jpg',
+            imageAlt: 'Private equity operating partner reviewing AI performance dashboard'
         },
         {
-            title: 'Law Firms',
-            subtitle: 'Legal Services',
-            description: 'Streamline client intake, schedule consultations, and provide instant case status updates through conversational AI.',
-            features: ['Client intake automation', 'Appointment booking', 'Case status updates'],
+            title: 'Upper Mid-Market Funds',
+            subtitle: '$5B–$100B AUM',
+            description: 'You have a Technology Operating Partner and a value creation mandate. We integrate with your existing team as the hands-on AI implementation partner your strategy requires.',
+            features: ['Plug into existing value creation teams', 'Multi-portfolio deployment playbooks', 'Investment committee-ready reporting'],
             bgColor: 'bg-green-200',
             textColor: 'text-slate-900',
-            imageSrc: '/industries/law_firm1.png',
-            imageAlt: 'Digital legal operations workspace illustration'
+            imageSrc: '/industries/real.png',
+            imageAlt: 'Upper mid-market PE fund value creation team'
         },
         {
-            title: 'Plumbers',
-            subtitle: 'Home Services',
-            description: 'Never miss an emergency call. AI agents handle service requests, schedule appointments, and send technician details instantly.',
-            features: ['24/7 emergency response', 'Smart scheduling', 'Service tracking'],
+            title: 'Service Industry Portfolios',
+            subtitle: 'Highest ROI Vertical',
+            description: 'HVAC, plumbing, pest control, home services, healthcare services — these portfolio companies bleed revenue through missed calls and manual scheduling. We fix that in weeks, not months.',
+            features: ['AI voice agents replace answering services', 'Automated scheduling & dispatch', '$1M+ EBITDA impact per company'],
             bgColor: 'bg-gradient-to-br from-purple-900 to-indigo-900',
             textColor: 'text-white',
             imageSrc: '/industries/plumbers.png',
-            imageAlt: 'AI routing urgent work order for plumbing teams'
+            imageAlt: 'Service industry portfolio company AI deployment'
         },
         {
-            title: 'All SMBs',
-            subtitle: 'Small & Medium Business',
-            description: 'Scale your customer service without scaling costs. Handle inquiries, bookings, and support across all channels seamlessly.',
-            features: ['Omnichannel support', 'Cost-effective scaling', 'Custom automation'],
+            title: 'PE Operating Partners',
+            subtitle: 'Your Direct Buyer',
+            description: 'You were hired to deploy AI across the portfolio. The Big 4 quoted you $300K–$500K per company and a 6-month timeline. We deliver a working AI system in 4 weeks at a fraction of the cost.',
+            features: ['AI Readiness Assessment in 3 weeks', 'Implementation sprint in 8–12 weeks', 'One partner, entire portfolio'],
             bgColor: 'bg-yellow-200',
             textColor: 'text-slate-900',
             imageSrc: '/industries/home_service.png',
-            imageAlt: 'Collaborative workspace showing unified customer support for SMBs'
+            imageAlt: 'PE operating partner AI deployment workflow'
         }
     ];
 
     return (
         <div className='py-32'>
             <div className="flex-none text-center space-y-3 py-10">
-                <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Who needs this?</p>
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Who we work with</p>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900">
-                    Built for teams that cannot afford to miss a lead
+                    Built for PE firms that cannot afford to leave EBITDA on the table
                 </h2>
                 <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-                    Scroll to see how the platform adapts to different industries while keeping every interaction on brand.
+                    From mid-market funds to upper mid-market platforms — we deploy AI across your portfolio companies and measure everything in the language your LPs speak.
                 </p>
             </div>
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Calendar, CheckCircle, Globe, LucideIcon, Phone, Users } from "lucide-react"
+import { BarChart3, CheckCircle, FileSearch, LucideIcon, Phone, TrendingUp } from "lucide-react"
 
 type Feature = {
     id: number;
@@ -17,67 +17,67 @@ type Feature = {
 const features: Feature[] = [
     {
         id: 1,
-        icon: Users,
-        tag: "Customer Profiles",
-        title: "View and Manage Customer Profiles",
+        icon: FileSearch,
+        tag: "AI Readiness Assessment",
+        title: "Know Exactly Where the EBITDA Is Before You Spend a Dollar",
         description:
-            "Keep track of all your customer information, job status, and activity history in one centralized dashboard.",
+            "We audit every portfolio company's operations in 3 weeks and deliver a prioritized roadmap of AI opportunities — each one mapped to a projected EBITDA impact. Investment committee-ready.",
         videoFile: "step_1.mp4",
         points: [
-            "Track job status in real-time",
-            "Access complete customer information",
-            "View detailed activity history",
-            "Add notes and tags for organization",
+            "Call recording analysis & revenue leak identification",
+            "CSR workflow and labor cost audit",
+            "Sales pipeline efficiency review",
+            "Prioritized 90-day implementation roadmap",
         ],
-        bg: "#FFF7ED", // light orange
+        bg: "#FFF7ED",
     },
     {
         id: 2,
-        icon: Calendar,
-        tag: "Appointments",
-        title: "Book Client Appointments",
+        icon: Phone,
+        tag: "AI Voice Agent",
+        title: "24/7 AI Voice Agent That Books Jobs and Captures Revenue",
         description:
-            "Streamline your scheduling with automatic appointment booking, available time slots, and instant confirmations.",
-        videoFile: "step_2.mp4",
+            "Replace your answering service with an AI agent that answers every call, books appointments directly into your dispatch system, and handles emergency triage — all in under 2 seconds.",
+        videoFile: "voice.mp4",
         points: [
-            "Automatic scheduling system",
-            "View available time slots",
-            "Instant appointment confirmations",
-            "Seamless calendar synchronization",
+            "After-hours booking rate from 31% to 71%",
+            "Inbound call answer rate from 72% to 98.4%",
+            "Integrated with ServiceTitan, Salesforce, HubSpot",
+            "Answering service contract eliminated on day one",
         ],
-        bg: "#F6F3FF", // light purple
+        bg: "#F6F3FF",
     },
     {
         id: 3,
-        icon: Phone,
-        tag: "AI Voice Agent",
-        title: "24/7 AI Voice Receptionist",
+        icon: TrendingUp,
+        tag: "Sales & Lead Qualification",
+        title: "Stop Your Sales Team From Wasting 40% of Their Time",
         description:
-            "Never miss a call with our AI-powered voice receptionist that handles calls, answers questions, and books appointments around the clock.",
-        videoFile: "voice.mp4",
+            "AI lead scoring and routing that instantly separates hot commercial prospects from tire-kickers. Average lead response time drops from 4.2 days to 11 minutes.",
+        videoFile: "step_2.mp4",
         points: [
-            "24/7 call handling and response",
-            "Automated Q&A for common questions",
-            "Direct job booking from calls",
-            "Intelligent lead screening",
+            "AI lead scoring with instant hot-lead routing",
+            "Automated nurture sequences for warm leads",
+            "CRM integration with full lead dossier on handoff",
+            "Sales team qualified lead ratio from 45% to 78%",
         ],
-        bg: "#E6FAF5", // light teal
+        bg: "#E6FAF5",
     },
     {
         id: 4,
-        icon: Globe,
-        tag: "SEO Website",
-        title: "SEO-Optimized Website to Grow Your Presence",
+        icon: BarChart3,
+        tag: "PE Performance Dashboard",
+        title: "One Number: Monthly AI-Attributable EBITDA Contribution",
         description:
-            "Boost your online visibility with a professionally designed, SEO-optimized website that captures leads and drives growth.",
-        videoFile: "web.mp4",
+            "A real-time dashboard built for operating partners, not portfolio company CEOs. Every metric connects directly to EBITDA — the number your LPs are tracking.",
+        videoFile: "dash.mp4",
         points: [
-            "Improved search engine visibility",
-            "Built-in lead capture forms",
-            "Fast response time tracking",
-            "Professional online presence",
+            "Revenue capture from AI-booked jobs",
+            "Cost savings vs. previous labor and vendor spend",
+            "Sales pipeline conversion by lead score tier",
+            "Monthly EBITDA impact updated in real time",
         ],
-        bg: "#F0F9FF", // light blue
+        bg: "#F0F9FF",
     },
 ];
 
@@ -177,10 +177,7 @@ function DesktopFeatureShowcase() {
                                                     style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center" }}
                                                     className="absolute left-0 top-0 h-full w-full rounded-xl bg-gray-100 text-center text-gray-500 text-lg"
                                                 >
-                                                    Video not found or format not supported.
-                                                    <br />
-                                                    Please check the file name and format in public/videos.
-                                                    <br />
+                                                    Video preview not available.
                                                 </div>
                                             </div>
                                         </div>
@@ -199,9 +196,7 @@ function MobileFeatureStack() {
     const sectionsRef = useRef<(HTMLElement | null)[]>([])
 
     useEffect(() => {
-        if (typeof window === "undefined" || window.innerWidth >= 1024) {
-            return
-        }
+        if (typeof window === "undefined" || window.innerWidth >= 1024) return
 
         let ScrollTriggerModule: any = null
 
@@ -213,9 +208,7 @@ function MobileFeatureStack() {
             gsap.registerPlugin(ScrollTrigger)
 
             sectionsRef.current.forEach((section, index) => {
-                if (!section || index === sectionsRef.current.length - 1) {
-                    return
-                }
+                if (!section || index === sectionsRef.current.length - 1) return
 
                 ScrollTrigger.create({
                     trigger: section,
@@ -223,12 +216,8 @@ function MobileFeatureStack() {
                     end: "bottom top",
                     pin: true,
                     pinSpacing: false,
-                    onLeave: () => {
-                        gsap.set(section, { autoAlpha: 0 })
-                    },
-                    onEnterBack: () => {
-                        gsap.set(section, { autoAlpha: 1 })
-                    },
+                    onLeave: () => { gsap.set(section, { autoAlpha: 0 }) },
+                    onEnterBack: () => { gsap.set(section, { autoAlpha: 1 }) },
                 })
 
                 gsap.to(section, {
@@ -261,9 +250,7 @@ function MobileFeatureStack() {
                     return (
                         <section
                             key={feature.id}
-                            ref={(el) => {
-                                sectionsRef.current[index] = el
-                            }}
+                            ref={(el) => { sectionsRef.current[index] = el }}
                             className="relative flex items-center justify-center p-6 sm:p-8"
                         >
                             <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl" style={{ background: feature.bg }}>

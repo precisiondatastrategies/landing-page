@@ -213,6 +213,37 @@ export default function ConsultingPage() {
                     </div>
                 </section>
 
+                {/* Institutional & Private Equity Partners Section */}
+                <section className="py-16 bg-blue-50/50 border-y border-blue-100">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto text-center space-y-6">
+                            <motion.div
+                                {...fadeInUp}
+                                className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 font-bold tracking-wide rounded-full text-sm mb-2"
+                            >
+                                Institutional & Private Equity
+                            </motion.div>
+                            <motion.h2
+                                {...fadeInUp}
+                                className="text-3xl md:text-4xl font-bold text-gray-900"
+                            >
+                                Dedicated Audits & Strategic Execution for Portfolio Companies
+                            </motion.h2>
+                            <motion.p
+                                {...fadeInUp}
+                                className="text-lg text-gray-600 leading-relaxed"
+                            >
+                                We partner with private equity firms and mid-sized companies to drive measurable efficiency across portfolios. From deep-dive technical audits to on-site execution, we implement AI and automation workflows that maximize EBITDA safely and confidentially.
+                            </motion.p>
+                            <motion.div {...fadeInUp} className="pt-2">
+                                <Link href="/private-equity" className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-800 transition-colors text-lg">
+                                    Explore our Private Equity services <ArrowRight className="w-5 h-5" />
+                                </Link>
+                            </motion.div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Stats Section */}
                 <div className="relative">
                     {/* Dot Pattern Background */}

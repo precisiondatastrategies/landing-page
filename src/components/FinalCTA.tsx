@@ -1,98 +1,125 @@
 "use client"
 
-import { ArrowRight, Check } from "lucide-react"
+import { ArrowRight, Shield, Clock, TrendingUp } from "lucide-react"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { BookingModal } from "./BookingModal"
 
+const stats = [
+    { icon: Clock, value: "3 Weeks", label: "To first deliverable" },
+    { icon: TrendingUp, value: "10–15%", label: "Avg. EBITDA lift" },
+    { icon: Shield, value: "NDA", label: "Signed on day one" },
+]
+
+
+
 export default function FinalCTA() {
     const [isExpanded, setIsExpanded] = useState(false)
-    // List of icon filenames in public/videos or public/icons (update as needed)
-    const icons = [
-        '/ghl.png',
-        '/notion.png',
-        '/zapier.webp',
-        '/google_drive.png',
-        '/slack.png',
-        '/supa.webp',
-        '/n8n.png',
-        '/gmail.png',
-        '/lovable.png',
-        '/zoho.png',
-
-    ];
-
-    // Positions for floating icons (matching the image layout)
-    const iconPositions = [
-        { name: 'ghl', top: '10%', left: '9%', rotate: '20deg' },    // top left corner
-        { name: 'notion', top: '8%', left: '26%', rotate: '8deg' },      // top left-center
-        { name: 'zapier', top: '30%', left: '19%', rotate: '-8deg' },    // middle left area
-        { name: 'google_drive', top: '52%', left: '11%', rotate: '12deg' },    // lower left
-        { name: 'slack', top: '62%', left: '21%', rotate: '-5deg' },    // bottom left area
-        { name: 'supa', top: '8%', left: '76%', rotate: '-10deg' },    // top right area
-        { name: 'n8n', top: '14%', left: '90%', rotate: '-70deg' },    // top right corner
-        { name: 'gmail', top: '35%', left: '85%', rotate: '-90deg' },   // middle right
-        { name: 'lovable', top: '58%', left: '72%', rotate: '-104deg' },     // lower right area
-        { name: 'zoho', top: '65%', left: '90%', rotate: '-120deg' },    // bottom right corner
-    ];
 
     return (
-        <section className="relative bg-white min-h-[500px] flex items-center justify-center overflow-hidden" style={{ borderRadius: '20px' }}>
-            {/* Floating icons */}
-            {icons.map((icon, i) => (
-                <img
-                    key={icon}
-                    src={icon}
-                    alt="integration icon"
-                    className="absolute sm:block hidden drop-shadow-lg rounded-xl"
-                    style={{
-                        width: 64,
-                        height: 64,
-                        ...iconPositions[i % iconPositions.length],
-                        zIndex: 2,
-                        animation: `float${i} 6s ease-in-out infinite`,
-                        transform: `rotate(${(i % iconPositions.length) * 18 - 36}deg)` // slight rotation for each icon
-                    }}
-                />
-            ))}
+        <section className="relative overflow-hidden bg-[#060F1E]">
+            {/* Grid pattern */}
+            <div
+                className="absolute inset-0 opacity-[0.04]"
+                style={{
+                    backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                                      linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
+                    backgroundSize: '60px 60px',
+                }}
+            />
+
+            {/* Radial glow */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-[600px] h-[600px] rounded-full bg-blue-600/10 blur-[120px]" />
+            </div>
 
 
-            {/* Main content */}
-            <div className="relative z-10 max-w-3xl mx-auto text-center py-20">
-                <div className="mb-4">
-                    <span className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-4 py-2 rounded-full mb-4 shadow">
-                        AI Automation Platform
-                    </span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-                    Unlock AI-Powered Automation<br />for Modern Businesses
-                </h2>
-                <p className="text-lg text-gray-600 mb-6">
-                    Automate workflows, boost productivity, and integrate your favorite tools with precision AI solutions.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 min-h-20">
+
+            {/* Content */}
+            <div className="relative z-10 max-w-2xl mx-auto text-center px-6 py-28">
+
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-semibold tracking-widest uppercase mb-8"
+                >
+                    AI Implementation for PE Portfolio Companies
+                </motion.div>
+
+                <motion.h2
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6"
+                    style={{ color: "#ffffff" }}
+                >
+                    Ready to See the EBITDA<br />
+                    <span style={{ color: "#60a5fa" }}>Impact Across Your Portfolio?</span>
+                </motion.h2>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="text-base text-white/50 leading-relaxed mb-10 max-w-xl mx-auto"
+                >
+                    Start with a $15K AI Readiness Assessment. Three weeks. One portfolio company.
+                    A prioritized roadmap with projected EBITDA impact — formatted for your investment committee.
+                </motion.p>
+
+                {/* Stats row */}
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="flex items-center justify-center gap-8 mb-12"
+                >
+                    {stats.map(({ icon: Icon, value, label }) => (
+                        <div key={label} className="flex flex-col items-center gap-1">
+                            <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-1">
+                                <Icon className="w-4 h-4 text-blue-400" />
+                            </div>
+                            <span className="text-white font-bold text-lg leading-none">{value}</span>
+                            <span className="text-white/40 text-xs">{label}</span>
+                        </div>
+                    ))}
+                </motion.div>
+
+                {/* CTAs */}
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                >
                     <AnimatePresence mode="wait">
                         {!isExpanded && (
                             <>
-                                <motion.div className="relative inline-block">
+                                <motion.div className="relative inline-block" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
                                     <motion.div
                                         layoutId="final-cta-card"
-                                        className="absolute inset-0 bg-linear-to-r from-blue-500 to-teal-400 rounded-full"
+                                        className="absolute inset-0 rounded-full bg-blue-600"
                                         style={{ borderRadius: "9999px" }}
                                     />
                                     <motion.button
                                         onClick={() => setIsExpanded(true)}
-                                        className="relative z-10 group px-8 py-4 font-semibold text-white shadow-lg flex items-center gap-2 rounded-full"
+                                        className="relative z-10 group px-8 py-4 font-semibold text-white flex items-center gap-2 rounded-full hover:opacity-90 transition-opacity"
                                     >
                                         Request a Demo
-                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                     </motion.button>
                                 </motion.div>
                                 <motion.div initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
                                     <Link
                                         href="/consulting"
-                                        className="inline-block px-8 py-4 bg-white border border-gray-300 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition-all duration-200"
+                                        className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 text-white/70 font-semibold hover:border-white/30 hover:text-white transition-all duration-200 text-sm"
                                     >
                                         Talk to an Expert
                                     </Link>
@@ -100,19 +127,20 @@ export default function FinalCTA() {
                             </>
                         )}
                     </AnimatePresence>
-                </div>
-                <BookingModal isOpen={isExpanded} onClose={() => setIsExpanded(false)} layoutId="final-cta-card" />
+                </motion.div>
+
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    className="mt-6 text-xs text-white/25"
+                >
+                    No commitment required. NDA available on request.
+                </motion.p>
             </div>
 
-            {/* Custom floating animation keyframes */}
-            <style jsx>{`
-                ${icons.map((_, i) => `
-                    @keyframes float${i} {
-                        0%, 100% { transform: translateY(0); }
-                        50% { transform: translateY(-20px); }
-                    }
-                `).join('')}
-            `}</style>
+            <BookingModal isOpen={isExpanded} onClose={() => setIsExpanded(false)} layoutId="final-cta-card" />
         </section>
-    );
+    )
 }

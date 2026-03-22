@@ -1,358 +1,146 @@
 "use client"
 
-import { Star } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
-// CountUp component for animated numbers
-function CountUp({ end, duration = 2, className }: { end: number, duration?: number, className?: string }) {
-    const [count, setCount] = useState(0);
-    const ref = useRef<HTMLSpanElement>(null);
-    const [hasAnimated, setHasAnimated] = useState(false);
+import { Star } from "lucide-react"
 
-    useEffect(() => {
-        const el = ref.current;
-        if (!el || hasAnimated) return;
-        const observer = new window.IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setHasAnimated(true);
-                }
-            },
-            { threshold: 0.5 }
-        );
-        observer.observe(el);
-        return () => observer.disconnect();
-    }, [hasAnimated]);
+function CountUp({ end, suffix = "", duration = 2, className }: { end: number; suffix?: string; duration?: number; className?: string }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef<HTMLSpanElement>(null)
+  const [hasAnimated, setHasAnimated] = useState(false)
 
-    useEffect(() => {
-        if (!hasAnimated) return;
-        let start = 10;
-        const increment = end / (duration * 60); // 60fps
-        let frame = 0;
-        function animate() {
-            frame++;
-            start += increment;
-            if (start < end) {
-                setCount(Math.floor(start));
-                requestAnimationFrame(animate);
-            } else {
-                setCount(end);
-            }
-        }
-        animate();
-    }, [hasAnimated, end, duration]);
+  useEffect(() => {
+    const el = ref.current
+    if (!el || hasAnimated) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setHasAnimated(true)
+    }, { threshold: 0.5 })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [hasAnimated])
 
-    return (
-        <span ref={ref} className={className}>{count}%</span>
-    );
+  useEffect(() => {
+    if (!hasAnimated) return
+    let start = 0
+    const increment = end / (duration * 60)
+    const animate = () => {
+      start += increment
+      if (start < end) {
+        setCount(Math.floor(start))
+        requestAnimationFrame(animate)
+      } else {
+        setCount(end)
+      }
+    }
+    requestAnimationFrame(animate)
+  }, [hasAnimated, end, duration])
+
+  return <span ref={ref} className={className}>{count}{suffix}</span>
 }
 
-const testimonialsColumn1 = [
-    {
-        quote: "Our data was scattered across multiple systems with no clear insights. PDS helped us centralize everything and now we make data-driven decisions with confidence.",
-        author: "Emily Johnson",
-        role: "VP of Operations",
-        rating: 5,
-        avatar: "EJ"
-    },
-    {
-        quote: "PDS transformed how we handle customer data. Their analytics platform gave us visibility we never had before. Revenue forecasting accuracy improved by 85% in the first quarter.",
-        author: "David Martinez",
-        role: "Chief Data Officer",
-        rating: 5,
-        avatar: "DM"
-    },
-    {
-        quote: "The data integration was seamless. PDS connected our CRM, ERP, and marketing platforms effortlessly. Real-time dashboards changed how our leadership team operates.",
-        author: "Rachel Green",
-        role: "Business Intelligence Manager",
-        rating: 5,
-        avatar: "RG"
-    },
-    {
-        quote: "Implementation was faster than expected. The PDS team understood our industry challenges immediately. Now our entire organization has access to clean, reliable data.",
-        author: "Tom Anderson",
-        role: "Retail Analytics Director",
-        rating: 5,
-        avatar: "TA"
-    }
+const testimonials = [
+  {
+    quote: "The Big 4 quoted us $400K and six months. PDS had a working voice agent live at our first portfolio company in four weeks. The EBITDA impact showed up in month two.",
+    author: "David K.",
+    role: "AI Operating Partner, Mid-Market PE Fund",
+    rating: 5,
+  },
+  {
+    quote: "The assessment report alone was worth the $15K. It gave us a prioritized roadmap with projected EBITDA impact for every AI opportunity — formatted for our investment committee.",
+    author: "Sarah L.",
+    role: "Technology Operating Partner",
+    rating: 5,
+  },
+  {
+    quote: "After-hours booking rate went from 31% to 71% in the first month. The answering service contract was canceled on day one. That alone saved $24K annually.",
+    author: "Tom A.",
+    role: "COO, Multi-Location Home Services Company",
+    rating: 5,
+  },
+  {
+    quote: "PDS never recommended laying off our CSRs. They redeployed them into revenue-generating roles. That approach got buy-in from the portfolio company CEO immediately.",
+    author: "Rachel G.",
+    role: "Operating Partner, Service Industry Fund",
+    rating: 5,
+  },
+  {
+    quote: "We signed a Master Services Agreement covering our entire Fund III portfolio after the first engagement. PDS is now our preferred AI implementation partner across all 14 companies.",
+    author: "Maria S.",
+    role: "Partner, Mid-Market PE Firm",
+    rating: 5,
+  },
+  {
+    quote: "Commercial lead response time dropped from 4.2 days to 11 minutes. That single change added a measurable lift to our close rate within 60 days of deployment.",
+    author: "Chris B.",
+    role: "Commercial Sales Director, HVAC Platform",
+    rating: 5,
+  },
 ]
 
-const testimonialsColumn2 = [
-    {
-        quote: "We were drowning in spreadsheets and manual reports. PDS automated our entire reporting workflow. What used to take days now happens in minutes with better accuracy.",
-        author: "Michael Roberts",
-        role: "Financial Controller",
-        rating: 5,
-        avatar: "MR"
-    },
-    {
-        quote: "The predictive analytics models PDS built for us are incredibly accurate. We've optimized inventory levels and reduced waste by 40% while improving customer satisfaction.",
-        author: "Sophie Chen",
-        role: "Supply Chain Manager",
-        rating: 5,
-        avatar: "SC"
-    },
-    {
-        quote: "PDS doesn't just provide tools, they provide strategy. Their team helped us identify key metrics that actually matter. Our data culture has completely transformed.",
-        author: "James Wilson",
-        role: "Marketing Director",
-        rating: 5,
-        avatar: "JW"
-    },
-    {
-        quote: "The data quality improvements alone justified the investment. PDS cleaned years of messy data and established governance processes that keep it clean.",
-        author: "Amanda Foster",
-        role: "Data Governance Lead",
-        rating: 5,
-        avatar: "AF"
-    }
+const impactStats = [
+  { value: 139, suffix: "x", label: "Return on AI investment", sub: "$110K engagement → $15.3M exit value added" },
+  { value: 98, suffix: "%", label: "Inbound call answer rate", sub: "Up from 72% before PDS deployment" },
+  { value: 129, suffix: "%", label: "After-hours booking improvement", sub: "31% → 71% booking rate" },
 ]
-
-const testimonialsColumn3 = [
-    {
-        quote: "We needed customer segmentation for targeted campaigns. PDS delivered advanced clustering models that increased our campaign ROI by 3x. The insights were game-changing.",
-        author: "Chris Brown",
-        role: "Growth Marketing Manager",
-        rating: 5,
-        avatar: "CB"
-    },
-    {
-        quote: "As a small business, we thought advanced analytics were out of reach. PDS created scalable solutions within our budget. Now we compete with much larger companies.",
-        author: "Maria Santos",
-        role: "Founder & CEO",
-        rating: 5,
-        avatar: "MS"
-    },
-    {
-        quote: "The training PDS provided was exceptional. Our team went from basic Excel users to confidently building dashboards and running analyses independently.",
-        author: "Kevin Park",
-        role: "Operations Analyst",
-        rating: 5,
-        avatar: "KP"
-    },
-    {
-        quote: "PDS helped us achieve GDPR and compliance requirements while making our data more accessible. Security and usability no longer feel like opposing goals.",
-        author: "Lisa Thompson",
-        role: "Compliance Officer",
-        rating: 5,
-        avatar: "LT"
-    }
-]
-
-function TestimonialCard({ testimonial }: { testimonial: typeof testimonialsColumn1[0] }) {
-    return (
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-4">
-            <div className="flex gap-1 mb-3">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                ))}
-            </div>
-            
-            <p className="text-gray-700 text-sm leading-relaxed mb-4 font-normal">
-                {testimonial.quote}
-            </p>
-            
-            <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-semibold">
-                    {testimonial.avatar}
-                </div>
-                <div>
-                    <p className="font-semibold text-gray-900 text-sm">{testimonial.author}</p>
-                    <p className="text-xs text-gray-600">{testimonial.role}</p>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-function ScrollingRow({ testimonials, direction }: { testimonials: typeof testimonialsColumn1, direction: 'left' | 'right' }) {
-    const rowRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const row = rowRef.current;
-        if (!row) return;
-
-        const content = row.children[0] as HTMLElement;
-        if (!content) return;
-
-        // Duplicate content for seamless loop
-        const originalContent = content.innerHTML;
-        content.innerHTML = originalContent + originalContent;
-
-        let scrollPos = direction === 'right' ? 0 : content.scrollWidth / 2;
-        const speed = 0.5; // pixels per frame
-
-        let animationFrameId: number;
-
-        const scroll = () => {
-            if (row) {
-                if (direction === 'right') {
-                    scrollPos += speed;
-                    if (scrollPos >= content.scrollWidth / 2) {
-                        scrollPos = 0;
-                    }
-                } else { // direction 'left'
-                    scrollPos -= speed;
-                    if (scrollPos <= 0) {
-                        scrollPos = content.scrollWidth / 2;
-                    }
-                }
-                row.scrollLeft = scrollPos;
-                animationFrameId = requestAnimationFrame(scroll);
-            }
-        };
-
-        animationFrameId = requestAnimationFrame(scroll);
-
-        return () => {
-            cancelAnimationFrame(animationFrameId);
-            if (content) {
-                content.innerHTML = originalContent;
-            }
-        };
-    }, [direction, testimonials]);
-
-    return (
-        <div
-            ref={rowRef}
-            className="overflow-hidden w-full"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-            <div className="flex w-max">
-                {testimonials.map((testimonial, index) => (
-                    <div key={index} className="w-[300px] sm:w-[350px] shrink-0 mr-4">
-                        <TestimonialCard testimonial={testimonial} />
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-}
-
-function ScrollingColumn({ testimonials, direction }: { testimonials: typeof testimonialsColumn1, direction: 'up' | 'down' }) {
-    const columnRef = useRef<HTMLDivElement>(null)
-    
-    useEffect(() => {
-        const column = columnRef.current
-        if (!column) return
-        
-        // Duplicate content for seamless loop
-        const content = column.innerHTML
-        column.innerHTML = content + content
-        
-        let scrollPos = direction === 'up' ? column.scrollHeight / 2 : 0
-        const speed = 0.5 // pixels per frame
-        
-        const scroll = () => {
-            if (direction === 'up') {
-                scrollPos -= speed
-                if (scrollPos <= 0) {
-                    scrollPos = column.scrollHeight / 2
-                }
-            } else {
-                scrollPos += speed
-                if (scrollPos >= column.scrollHeight / 2) {
-                    scrollPos = 0
-                }
-            }
-            column.scrollTop = scrollPos
-            requestAnimationFrame(scroll)
-        }
-        
-        const animation = requestAnimationFrame(scroll)
-        
-        return () => cancelAnimationFrame(animation)
-    }, [direction])
-    
-    return (
-        <div 
-            ref={columnRef}
-            className="h-[600px] overflow-hidden"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-            {testimonials.map((testimonial, index) => (
-                <TestimonialCard key={index} testimonial={testimonial} />
-            ))}
-        </div>
-    )
-}
 
 export default function Testimonials() {
-    return (
-        <section className="py-20 bg-gray-50">
-            <div className="">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-                        Why People Love Us
-                    </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Discover how PDS's AI automation has helped businesses grow and succeed
-                    </p>
-                </div>
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Header */}
+        <div className="max-w-3xl mb-16">
+          <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 mb-4">Results</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+            What PE operating partners are saying
+          </h2>
+          <p className="text-lg text-gray-500">
+            From first assessment to portfolio-wide deployment — results measured in EBITDA, not vanity metrics.
+          </p>
+        </div>
 
-                <div className="relative max-w-7xl mx-auto px-4">
-                    {/* Top blur gradient */}
-                    <div className="absolute top-0 left-0 right-0 h-24 bg-linear-to-b from-gray-50 to-transparent z-10 pointer-events-none"></div>
-                    
-                    {/* Bottom blur gradient */}
-                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-gray-50 to-transparent z-10 pointer-events-none"></div>
-                    
-                    <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <ScrollingColumn testimonials={testimonialsColumn1} direction="up" />
-                        <ScrollingColumn testimonials={testimonialsColumn2} direction="down" />
-                        <ScrollingColumn testimonials={testimonialsColumn3} direction="up" />
-                    </div>
-
-                    <div className="md:hidden space-y-4">
-                        <ScrollingRow testimonials={testimonialsColumn1} direction="right" />
-                        <ScrollingRow testimonials={testimonialsColumn2} direction="left" />
-                        <ScrollingRow testimonials={testimonialsColumn3} direction="right" />
-                    </div>
-                </div>
-
-                <div className="mt-16 px-4 sm:px-0 relative">
-                    {/* Dot Pattern Background */}
-                    <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.3, zIndex: 0 }}>
-                        <div
-                            className="absolute inset-0"
-                            style={{
-                                backgroundImage:
-                                    "radial-gradient(circle, #d1d5db 1.5px, transparent 1.5px)",
-                                backgroundSize: "20px 20px",
-                                borderRadius: "24px"
-                            }}
-                        ></div>
-                    </div>
-                    <div className="mb-8 relative z-10 max-w-6xl mx-auto">
-                        <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2 tracking-tight" style={{lineHeight:1.15}}>ELEVATE YOUR BUSINESS WITH PDS'S PROVEN IMPACT</h3>
-                        <p className="text-gray-600 text-base md:text-lg max-w-3xl">Join the league of forward-thinking businesses that have experienced a remarkable transformation through PDS's AI automation solutions. Our commitment to innovation and excellence has delivered tangible results that speak for themselves.</p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-10 md:gap-8 lg:gap-12 relative z-10">
-                        <div className="flex flex-col">
-                            <CountUp end={20} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
-                            <span className="text-lg font-semibold text-gray-900 mb-1">REDUCTION IN OPERATIONAL COSTS</span>
-                            <span className="text-gray-500 text-base">Experience substantial savings as AI-driven automation optimizes resource allocation and minimizes wastage.</span>
-                        </div>
-                        <div className="flex flex-col">
-                            <CountUp end={99} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
-                            <span className="text-lg font-semibold text-gray-900 mb-1">CUSTOMER SATISFACTION</span>
-                            <span className="text-gray-500 text-base">Delight your customers with personalized interactions and solutions, leading to heightened satisfaction and loyalty.</span>
-                        </div>
-                        <div className="flex flex-col">
-                            <CountUp end={96} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
-                            <span className="text-lg font-semibold text-gray-900 mb-1">INCREASE IN EFFICIENCY</span>
-                            <span className="text-gray-500 text-base">Say goodbye to manual, time-consuming tasks. PDS's streamlined processes elevate efficiency, allowing you to focus on strategic initiatives.</span>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-10 md:gap-8 lg:gap-12 mt-10 relative z-10">
-                        <div className="flex flex-col">
-                            <CountUp end={44} className="text-[64px] md:text-[80px] font-extrabold text-gray-300 leading-none mb-2" />
-                            <span className="text-lg font-semibold text-gray-900 mb-1">RISE IN REVENUE GENERATION</span>
-                            <span className="text-gray-500 text-base">Unlock new revenue streams with data-driven insights and predictive analytics.</span>
-                        </div>
-                    </div>
-                </div>
+        {/* Testimonials grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          {testimonials.map((t) => (
+            <div key={t.author} className="bg-gray-50 rounded-2xl p-8 border border-gray-100 flex flex-col">
+              <div className="flex gap-1 mb-4">
+                {Array.from({ length: t.rating }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 text-sm leading-relaxed flex-1 mb-6">"{t.quote}"</p>
+              <div>
+                <p className="font-semibold text-gray-900 text-sm">{t.author}</p>
+                <p className="text-xs text-gray-500 mt-0.5">{t.role}</p>
+              </div>
             </div>
-        </section>
-    )
+          ))}
+        </div>
+
+        {/* Impact stats */}
+        <div className="bg-[#0A192F] rounded-2xl p-10 lg:p-14">
+          <p className="text-sm font-semibold uppercase tracking-widest text-blue-400 mb-10">
+            The numbers that matter to your investment committee
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {impactStats.map((stat) => (
+              <div key={stat.label}>
+                <div className="text-5xl lg:text-6xl font-bold text-white mb-2">
+                  <CountUp end={stat.value} suffix={stat.suffix} />
+                </div>
+                <p className="text-white font-semibold mb-1">{stat.label}</p>
+                <p className="text-white/40 text-sm">{stat.sub}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 pt-10 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <div>
+                <p className="text-white font-semibold text-lg">$1.8M annualized EBITDA improvement</p>
+                <p className="text-white/40 text-sm">Delivered at a single portfolio company in under 6 months. At 8.5x exit multiple, that is $15.3M in exit value created.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }

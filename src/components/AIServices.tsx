@@ -3,8 +3,6 @@
 import Link from "next/link"
 import Image from "next/image"
 import { TextReveal } from "./ui/TextReveal"
-import { useRef, useEffect } from "react"
-import gsap from "gsap"
 
 type AIServicesProps = {
     showAll?: boolean
@@ -12,98 +10,79 @@ type AIServicesProps = {
 
 const services = [
     {
-        title: "AI Website Chatbot",
-        description: "Instant replies, lead capture, FAQs — available 24/7 on your site.",
-        tag: "Web Chat",
-        metric: "Response <2.3s",
-        image: "/services/chatbot1.jpg" // Add image URL here
-    },
-    {
-        title: "AI Voice Receptionist",
-        description: "Answers calls, books jobs, qualifies leads, and handles follow-ups.",
+        title: "AI Voice Agent",
+        description: "Replaces answering services. Books jobs, handles emergency triage, and qualifies leads 24/7 — integrated with your dispatch system.",
         tag: "Voice",
-        metric: "Missed calls 0",
-        image: "/services/voice2.png" // Add image URL here
+        metric: "98.4% answer rate",
+        image: "/services/voice2.png"
     },
     {
-        title: "Mini CRM + Lead Tracker",
-        description: "Track leads, notes, follow-ups, tasks, and customer journeys.",
+        title: "AI Lead Qualification",
+        description: "Scores and routes inbound leads instantly. Hot prospects go to sales in seconds. Cold leads enter automated nurture. No more wasted rep time.",
+        tag: "Sales AI",
+        metric: "11-min response",
+        image: "/services/chatbot1.jpg"
+    },
+    {
+        title: "Automated Scheduling Engine",
+        description: "Processes appointment requests from voice, web, and email. Auto-schedules based on technician skills, location, and availability.",
+        tag: "Scheduling",
+        metric: "Zero manual dispatch",
+        image: "/services/step.jpg"
+    },
+    {
+        title: "PE Performance Dashboard",
+        description: "Real-time EBITDA impact reporting for operating partners. Every AI metric tied to a financial outcome — built for investment committee review.",
+        tag: "Reporting",
+        metric: "Live EBITDA view",
+        image: "/services/mini.jpg"
+    },
+    {
+        title: "CRM & Pipeline Automation",
+        description: "Salesforce, HubSpot, GoHighLevel integrations with automated lead scoring, follow-up sequences, and pipeline analytics.",
         tag: "CRM",
-        metric: "Pipeline live",
-        image: "/services/mini.jpg" // Add image URL here
+        metric: "Full pipeline visibility",
+        image: "/services/follow.jpg"
     },
     {
-        title: "AI Ticketing Workflow",
-        description: "Turn conversations into tickets automatically with smart routing.",
+        title: "Multi-Channel Lead Capture",
+        description: "Capture and qualify leads from phone, web, email, and chat into a single pipeline. No lead falls through the cracks.",
+        tag: "Omni-Channel",
+        metric: "6+ channels unified",
+        image: "/services/mc.jpg"
+    },
+    {
+        title: "AI Ticketing & Support Workflow",
+        description: "Turn customer conversations into routed tickets automatically. Reduce CSR workload and improve resolution time across portfolio companies.",
         tag: "Support",
         metric: "Smart routing",
         image: "/services/tick.jpg"
     },
     {
-        title: "Confirmation Email Engine",
-        description: "Automatic confirmation emails after calls, chats, or bookings.",
-        tag: "Email",
-        metric: "Send in 30s",
-        image: "/services/email1.png" // Add image URL here
+        title: "Contract Automation",
+        description: "Generate, send, and store digital contracts automatically after a job is booked or a deal is closed. E-sign ready.",
+        tag: "Docs",
+        metric: "E-sign ready",
+        image: "/services/contract.jpg"
     },
     {
-        title: "Multi-Channel Lead Capture Hub",
-        description: "Capture leads from WhatsApp, Instagram, website, email, and phone.",
-        tag: "Omni-Channel",
-        metric: "6+ channels",
-        image: "/services/mc.jpg" // Add image URL here
+        title: "Review Generation Workflow",
+        description: "Post-service text workflow that routes happy customers to Google reviews and flags unhappy ones for immediate follow-up before they post publicly.",
+        tag: "Reputation",
+        metric: "3.6 → 4.4 stars",
+        image: "/services/bot.jpg"
     },
     {
         title: "Knowledge Base AI",
-        description: "AI trained on your documents for accurate, real-time answers.",
+        description: "AI trained on your portfolio company's documents for accurate, on-brand answers to customer and staff questions.",
         tag: "Docs AI",
         metric: "On-brand answers",
-        image: "/services/aa1.jpg" // Add image URL here
-    },
-    {
-        title: "Contract Automation",
-        description: "Generate, send, and store digital contracts automatically.",
-        tag: "Docs",
-        metric: "E-sign ready",
-        image: "/services/contract.jpg" // Add image URL here
-    },
-    {
-        title: "AI Follow-Up Sequences",
-        description: "Automated follow-up messaging across SMS, email, and chat.",
-        tag: "Sequences",
-        metric: "Hands-free",
-        image: "" // Add image URL here
-    },
-    {
-        title: "Real-Time Qualification Bot",
-        description: "Qualifies leads with AI-driven logic before sending them to your team.",
-        tag: "Qualification",
-        metric: "Hot lead alerts",
-        image: "" // Add image URL here
+        image: "/services/aa1.jpg"
     }
 ]
 
 export default function AIServices({ showAll = false }: AIServicesProps) {
     const visibleServices = showAll ? services : services.slice(0, 6)
-    // const gridRef = useRef<HTMLDivElement>(null)
-
-    // useEffect(() => {
-    //     const ctx = gsap.context(() => {
-    //         gsap.to(".service-card", {
-    //             scrollTrigger: {
-    //                 trigger: gridRef.current,
-    //                 start: "top 80%",
-    //             },
-    //             opacity: 1,
-    //             y: 0,
-    //             duration: 0.8,
-    //             stagger: 0.1,
-    //             ease: "power3.out",
-    //         })
-    //     }, gridRef)
-
-    //     return () => ctx.revert()
-    // }, [])
 
     return (
         <section
@@ -119,10 +98,10 @@ export default function AIServices({ showAll = false }: AIServicesProps) {
                 <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
                     <div className="max-w-2xl space-y-6">
                         <TextReveal as="h2" className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                            Our Powerful AI Solutions
+                            The AI Stack We Deploy Across Your Portfolio
                         </TextReveal>
                         <p className="text-lg text-gray-600">
-                            Launch a concierge-level automation layer with animated chat previews, multilingual playbooks, and instant handoffs. Pick a template, sync your knowledge base, and go live.
+                            Every tool is purpose-built for service-industry portfolio companies. We integrate with your existing tech stack — ServiceTitan, Salesforce, HubSpot, RingCentral — and go live in weeks, not months.
                         </p>
                     </div>
                 </div>
@@ -131,10 +110,10 @@ export default function AIServices({ showAll = false }: AIServicesProps) {
                     {visibleServices.map((service) => (
                         <div
                             key={service.title}
-                            className="service-card group relative overflow-hidden rounded-3xl bg-transparent  shadow-[0_20px_60px_rgba(124,58,237,0.08)]  transition duration-300   hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
+                            className="service-card group relative overflow-hidden rounded-3xl bg-transparent shadow-[0_20px_60px_rgba(124,58,237,0.08)] transition duration-300 hover:shadow-[0_30px_80px_rgba(124,58,237,0.15)]"
                         >
                             <div className="relative rounded-2xl bg-[#f5f3ff]">
-                                <div className="relative h-80 overflow-hidden rounded-xl  shadow-inner">
+                                <div className="relative h-80 overflow-hidden rounded-xl shadow-inner">
                                     {service.image && (
                                         <Image
                                             src={service.image}
@@ -158,8 +137,7 @@ export default function AIServices({ showAll = false }: AIServicesProps) {
                             href="/services"
                             className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-blue-500 to-teal-400 text-white shadow-lg hover:from-blue-600 hover:to-teal-500 transition-all duration-200 px-6 py-3 text-sm font-semibold hover:translate-y-0.5"
                         >
-                            Explore more services
-
+                            Explore all services
                         </Link>
                     </div>
                 )}

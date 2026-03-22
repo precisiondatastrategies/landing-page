@@ -1,160 +1,103 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { CheckCircle, MessageCircle, MapPin, Phone, Mail } from "lucide-react"
-import Image from "next/image"
+import { CheckCircle, MapPin, Phone, Mail } from "lucide-react"
 
 type HighLevelWindow = Window & {
-    HighLevel?: {
-        Forms?: {
-            init?: () => void
-        }
-    }
+  HighLevel?: { Forms?: { init?: () => void } }
 }
 
+const steps = [
+  "We can sign an NDA for complete confidentiality",
+  "Discuss your portfolio company's specific challenges",
+  "Receive a custom AI opportunity overview within 24 hours",
+  "Agree on scope and kick off the AI Readiness Assessment",
+]
+
 export default function Contact() {
-    const [showCalendar, setShowCalendar] = useState(false)
+  const [showCalendar, setShowCalendar] = useState(false)
 
-    // Ensure GHL form script is available before rendering the iframe
-    useEffect(() => {
-        const scriptId = "ghl-form-embed"
-        const existingScript = document.getElementById(scriptId) as HTMLScriptElement | null
+  useEffect(() => {
+    const scriptId = "ghl-form-embed"
+    const existing = document.getElementById(scriptId) as HTMLScriptElement | null
+    if (!existing) {
+      const script = document.createElement("script")
+      script.id = scriptId
+      script.src = "https://link.msgsndr.com/js/form_embed.js"
+      script.async = true
+      script.onload = () => (window as HighLevelWindow).HighLevel?.Forms?.init?.()
+      document.body.appendChild(script)
+    } else {
+      (window as HighLevelWindow).HighLevel?.Forms?.init?.()
+    }
+  }, [])
 
-        if (!existingScript) {
-            const script = document.createElement("script")
-            script.id = scriptId
-            script.src = "https://link.msgsndr.com/js/form_embed.js"
-            script.async = true
-            script.onload = () => {
-                (window as HighLevelWindow).HighLevel?.Forms?.init?.()
-            }
-            document.body.appendChild(script)
-        } else {
-            (window as HighLevelWindow).HighLevel?.Forms?.init?.()
-        }
-    }, [])
+  return (
+    <section id="contact" className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left */}
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 mb-4">Get in Touch</p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+              Ready to see the EBITDA impact across your portfolio?
+            </h2>
+            <p className="text-lg text-gray-500 leading-relaxed mb-10">
+              Start with a conversation. Tell us about your portfolio, your timeline, and your exit targets. We will show you exactly where the AI opportunities are and what they are worth.
+            </p>
 
-    return (
-        <section className="section-padding bg-[#FFFFFFFF] relative overflow-hidden">
-            {/* Dot Pattern Background */}
-            <div className="absolute inset-0 opacity-5">
-                <div className="absolute inset-0" style={{
-                    backgroundImage: 'radial-gradient(circle at 2px 2px, #3B82F6 1px, transparent 0)',
-                    backgroundSize: '32px 32px'
-                }}></div>
-            </div>
-
-            <div className="sm:max-w-7xl mx-auto relative z-10">
-                <div className="grid lg:grid-cols-5 items-center">
-                    {/* Left Column */}
-                    <div className="space-y-8 lg:col-span-2 md:pl-10">
-                        <div>
-                            <p className="text-blue-600 font-semibold mb-4">Contact Us</p>
-                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                                This is what will happen, after you{" "}
-                                <span className="bg-linear-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">submit form</span>
-                            </h2>
-                        </div>
-
-                        {/* Benefits List */}
-                        <div className="space-y-4">
-                            <div className="flex items-start gap-3">
-                                <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
-                                <p className="text-gray-700">
-                                    We can <span className="font-semibold">sign NDA</span> for complete secrecy
-                                </p>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
-                                <p className="text-gray-700">
-                                    Discuss your <span className="font-semibold">project details</span>
-                                </p>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
-                                <p className="text-gray-700">
-                                    PDS experts <span className="font-semibold">contact you within 24h</span>
-                                </p>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
-                                <p className="text-gray-700">
-                                    Submit a <span className="font-semibold">comprehensive project proposal</span> with estimates, timelines, team composition, etc
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Consultation Card
-                        <div className="max-w-lg">
-                            {!showCalendar ? (
-                                <div className="bg-linear-to-br from-blue-600 to-blue-700 rounded-3xl p-8 text-white shadow-xl max-w-md">
-                                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6 ">
-                                        <MessageCircle className="w-6 h-6 text-white" />
-                                    </div>
-
-                                    <h3 className="text-2xl font-bold mb-3">
-                                        Need a custom consultation? Ask me!
-                                    </h3>
-                                    <p className="text-blue-100 mb-6">
-                                        PDS has a team of experts that ready to start your project. Ask me!
-                                    </p>
-
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className="w-12 h-12 rounded-full bg-white overflow-hidden">
-                                            <Image src="/ronald.jpg" alt="Ronald Parent" width={48} height={48} />
-                                        </div>
-                                        <div>
-                                            <p className="font-semibold">Ronald Parent</p>
-                                            <p className="text-sm text-blue-100">CEO</p>
-                                        </div>
-                                    </div>
-
-                                    <button
-                                        onClick={() => setShowCalendar(true)}
-                                        className="w-full bg-white text-blue-600 font-semibold py-3 px-6 rounded-xl hover:bg-blue-50 transition-colors"
-                                    >
-                                        Schedule a call
-                                    </button>
-                                </div>
-                            ) : (
-                                <div className="w-full bg-white rounded-xl overflow-hidden" style={{ minHeight: "700px" }}>
-                                    <iframe
-                                        src="https://api.leadconnectorhq.com/widget/booking/zGOl6MishBHEkjPRUkmp"
-                                        style={{ width: "100%", height: "700px", border: "none" }}
-                                        scrolling="yes"
-                                        id="zGOl6MishBHEkjPRUkmp_1766107105322"
-                                        title="Schedule a call"
-                                    />
-                                </div>
-                            )}
-                        </div> */}
-                    </div>
-
-                    {/* Right Column - Contact Form */}
-                    <div className="lg:col-span-3">
-                        <div className="rounded-2xl overflow-hidden" style={{ minHeight: "502px" }}>
-                            <iframe
-                                src="https://links.precisiondatastrategies.com/widget/form/YlUfjXQoR2QqxQfaK3g6"
-                                style={{width:'100%',height:'100%',border:'none',borderRadius:'15px'}}
-                                id="inline-YlUfjXQoR2QqxQfaK3g6"
-                                data-layout="{'id':'INLINE'}"
-                                data-trigger-type="alwaysShow"
-                                data-trigger-value=""
-                                data-activation-type="alwaysActivated"
-                                data-activation-value=""
-                                data-deactivation-type="neverDeactivate"
-                                data-deactivation-value=""
-                                data-form-name="website contact form"
-                                data-height="569"
-                                data-layout-iframe-id="inline-YlUfjXQoR2QqxQfaK3g6"
-                                data-form-id="YlUfjXQoR2QqxQfaK3g6"
-                                title="website contact form"
-                            >
-                            </iframe>
-                        </div>
-                    </div>
+            <div className="space-y-4 mb-10">
+              {steps.map((step, i) => (
+                <div key={i} className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle className="w-3.5 h-3.5 text-blue-600" />
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">{step}</p>
                 </div>
+              ))}
             </div>
-        </section>
-    )
+
+            <div className="space-y-4 pt-8 border-t border-gray-100">
+              <div className="flex items-start gap-3 text-gray-500">
+                <MapPin className="w-4 h-4 mt-1 shrink-0 text-gray-400" />
+                <span className="text-sm">8605 Santa Monica Blvd #724006, West Hollywood, CA 90069</span>
+              </div>
+              <a href="tel:+14247223282" className="flex items-center gap-3 text-gray-500 hover:text-blue-600 transition-colors">
+                <Phone className="w-4 h-4 shrink-0 text-gray-400" />
+                <span className="text-sm">(424) 722-3282</span>
+              </a>
+              <a href="mailto:info@precisiondatastrategies.com" className="flex items-center gap-3 text-gray-500 hover:text-blue-600 transition-colors">
+                <Mail className="w-4 h-4 shrink-0 text-gray-400" />
+                <span className="text-sm">info@precisiondatastrategies.com</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Right — form */}
+          <div>
+            <div style={{ overflow: "hidden", margin: "0 -20px" }}>
+            <iframe
+              src="https://links.precisiondatastrategies.com/widget/form/YlUfjXQoR2QqxQfaK3g6"
+              style={{ width: "calc(100% + 40px)", height: "569px", border: "none", borderRadius: "0px" }}
+              id="inline-YlUfjXQoR2QqxQfaK3g6"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="website contact form"
+              data-height="569"
+              data-layout-iframe-id="inline-YlUfjXQoR2QqxQfaK3g6"
+              data-form-id="YlUfjXQoR2QqxQfaK3g6"
+              title="website contact form"
+            />
+            </div>
+            <script src="https://links.precisiondatastrategies.com/js/form_embed.js" />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }

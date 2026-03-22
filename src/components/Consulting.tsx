@@ -21,7 +21,7 @@ export default function Consulting() {
                             as="h2"
                             className="text-4xl md:text-5xl font-bold text-gray-900 leading-[1.15]"
                         >
-                            AI Consulting Built To Ship Fast & Stay Accountable
+                            The Implementation Partner Your Operating Team Has Been Looking For
                         </TextReveal>
 
                         <motion.p
@@ -31,7 +31,7 @@ export default function Consulting() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="text-lg text-gray-600 leading-relaxed max-w-xl"
                         >
-                            We partner with your execs, ops, and engineering to move from idea to controlled rollout without burning trust. Every engagement ships a playbook, ownership model, and live automation in your stack.
+                            The Big 4 do strategy. We do the build. Fixed fees, fast timelines, and every deliverable formatted for your investment committee. One relationship that scales across your entire portfolio.
                         </motion.p>
 
                         <motion.div

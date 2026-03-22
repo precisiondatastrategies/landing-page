@@ -1,19 +1,45 @@
 "use client"
 
-// Add TypeScript declaration for Calendly on window
-declare global {
-  interface Window {
-    Calendly?: any;
-  }
-}
-
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import Image from "next/image"
-import { TextReveal } from "./ui/TextReveal"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { BookingModal } from "./BookingModal"
 
-const Hero = () => {
+const slides = [
+  {
+    id: 1,
+    headline: (
+      <>
+        AI that moves <br /> your multiple
+      </>
+    ),
+    subheadline: "We deploy AI across PE portfolio companies and measure everything in EBITDA — not technology vanity metrics.",
+    videoUrl: "/videos/h2.mp4",
+  },
+  {
+    id: 2,
+    headline: (
+      <>
+        From assessment <br /> to exit value
+      </>
+    ),
+    subheadline: "$110K engagement. $15.3M added to exit valuation. That is the math that makes operating partners pick up the phone.",
+    videoUrl: "/videos/h3.mp4",
+  },
+  // {
+  //   id: 3,
+  //   headline: (
+  //     <>
+  //       One firm. <br /> Entire portfolio.
+  //     </>
+  //   ),
+  //   subheadline: "Land one PE firm, deploy across every portfolio company. The portfolio multiplier is real — and it compounds fast.",
+  //   videoUrl: "https://cdn.pixabay.com/video/2020/01/21/31422-386008544_large.mp4",
+  // }
+]
+
+export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0)
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleExpand = useCallback(() => {
@@ -33,69 +59,94 @@ const Hero = () => {
     }
   }, [handleExpand])
 
-  // Supabase client (moved to BookingModal, but if needed elsewhere keep it. Hero doesn't seem to use it elsewhere)
-  // Converting inline logic to BookingModal usage
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+  }
+
+  // Auto-advance slides
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide()
+    }, 100000)
+    return () => clearInterval(timer)
+  }, [])
 
   return (
-    <>
-      <div className="flex min-h-screen flex-col items-center justify-start lg:justify-center px-4 pt-24 pb-12 sm:py-32 lg:py-20 overflow-x-hidden">
+    <div className="relative w-full h-screen overflow-hidden bg-black text-white">
+      {/* Video Backgrounds */}
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={currentSlide}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0 z-0"
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            src={slides[currentSlide].videoUrl}
+          />
+          {/* Overlays to make text pop */}
+          <div className="absolute inset-0 bg-black/40" />
+          {/* <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" /> */}
+        </motion.div>
+      </AnimatePresence>
 
-        <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 items-center sm:gap-12 lg:gap-6 sm:px-10 lg:px-20">
-          <div className="flex flex-col items-center lg:items-start gap-6 text-center lg:text-left mt-5">
-            <TextReveal as="h2" className="text-2xl sm:text-4xl md:text-5xl font-normal tracking-[-0.03em] text-[#071A31] mix-blend-exclusion">
-              AI Automation for Every Conversation, Every Lead, Every Workflow.
-            </TextReveal>
-
-            <TextReveal as="p" className="text-sm sm:text-lg md:text-xl leading-[160%] text-black/80 max-w-2xl" delay={0.2}>
-              Turn calls, chats, emails, forms, and follow-ups into fully automated workflows powered by human-like AI voice agents, smart chatbots, and your central automation dashboard.
-            </TextReveal>
-
-            <AnimatePresence initial={false}>
-              {!isExpanded && (
-                <motion.div className="inline-block relative">
-                  <motion.div
-                    style={{
-                      borderRadius: "100px",
-                    }}
-                    layout
-                    layoutId="cta-card"
-                    className="absolute inset-0 font-semibold bg-linear-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500 items-center justify-center transform-gpu will-change-transform"
-                  ></motion.div>
-                  <motion.button
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.2 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    layout={false}
-                    onClick={handleExpand}
-                    className="h-15 px-8 py-3 text-xl font-regular text-[#E3E3E3] tracking-[-0.01em] relative"
-                  >
-                    Request a demo
-                  </motion.button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          <motion.div
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative w-full lg:w-[700px] h-[340px] sm:h-[520px] lg:h-[500px] flex items-center justify-center"
-          >
-
-            <Image
-              src="/industries/am.jpg"
-              alt="Workflow Automation Dashboard"
-              fill
-              className="object-contain"
-              priority
-              quality={100}
-              sizes="(min-width: 1024px) 700px, 100vw"
-            />
-
-          </motion.div>
+      {/* Content */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-center px-6 sm:px-12 lg:px-24">
+        <div className="max-w-4xl mt-20">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.1] mb-6 text-white! drop-shadow-2xl">
+                {slides[currentSlide].headline}
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl text-white! font-light max-w-2xl mb-10 leading-relaxed drop-shadow-lg">
+                {slides[currentSlide].subheadline}
+              </p>
+              
+              <button
+                onClick={handleExpand}
+                className="bg-white text-black hover:bg-gray-100 transition-colors px-10 py-4 text-sm font-semibold tracking-widest uppercase"
+              >
+                Request a Demo
+              </button>
+            </motion.div>
+          </AnimatePresence>
         </div>
+      </div>
+
+      {/* Carousel Controls */}
+      <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-4 sm:px-8 z-20 pointer-events-none">
+        <button
+          onClick={prevSlide}
+          className="pointer-events-auto p-2 text-white/50 hover:text-white transition-colors"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-10 h-10 sm:w-16 sm:h-16 font-light" strokeWidth={1} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="pointer-events-auto p-2 text-white/50 hover:text-white transition-colors"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-10 h-10 sm:w-16 sm:h-16 font-light" strokeWidth={1} />
+        </button>
       </div>
 
       <BookingModal
@@ -103,8 +154,6 @@ const Hero = () => {
         onClose={handleClose}
         layoutId="cta-card"
       />
-    </>
+    </div>
   )
 }
-
-export default Hero;

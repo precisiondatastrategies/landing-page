@@ -1,135 +1,140 @@
 "use client"
 
-import { Check } from "lucide-react"
+import { Check, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
-const pricingTiers = [
-    {
-        name: "Starter",
-        price: "$299",
-        period: "/month",
-        description: "Perfect for small businesses getting started with automation",
-        features: [
-            "AI website chatbot",
-            "Basic workflows (up to 5)",
-            "Email automation",
-            "Lead capture forms",
-            "Basic analytics",
-            "Email support"
-        ],
-        popular: false
-    },
-    {
-        name: "Professional",
-        price: "$499",
-        period: "/month",
-        description: "For growing businesses ready to scale with AI",
-        features: [
-            "AI Voice Agent + Chatbot",
-            "Advanced workflows (unlimited)",
-            "Mini CRM + Lead Tracker",
-            "Appointment scheduling",
-            "Contract automation",
-            "Advanced analytics",
-            "Priority support",
-            "Custom integrations"
-        ],
-        popular: true
-    },
-    {
-        name: "Enterprise",
-        price: "Custom",
-        period: "",
-        description: "Full automation suite with dedicated support",
-        features: [
-            "Everything in Professional",
-            "Custom AI agent training",
-            "Dedicated account manager",
-            "Custom workflow development",
-            "White-label options",
-            "SLA guarantee",
-            "24/7 phone support",
-            "Consulting hours included"
-        ],
-        popular: false
-    }
+const tiers = [
+  {
+    name: "AI Readiness Assessment",
+    price: "$15K – $25K",
+    timeline: "3 weeks",
+    description:
+      "The door-opener. Audit one portfolio company, identify every AI opportunity, and deliver a 90-day roadmap with projected EBITDA impact. Formatted for your investment committee.",
+    features: [
+      "3-week operational audit",
+      "Call recording & revenue leak analysis",
+      "CSR workflow & labor cost review",
+      "Sales pipeline efficiency assessment",
+      "Prioritized AI opportunity matrix",
+      "Investment committee-ready report",
+      "90-day implementation roadmap",
+    ],
+    cta: "Start with an Assessment",
+    href: "/contact",
+    highlight: false,
+  },
+  {
+    name: "AI Implementation Sprint",
+    price: "$50K – $150K",
+    timeline: "8–12 weeks",
+    description:
+      "Deploy voice agents, scheduling automation, lead qualification, and CRM integrations. Fixed project fee. No scope creep. A working AI system in your portfolio company's stack.",
+    features: [
+      "AI voice agent across all locations",
+      "Automated scheduling & dispatch",
+      "AI lead scoring & routing",
+      "CRM integration & pipeline automation",
+      "Review generation workflow",
+      "PE performance dashboard",
+      "Fixed fee — no hourly billing",
+    ],
+    cta: "Book a Discovery Call",
+    href: "/contact",
+    highlight: true,
+  },
+  {
+    name: "Managed AI Operations",
+    price: "$5K – $15K/mo",
+    timeline: "Ongoing",
+    description:
+      "Ongoing monitoring, optimization, and reporting across your portfolio companies. Monthly EBITDA impact reporting for your operating partner and investment committee.",
+    features: [
+      "AI system monitoring & tuning",
+      "Monthly EBITDA impact reporting",
+      "Quarterly strategy reviews",
+      "Voice agent retraining & optimization",
+      "New use case identification",
+      "Portfolio-wide benchmarking",
+      "Direct operating partner access",
+    ],
+    cta: "Talk to Our Team",
+    href: "/contact",
+    highlight: false,
+  },
 ]
 
 export default function Pricing() {
-    return (
-        <section id="pricing" className="section-padding bg-gray-50">
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                        Simple, Transparent Pricing
-                    </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Choose the setup that fits your business. No hidden fees.
-                    </p>
-                </div>
+  return (
+    <section id="pricing" className="py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-3xl mb-16">
+          <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 mb-4">Engagement Model</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+            PE-grade pricing. No retainers. No surprises.
+          </h2>
+          <p className="text-lg text-gray-500">
+            Three engagement tiers designed for the PE buying process. Start with an assessment, convert to implementation, scale across the portfolio.
+          </p>
+        </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {pricingTiers.map((tier, index) => (
-                        <div
-                            key={tier.name}
-                            className={`relative bg-white rounded-2xl p-8 flex flex-col h-full ${tier.popular
-                                ? "border-2 border-teal-400 shadow-xl"
-                                : "border border-gray-200 shadow-md"
-                                }`}
-                        >
-                            {/* Popular Badge */}
-                            {tier.popular && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                                    <div className="bg-linear-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500 px-4 py-1 rounded-full text-sm font-semibold">
-                                        Most Popular
-                                    </div>
-                                </div>
-                            )}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+          {tiers.map((tier) => (
+            <div
+              key={tier.name}
+              className={`rounded-2xl p-8 flex flex-col ${
+                tier.highlight
+                  ? "bg-[#0A192F] border border-blue-500/30 shadow-2xl"
+                  : "bg-white border border-gray-100 shadow-sm"
+              }`}
+            >
+              {tier.highlight && (
+                <span className="inline-block bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-6 self-start">
+                  Core Engagement
+                </span>
+              )}
 
-                            {/* Tier Name */}
-                            <div className="mb-6">
-                                <h3 className="text-2xl font-bold text-gray-900 mb-2">{tier.name}</h3>
-                                <p className="text-sm text-gray-600">{tier.description}</p>
-                            </div>
+              <h3 className={`text-xl font-bold mb-2 ${tier.highlight ? "text-white" : "text-gray-900"}`}>
+                {tier.name}
+              </h3>
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className={`text-3xl font-bold ${tier.highlight ? "text-white" : "text-gray-900"}`}>
+                  {tier.price}
+                </span>
+              </div>
+              <span className={`text-sm mb-4 ${tier.highlight ? "text-blue-300" : "text-gray-400"}`}>
+                {tier.timeline}
+              </span>
+              <p className={`text-sm leading-relaxed mb-8 ${tier.highlight ? "text-white/60" : "text-gray-500"}`}>
+                {tier.description}
+              </p>
 
-                            {/* Price */}
-                            <div className="mb-8">
-                                <div className="flex items-baseline gap-1">
-                                    <span className="text-5xl font-bold text-gray-900">
-                                        {tier.price}
-                                    </span>
-                                    {tier.period && (
-                                        <span className="text-gray-500 text-lg">{tier.period}</span>
-                                    )}
-                                </div>
-                            </div>
+              <ul className="space-y-3 mb-8 flex-1">
+                {tier.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <Check className={`w-4 h-4 mt-0.5 shrink-0 ${tier.highlight ? "text-blue-400" : "text-green-500"}`} />
+                    <span className={`text-sm ${tier.highlight ? "text-white/70" : "text-gray-600"}`}>{f}</span>
+                  </li>
+                ))}
+              </ul>
 
-                            {/* Features */}
-                            <ul className="space-y-4 mb-8">
-                                {tier.features.map((feature, i) => (
-                                    <li key={i} className="flex items-start gap-3">
-                                        <div className="shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                                            <Check className="w-3 h-3 text-green-600" />
-                                        </div>
-                                        <span className="text-gray-700 text-sm leading-relaxed">{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-
-                            {/* CTA Button */}
-                            <Link
-                                href="/contact"
-                                className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 mt-auto text-center block ${tier.popular
-                                    ? "bg-linear-to-r from-blue-500 to-teal-400 text-white hover:from-blue-600 hover:to-teal-500 shadow-md hover:shadow-lg"
-                                    : "bg-gray-100 text-gray-900 hover:bg-gray-200"
-                                    }`}
-                            >
-                                {tier.name === "Enterprise" ? "Contact Sales" : "Get Started"}
-                            </Link>
-                        </div>
-                    ))}
-                </div>
+              <Link
+                href={tier.href}
+                className={`inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-all ${
+                  tier.highlight
+                    ? "bg-blue-600 hover:bg-blue-500 text-white"
+                    : "bg-gray-900 hover:bg-gray-800 text-white"
+                }`}
+              >
+                {tier.cta} <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-        </section>
-    )
+          ))}
+        </div>
+
+        <p className="text-center text-sm text-gray-400">
+          One mid-market PE firm with 20 portfolio companies represents $1M–$3M in implementation work. The math compounds fast.
+        </p>
+      </div>
+    </section>
+  )
 }
