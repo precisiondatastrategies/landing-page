@@ -19,7 +19,7 @@ const nav = {
     { name: "About Us", href: "/about-us" },
     { name: "Private Equity", href: "/private-equity" },
     { name: "Consulting", href: "/consulting" },
-    { name: "Case Studies", href: "/case-studies/greenline-mechanical" },
+    { name: "Case Studies", href: "/case-studies" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ],

@@ -94,7 +94,7 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
                             >
                                 <div className="lg:w-2/5 flex flex-col justify-center space-y-3 w-full">
                                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white leading-none tracking-[-0.03em]">
-                                        Talk to sales
+                                        Talk to an Expert
                                     </h2>
                                     <div className="space-y-4 sm:space-y-6 pt-4">
                                         <div className="flex gap-3 sm:gap-4">
@@ -102,7 +102,7 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
                                                 <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                                             </div>
                                             <div>
-                                                <p className="text-sm sm:text-base text-white leading-[150%]">Learn how Acme can transform your business with tailored solutions and flexible pricing options.</p>
+                                                <p className="text-sm sm:text-base text-white leading-[150%]">Start with a $15K AI Readiness Assessment — a 3-week deep audit with a prioritized EBITDA impact roadmap, formatted for your investment committee.</p>
                                             </div>
                                         </div>
                                         <div className="flex gap-3 sm:gap-4">
@@ -110,12 +110,12 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
                                                 <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                                             </div>
                                             <div>
-                                                <p className="text-sm sm:text-base text-white leading-[150%]">Experience firsthand how Acme Platform accelerates delivery &amp; drives results.</p>
+                                                <p className="text-sm sm:text-base text-white leading-[150%]">PDS deploys AI voice agents, scheduling automation, and lead qualification systems that move the EBITDA number — not just the tech stack.</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-white/20">
-                                        <p className="text-lg sm:text-xl lg:text-2xl text-white leading-[150%] mb-4">Acme empowers our team to move faster and ship products with confidence.</p>
+                                        <p className="text-lg sm:text-xl lg:text-2xl text-white leading-[150%] mb-4">"PDS delivered a working voice agent in 4 weeks at a fraction of what the Big 4 quoted. Every month saved is a month of additional value creation before exit."</p>
                                     </div>
                                 </div>
                                 <div className="lg:w-3/5 w-full h-[570px]">

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { Menu, X, ChevronDown, Phone, Zap, Calendar, BarChart2, LayoutDashboard, Workflow } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const servicesDropdown = [
     { name: "AI Voice Agent", desc: "24/7 call handling & booking", href: "/services#voice", icon: Phone },
@@ -17,6 +18,7 @@ const servicesDropdown = [
 const primaryLinks = [
     { name: "Services", href: "/services", hasDropdown: true },
     { name: "Private Equity", href: "/private-equity", hasDropdown: false },
+    { name: "Case Studies", href: "/case-studies", hasDropdown: false },
     { name: "Consulting", href: "/consulting", hasDropdown: false },
     { name: "About Us", href: "/about-us", hasDropdown: false },
     { name: "Blog", href: "/blog", hasDropdown: false },
@@ -26,11 +28,16 @@ const secondaryLinks = [
     { name: "Blog", href: "/blog" },
 ]
 
+// Pages where the hero/top section has a light background — logo must be dark (visible)
+const lightHeroPaths = ["/services", "/about-us", "/privacy-policy", "/cookie-policy", "/terms-of-service", "/contact", "/consulting", "/blog", "/case-studies"]
+const isLightPage = (path: string) => lightHeroPaths.some(p => path === p || path.startsWith(p + "/"))
+
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
     const [servicesOpen, setServicesOpen] = useState(false)
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const pathname = usePathname()
 
     useEffect(() => {
         if (typeof window === "undefined") return
@@ -53,7 +60,9 @@ export default function Navbar() {
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
                 scrolled
                     ? "bg-[#0A192F]/95 backdrop-blur-md border-white/10"
-                    : "bg-transparent border-white/10"
+                    : isLightPage(pathname)
+                        ? "bg-white/95 backdrop-blur-md border-gray-200"
+                        : "bg-transparent border-white/10"
             }`}
         >
             <div className="w-full flex items-center justify-between h-20 px-6 sm:px-12 lg:px-24">
@@ -66,7 +75,11 @@ export default function Navbar() {
                             height={50}
                             src="/pds-logo.png"
                             alt="Precision Data Strategies Logo"
-                            className="w-auto h-10 object-contain brightness-0 invert"
+                            className={`w-auto h-10 object-contain transition-all duration-300 ${
+                                !scrolled && isLightPage(pathname)
+                                    ? "brightness-0" // dark logo on light background
+                                    : "brightness-0 invert" // white logo on dark background
+                            }`}
                             priority
                         />
                     </Link>
@@ -83,7 +96,11 @@ export default function Navbar() {
                                 >
                                     <Link
                                         href={link.href}
-                                        className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
+                                        className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
+                                            !scrolled && isLightPage(pathname)
+                                                ? "text-gray-700 hover:text-gray-900"
+                                                : "text-white/80 hover:text-white"
+                                        }`}
                                     >
                                         {link.name}
                                         <ChevronDown
@@ -138,7 +155,11 @@ export default function Navbar() {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
+                                    className={`px-4 py-2 text-sm font-medium transition-colors ${
+                                        !scrolled && isLightPage(pathname)
+                                            ? "text-gray-700 hover:text-gray-900"
+                                            : "text-white/80 hover:text-white"
+                                    }`}
                                 >
                                     {link.name}
                                 </Link>
@@ -151,7 +172,11 @@ export default function Navbar() {
                 <div className="hidden lg:flex items-center mt-1">
                     <Link
                         href="/contact"
-                        className="px-5 py-3 rounded-full text-sm font-semibold bg-white text-black transition-colors"
+                        className={`px-5 py-3 rounded-full text-sm font-semibold transition-colors ${
+                            !scrolled && isLightPage(pathname)
+                                ? "bg-gray-900 text-white hover:bg-gray-700"
+                                : "bg-white text-black hover:bg-gray-100"
+                        }`}
                     >
                         Talk to an Expert
                     </Link>
@@ -160,7 +185,11 @@ export default function Navbar() {
                 {/* Mobile Toggle */}
                 <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="lg:hidden p-2 text-white/80 hover:text-white"
+                    className={`lg:hidden p-2 transition-colors ${
+                        !scrolled && isLightPage(pathname)
+                            ? "text-gray-700 hover:text-gray-900"
+                            : "text-white/80 hover:text-white"
+                    }`}
                     aria-label="Toggle menu"
                 >
                     {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

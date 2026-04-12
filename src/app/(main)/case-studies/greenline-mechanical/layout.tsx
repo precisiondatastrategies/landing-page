@@ -1,14 +1,10 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Greenline Mechanical Case Study | Precision Data',
-    description: 'How AI Deployment Across a PE Portfolio Company Drove $1.8M in Annual EBITDA Improvement in Under 6 Months.',
+    title: 'AI Deployment Case Study: $1.8M EBITDA in 6 Months | Precision Data Strategies',
+    description: 'Illustrative example: How PDS deployed AI across a $48M PE-backed HVAC platform — adding $1.78M in annualized EBITDA and $15.3M to the projected exit valuation.',
 };
 
-export default function CaseStudyLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+export default function CaseStudyLayout({ children }: { children: React.ReactNode }) {
     return children;
 }

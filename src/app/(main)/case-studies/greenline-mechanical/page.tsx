@@ -2,183 +2,430 @@
 
 import FinalCTA from "@/components/FinalCTA"
 import { motion } from "framer-motion"
-import { ArrowRight, CheckCircle2, TrendingUp, Clock, Phone, Building2, Users } from "lucide-react"
+import { ArrowLeft, Phone, Clock, Users, Building2, Zap, BarChart3, AlertTriangle, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 
-const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.6 }
-}
+const topMetrics = [
+    { label: "Annual EBITDA Added", value: "$1.78M", sub: "annualized at 6 months" },
+    { label: "Lead Response Time", value: "11 min", sub: "down from 4.2 days" },
+    { label: "After-Hours Booking", value: "71%", sub: "up from 31%" },
+    { label: "Exit Value Created", value: "$15.3M", sub: "at 8.5x exit multiple" },
+]
+
+const results = [
+    { metric: "Inbound call answer rate", before: "72%", after: "98.4%", delta: "+26.4%" },
+    { metric: "After-hours booking rate", before: "31%", after: "71%", delta: "+129%" },
+    { metric: "Monthly AI-booked revenue", before: "$0 tracked", after: "$127K/mo", delta: "+$127K/mo" },
+    { metric: "Avg. commercial lead response", before: "4.2 days", after: "11 minutes", delta: "−99.8%" },
+    { metric: "Sales qualified lead ratio", before: "45%", after: "78%", delta: "+73%" },
+    { metric: "Answering service cost", before: "$24K/year", after: "$0", delta: "−100%" },
+    { metric: "CSR admin labor", before: "$135K/year", after: "$45K/year", delta: "−$90K/yr" },
+    { metric: "Google review average", before: "3.6 stars", after: "4.4 stars", delta: "+0.8" },
+]
 
 export default function GreenlineCaseStudyPage() {
     return (
-        <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-100">
-            {/* Hero Section */}
-            <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-24 bg-[#0A192F] overflow-hidden">
-                <div className="absolute inset-0 bg-linear-to-r from-[#0A192F] via-[#0A192F]/90 to-transparent" />
-                
-                <div className="container mx-auto px-4 relative z-10 max-w-5xl">
-                    <div className="space-y-6">
-                        <Link href="/private-equity" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium mb-4">
-                            &larr; Back to Private Equity
+        <div className="min-h-screen bg-white text-gray-900 font-sans">
+
+            {/* Disclaimer */}
+            <div className="bg-amber-50 border-b border-amber-100 py-3 px-6 text-center">
+                <span className="inline-flex items-center justify-center gap-2 text-amber-700 text-sm">
+                    <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                    <span><strong>Illustrative Example:</strong> Company name and figures are fictional — projected outcomes based on PDS methodology, not an actual client engagement.</span>
+                </span>
+            </div>
+
+            {/* Hero */}
+            <section className="pt-24 pb-20 border-b border-gray-100">
+                <div className="max-w-5xl mx-auto px-6 lg:px-8">
+                    <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+                        <Link href="/case-studies" className="inline-flex items-center gap-2 text-gray-400 hover:text-gray-700 transition-colors text-sm mb-10">
+                            <ArrowLeft className="w-4 h-4" /> All Case Studies
                         </Link>
-                        
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-sm font-medium">
-                            Case Study
+                    </motion.div>
+
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }}>
+                        <div className="flex flex-wrap items-center gap-3 mb-6">
+                            <span className="px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold">Illustrative Example</span>
+                            <span className="text-gray-400 text-sm">Commercial HVAC &amp; Plumbing</span>
+                            <span className="text-gray-200">·</span>
+                            <span className="text-gray-400 text-sm">Ridgecrest Capital Partners</span>
                         </div>
-                        
-                        <h1 className="text-4xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-white mb-6">
-                            How AI Deployment Drove <br className="hidden md:block"/>
-                            <span className="text-blue-400">$1.8M in Annual EBITDA</span> in 6 Months.
+
+                        <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6 max-w-3xl">
+                            How AI Deployment Drove{" "}
+                            <span className="text-blue-600">$1.8M in EBITDA</span>{" "}
+                            in 6 Months.
                         </h1>
-                        
-                        <p className="text-xl text-gray-300 max-w-2xl leading-relaxed">
-                            A mid-market private equity firm leveraged PDS to overhaul call handling and scheduling for a $48M commercial HVAC portfolio company, directly adding ~$15M to their targeted exit valuation.
+
+                        <p className="text-xl text-gray-500 max-w-2xl leading-relaxed mb-8">
+                            A mid-market PE firm deployed PDS across a $48M commercial HVAC platform. 12 weeks of implementation. $110K total cost. $15.3M added to the projected exit valuation.
                         </p>
-                    </div>
+
+                        <div className="flex flex-wrap gap-2">
+                            {["AI Voice Agent", "Lead Qualification", "Scheduling Automation", "PE Dashboard", "ServiceTitan", "Salesforce"].map(tag => (
+                                <span key={tag} className="px-3 py-1.5 rounded-full bg-gray-50 border border-gray-200 text-gray-500 text-xs font-medium">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Metrics Bar */}
-            <section className="border-b border-gray-100 bg-white">
-                <div className="container mx-auto px-4 max-w-6xl">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-10">
-                        <div>
-                            <div className="text-sm text-gray-500 mb-1 font-medium">Annual EBITDA Added</div>
-                            <div className="text-3xl font-bold text-gray-900">$1.88M</div>
-                        </div>
-                        <div>
-                            <div className="text-sm text-gray-500 mb-1 font-medium">Response Time</div>
-                            <div className="text-3xl font-bold text-gray-900">11 mins <span className="text-sm font-normal text-green-600 block sm:inline">(from 4.2 days)</span></div>
-                        </div>
-                        <div>
-                            <div className="text-sm text-gray-500 mb-1 font-medium">After-Hours Booking</div>
-                            <div className="text-3xl font-bold text-gray-900">71% <span className="text-sm font-normal text-green-600 block sm:inline">(from 31%)</span></div>
-                        </div>
-                        <div>
-                            <div className="text-sm text-gray-500 mb-1 font-medium">Implementation Time</div>
-                            <div className="text-3xl font-bold text-gray-900">12 Weeks</div>
-                        </div>
+            <section className="border-b border-gray-100 bg-gray-50">
+                <div className="max-w-5xl mx-auto px-6 lg:px-8">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-gray-200">
+                        {topMetrics.map((m, i) => (
+                            <motion.div
+                                key={m.label}
+                                initial={{ opacity: 0, y: 12 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: i * 0.07 }}
+                                className="py-8 px-6 first:pl-0 last:pr-0"
+                            >
+                                <div className="text-3xl font-bold text-gray-900 mb-1">{m.value}</div>
+                                <div className="text-xs text-emerald-600 font-semibold mb-1">{m.sub}</div>
+                                <div className="text-sm text-gray-500">{m.label}</div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* Main Content */}
-            <section className="py-20 lg:py-24">
-                <div className="container mx-auto px-4 max-w-4xl">
-                    
-                    <div className="prose prose-lg prose-blue max-w-none">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge: Bleeding Revenue After Hours</h2>
-                        <p className="text-gray-600 mb-8">
-                            Greenline Mechanical Services, a commercial HVAC and plumbing company with $48M in annual revenue, had grown rapidly through add-on acquisitions under their PE sponsor. However, growth had strained their operational infrastructure.
-                        </p>
-                        
-                        <div className="bg-gray-50 rounded-2xl p-8 mb-12 border border-gray-100">
-                            <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <Phone className="w-5 h-5 text-red-500" /> Operational Bottlenecks
-                            </h3>
-                            <ul className="space-y-3 text-gray-700">
-                                <li className="flex items-start gap-2">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2.5 shrink-0" />
-                                    <span><strong>28% of inbound calls were abandoned</strong>, sent to voicemail, or handled by an ineffective answering service.</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2.5 shrink-0" />
-                                    <span>The after-hours answering service booked appointments <strong>only 31% of the time</strong>.</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2.5 shrink-0" />
-                                    <span>The commercial sales team spent <strong>40% of their time on unqualified leads</strong>.</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2.5 shrink-0" />
-                                    <span>Average lead response time dragged to an unacceptable <strong>4.2 days</strong>.</span>
-                                </li>
-                            </ul>
+            <section className="py-20">
+                <div className="max-w-5xl mx-auto px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-[1fr_280px] gap-16">
+
+                        {/* Article body */}
+                        <div className="space-y-20 min-w-0">
+
+                            {/* The Players */}
+                            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                                <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">The Players</p>
+                                <h2 className="text-3xl font-bold text-gray-900 mb-8">A PE firm. A portfolio company. An 18-month exit window.</h2>
+
+                                <div className="grid md:grid-cols-2 gap-4 mb-6">
+                                    <div className="border border-gray-200 rounded-2xl p-6 bg-white">
+                                        <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">The PE Firm</p>
+                                        <p className="text-base font-bold text-gray-900 mb-2">Ridgecrest Capital Partners</p>
+                                        <p className="text-gray-500 text-sm leading-relaxed">Mid-market PE firm, $2.8B AUM, 14 portfolio companies in Fund III. Hired their first Technology Operating Partner with a $500K annual budget to deploy AI across the portfolio before exits.</p>
+                                    </div>
+                                    <div className="border border-gray-200 rounded-2xl p-6 bg-white">
+                                        <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">The Portfolio Company</p>
+                                        <p className="text-base font-bold text-gray-900 mb-2">Apex Mechanical Services</p>
+                                        <p className="text-gray-500 text-sm leading-relaxed">$48M commercial HVAC &amp; plumbing platform. 8 locations across AZ, NV, NM. 310 employees. Grown from $22M through 3 add-on acquisitions. Target exit: 8–9x EBITDA in 18–24 months.</p>
+                                    </div>
+                                </div>
+
+                                <div className="border border-gray-200 rounded-2xl overflow-hidden">
+                                    <div className="px-6 py-3.5 border-b border-gray-100 bg-gray-50">
+                                        <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">Company Profile</span>
+                                    </div>
+                                    <div className="grid grid-cols-2 md:grid-cols-3 divide-x divide-y divide-gray-100">
+                                        {[
+                                            { label: "Annual Revenue", value: "$48M" },
+                                            { label: "EBITDA", value: "$5.8M (12.1%)" },
+                                            { label: "Employees", value: "310" },
+                                            { label: "Locations", value: "8 branches" },
+                                            { label: "Monthly Inbound Calls", value: "~4,200" },
+                                            { label: "Avg. Ticket Size", value: "$2,800 / $18,500" },
+                                        ].map(item => (
+                                            <div key={item.label} className="px-6 py-4 bg-white">
+                                                <div className="text-xs text-gray-400 mb-1">{item.label}</div>
+                                                <div className="text-gray-900 font-semibold text-sm">{item.value}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* The Problem */}
+                            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                                <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">The Problem</p>
+                                <h2 className="text-3xl font-bold text-gray-900 mb-4">Revenue bleeding through every crack in the operation.</h2>
+                                <p className="text-gray-500 leading-relaxed mb-8">
+                                    Growth through acquisitions had created a patchwork operation. The company was generating $48M in revenue but losing a significant portion to operational gaps no one had bandwidth to fix.
+                                </p>
+
+                                <div className="space-y-3">
+                                    {[
+                                        { icon: Phone, title: "28% of inbound calls abandoned", desc: "Sent to voicemail or an answering service that booked appointments only 31% of the time. ~340 missed new-customer calls per month = $952K in monthly revenue exposure." },
+                                        { icon: Clock, title: "4.2-day average lead response time", desc: "Industry best practice is under 1 hour. A property manager with a 200-unit complex called after hours — by morning they had booked a competitor. Estimated lost revenue: $41,000 from one call." },
+                                        { icon: Users, title: "Sales team wasting 40% of their time", desc: "55% of inbound leads were unqualified — residential callers, out-of-area, tire kickers. The 6-person commercial team was doing manual lead triage instead of closing deals." },
+                                        { icon: Building2, title: "Manual dispatch across 8 locations", desc: "Office managers spending 2–3 hours per day manually scheduling technicians in ServiceTitan. Wrong-skilled techs dispatched to jobs. Scheduling gaps costing billable hours." },
+                                    ].map(item => (
+                                        <div key={item.title} className="flex gap-4 border border-gray-200 rounded-2xl p-5 bg-white hover:border-gray-300 transition-colors">
+                                            <div className="w-9 h-9 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center shrink-0 mt-0.5">
+                                                <item.icon className="w-4 h-4 text-red-500" />
+                                            </div>
+                                            <div>
+                                                <p className="text-gray-900 font-semibold text-sm mb-1">{item.title}</p>
+                                                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.div>
+
+                            {/* Phase 1 */}
+                            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold shrink-0">1</div>
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-blue-600">Phase 1 · 3 Weeks · $15K</p>
+                                </div>
+                                <h2 className="text-3xl font-bold text-gray-900 mb-4">AI Readiness Assessment</h2>
+                                <p className="text-gray-500 leading-relaxed mb-8">
+                                    PDS conducted a deep operational audit — not a technology audit. The goal: find where the business loses money, misses revenue, or wastes labor hours, then map each problem to an AI solution with a projected financial impact.
+                                </p>
+
+                                <div className="space-y-3 mb-8">
+                                    {[
+                                        { week: "Week 1", title: "Discovery & Data Collection", desc: "Transcribed 2 weeks of RingCentral call recordings using Deepgram. Classified 4,218 calls by type. Spent a full day observing CSR workflows at Phoenix HQ. Reviewed 90 days of Salesforce pipeline data." },
+                                        { week: "Week 2", title: "Opportunity Mapping & ROI Modeling", desc: "Built a detailed opportunity matrix mapping each AI use case to a projected financial impact — grounded in actual data, not industry benchmarks. Every number had a confidence rating and complexity score." },
+                                        { week: "Week 3", title: "IC-Ready Deliverable", desc: "Delivered a 32-page AI Readiness Assessment formatted for investment committee review — including sensitivity analysis, implementation risk factors, and a projected aggregate EBITDA impact of $1.4M–$2.1M annually." },
+                                    ].map(item => (
+                                        <div key={item.week} className="flex gap-4">
+                                            <div className="w-16 shrink-0 text-xs font-semibold text-gray-400 pt-4">{item.week}</div>
+                                            <div className="flex-1 border border-gray-200 rounded-2xl p-5 bg-white">
+                                                <p className="text-gray-900 font-semibold text-sm mb-1">{item.title}</p>
+                                                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6">
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-2">The Moment That Closed the Deal</p>
+                                    <p className="text-gray-700 leading-relaxed text-sm">
+                                        During the presentation, Ronald played a recording of one missed after-hours call. A property manager with a 200-unit apartment complex needed emergency HVAC service for 14 units. The answering service told them someone would call back in the morning. By morning, they had booked a competitor.{" "}
+                                        <strong className="text-gray-900">Estimated lost revenue from that single call: $41,000.</strong>{" "}
+                                        David approved the full implementation engagement that afternoon.
+                                    </p>
+                                </div>
+                            </motion.div>
+
+                            {/* Phase 2 */}
+                            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold shrink-0">2</div>
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-blue-600">Phase 2 · 12 Weeks · $95K</p>
+                                </div>
+                                <h2 className="text-3xl font-bold text-gray-900 mb-8">Implementation Sprint</h2>
+
+                                <div className="space-y-4">
+                                    {[
+                                        {
+                                            sprint: "Sprint 1 · Weeks 1–4",
+                                            title: "24/7 AI Voice Agent",
+                                            icon: Phone,
+                                            result: "After-hours booking: 31% → 68% in week 1",
+                                            desc: "Deployed across all 8 locations, integrated with ServiceTitan and RingCentral. The agent handles after-hours calls, overflow during business hours, and first-ring pickup. Books directly into ServiceTitan in real time, handles emergency triage, answers FAQs, and sends automated text confirmations.",
+                                            stack: ["Vapi", "ElevenLabs", "Claude API", "ServiceTitan API", "RingCentral API", "n8n", "GoHighLevel"],
+                                        },
+                                        {
+                                            sprint: "Sprint 2 · Weeks 5–8",
+                                            title: "Scheduling Automation + Lead Qualification",
+                                            icon: Zap,
+                                            result: "Lead response: 4.2 days → 11 minutes",
+                                            desc: "Built an n8n scheduling engine that auto-slots appointments from voice, web, and email into ServiceTitan based on technician skills, location, and availability. Added an AI lead qualification layer to Salesforce — hot leads routed instantly to sales reps with a full dossier. 2 of 3 CSRs redeployed into revenue-generating roles.",
+                                            stack: ["n8n", "Salesforce", "GoHighLevel", "ServiceTitan"],
+                                        },
+                                        {
+                                            sprint: "Sprint 3 · Weeks 9–12",
+                                            title: "PE Performance Dashboard + Optimization",
+                                            icon: BarChart3,
+                                            result: "Escalation rate: 14% → 9% after retraining",
+                                            desc: "Built a real-time dashboard for the operating partner and portfolio CEO showing AI performance tied directly to financial outcomes — not vanity metrics. Every number connects to EBITDA. Added a post-service review workflow routing happy customers to Google reviews and unhappy customers to the Customer Success Coordinator.",
+                                            stack: ["PDS Dashboard", "n8n", "ServiceTitan", "Salesforce"],
+                                        },
+                                    ].map(item => (
+                                        <div key={item.title} className="border border-gray-200 rounded-2xl overflow-hidden bg-white">
+                                            <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-100 bg-gray-50">
+                                                <div className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                                                    <item.icon className="w-4 h-4 text-blue-600" />
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <p className="text-xs text-gray-400 font-medium">{item.sprint}</p>
+                                                    <p className="text-gray-900 font-bold text-sm">{item.title}</p>
+                                                </div>
+                                                <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full hidden md:block shrink-0">
+                                                    {item.result}
+                                                </span>
+                                            </div>
+                                            <div className="px-6 py-5">
+                                                <p className="text-gray-500 text-sm leading-relaxed mb-4">{item.desc}</p>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {item.stack.map(s => (
+                                                        <span key={s} className="px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-200 text-gray-500 text-xs">{s}</span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.div>
+
+                            {/* Results */}
+                            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center text-white text-xs font-bold shrink-0">3</div>
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-emerald-600">Phase 3 · Results at 6 Months</p>
+                                </div>
+                                <h2 className="text-3xl font-bold text-gray-900 mb-8">The numbers David showed the partners.</h2>
+
+                                <div className="border border-gray-200 rounded-2xl overflow-hidden mb-10">
+                                    <table className="w-full text-sm">
+                                        <thead>
+                                            <tr className="border-b border-gray-200 bg-gray-50">
+                                                <th className="text-left px-6 py-4 text-gray-500 font-semibold text-xs uppercase tracking-wider">Metric</th>
+                                                <th className="text-left px-6 py-4 text-gray-500 font-semibold text-xs uppercase tracking-wider">Before</th>
+                                                <th className="text-left px-6 py-4 text-gray-500 font-semibold text-xs uppercase tracking-wider">After</th>
+                                                <th className="text-left px-6 py-4 text-gray-500 font-semibold text-xs uppercase tracking-wider">Impact</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-100">
+                                            {results.map((r, i) => (
+                                                <tr key={r.metric} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                                                    <td className="px-6 py-4 text-gray-700 font-medium">{r.metric}</td>
+                                                    <td className="px-6 py-4 text-gray-400">{r.before}</td>
+                                                    <td className="px-6 py-4 text-gray-900 font-semibold">{r.after}</td>
+                                                    <td className="px-6 py-4 text-emerald-600 font-semibold">{r.delta}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                {/* Exit math */}
+                                <div className="bg-[#0A192F] rounded-3xl p-8 lg:p-10 text-white">
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-6">The Exit Valuation Math</p>
+                                    <div className="grid md:grid-cols-3 gap-6 mb-8">
+                                        <div>
+                                            <p className="text-white/40 text-xs mb-1">EBITDA Before PDS</p>
+                                            <p className="text-3xl font-bold text-white">$5.8M</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-white/40 text-xs mb-1">Projected EBITDA After</p>
+                                            <p className="text-3xl font-bold text-emerald-400">$7.6M</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-white/40 text-xs mb-1">Exit Value Added (8.5x)</p>
+                                            <p className="text-3xl font-bold text-blue-400">+$15.3M</p>
+                                        </div>
+                                    </div>
+                                    <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                                        <div>
+                                            <p className="text-white/40 text-xs mb-1">Total PDS Engagement Cost</p>
+                                            <p className="text-white font-semibold">$110,000 (audit + implementation)</p>
+                                        </div>
+                                        <div className="md:text-right">
+                                            <p className="text-white/40 text-xs mb-1">Return on AI Investment</p>
+                                            <p className="text-4xl font-bold text-emerald-400">139x</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* What Happened Next */}
+                            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                                <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">What Happened Next</p>
+                                <h2 className="text-3xl font-bold text-gray-900 mb-8">One portfolio company became the entire fund.</h2>
+
+                                <div className="space-y-3 mb-10">
+                                    {[
+                                        { month: "Month 4", event: "David presented results at the Ridgecrest quarterly portfolio review. Partners asked one question: 'Which portfolio companies are next?'" },
+                                        { month: "Month 5", event: "PDS signed a Master Services Agreement with Ridgecrest covering the entire Fund III portfolio — 6 additional AI Readiness Assessments authorized immediately." },
+                                        { month: "Month 6", event: "Assessments began at 3 more portfolio companies: regional pest control (12 locations), commercial cleaning (18 locations), dental DSO (9 practices). All 3 converted to full implementations." },
+                                        { month: "Month 8", event: "David mentioned PDS by name at a PE Operating Partners Forum. Two operating partners from different PE firms approached Ronald after the panel. Both requested intro calls." },
+                                    ].map(item => (
+                                        <div key={item.month} className="flex gap-4">
+                                            <div className="w-20 shrink-0 text-xs font-semibold text-blue-600 pt-4">{item.month}</div>
+                                            <div className="flex-1 border border-gray-200 rounded-xl px-5 py-4 text-gray-500 text-sm leading-relaxed bg-white">
+                                                {item.event}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Revenue table */}
+                                <div className="border border-gray-200 rounded-2xl overflow-hidden">
+                                    <div className="px-6 py-3.5 border-b border-gray-100 bg-gray-50">
+                                        <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">Ridgecrest Relationship — Year 1 Revenue</span>
+                                    </div>
+                                    <table className="w-full text-sm">
+                                        <tbody className="divide-y divide-gray-100">
+                                            {[
+                                                { line: "AI Readiness Assessments (7 × $15K)", amount: "$105,000" },
+                                                { line: "Implementation Sprints (4 completed × avg. $95K)", amount: "$380,000" },
+                                                { line: "Implementation Sprints (3 in progress, partial)", amount: "$142,500" },
+                                                { line: "Managed AI Services (4 companies × avg. $8K/mo)", amount: "$160,000" },
+                                            ].map(r => (
+                                                <tr key={r.line} className="bg-white">
+                                                    <td className="px-6 py-4 text-gray-500">{r.line}</td>
+                                                    <td className="px-6 py-4 text-gray-900 font-semibold text-right">{r.amount}</td>
+                                                </tr>
+                                            ))}
+                                            <tr className="bg-gray-50">
+                                                <td className="px-6 py-4 text-gray-900 font-bold">Total Year 1 from One PE Firm</td>
+                                                <td className="px-6 py-4 text-emerald-600 font-bold text-right text-lg">$787,500</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </motion.div>
+
                         </div>
 
-                        <h2 className="text-3xl font-bold text-gray-900 mt-16 mb-6">Phase 1: The AI Readiness Assessment</h2>
-                        <p className="text-gray-600 mb-6">
-                            PDS bypassed generic consulting models and deployed a 3-week deep operational audit. Instead of theoretical IT assessments, we analyzed exact call recordings and Salesforce data to map the financial exposure:
-                        </p>
-                        <p className="text-gray-600 mb-8 font-medium italic">
-                            We proved that an estimated 340 missed new-customer calls represented roughly $952K in monthly revenue exposure.
-                        </p>
+                        {/* Sticky Sidebar */}
+                        <div className="hidden lg:block">
+                            <div className="sticky top-28 space-y-4">
+                                <div className="border border-gray-200 rounded-2xl p-6 bg-white">
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">Engagement Summary</p>
+                                    <div className="space-y-3 text-sm">
+                                        {[
+                                            { label: "Industry", value: "Commercial HVAC" },
+                                            { label: "Revenue", value: "$48M" },
+                                            { label: "Locations", value: "8 branches" },
+                                            { label: "Phase 1", value: "3 weeks · $15K" },
+                                            { label: "Phase 2", value: "12 weeks · $95K" },
+                                            { label: "Total Cost", value: "$110,000" },
+                                            { label: "EBITDA Added", value: "$1.78M/yr" },
+                                            { label: "Exit Value Added", value: "$15.3M" },
+                                            { label: "ROI", value: "139x" },
+                                        ].map(item => (
+                                            <div key={item.label} className="flex justify-between items-center">
+                                                <span className="text-gray-400">{item.label}</span>
+                                                <span className="text-gray-900 font-semibold">{item.value}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
 
-                        <h2 className="text-3xl font-bold text-gray-900 mt-16 mb-6">Phase 2: Execution & Implementation</h2>
-                        <p className="text-gray-600 mb-8">
-                            Over a 12-week intensive sprint, the PDS engineering team deployed the following multi-tiered custom automation architecture:
-                        </p>
+                                <div className="border border-gray-200 rounded-2xl p-6 bg-white">
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">Tech Stack</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {["Vapi", "ElevenLabs", "Claude API", "n8n", "ServiceTitan", "RingCentral", "Salesforce", "GoHighLevel", "Deepgram"].map(t => (
+                                            <span key={t} className="px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-200 text-gray-500 text-xs">{t}</span>
+                                        ))}
+                                    </div>
+                                </div>
 
-                        <div className="space-y-8 mb-12">
-                            <div className="bg-white p-6 rounded-2xl border-l-4 border-l-blue-500 shadow-sm border-t border-b border-r border-gray-100">
-                                <h4 className="text-xl font-bold text-gray-900 mb-2">1. 24/7 AI Voice Agent</h4>
-                                <p className="text-gray-600">Replaced the failing answering service with an intelligent voice agent integrated directly into ServiceTitan. It schedules appointments proactively, handles complex routing, and fields common queries seamlessly without human intervention.</p>
-                            </div>
-                            
-                            <div className="bg-white p-6 rounded-2xl border-l-4 border-l-blue-500 shadow-sm border-t border-b border-r border-gray-100">
-                                <h4 className="text-xl font-bold text-gray-900 mb-2">2. Intelligent Dispatch & Scheduling</h4>
-                                <p className="text-gray-600">Built automated n8n workflows connecting directly to ServiceTitan. Automatic slotting, technician routing based on branch location, and intelligent re-scheduling dramatically reduced manual CSR hours.</p>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-2xl border-l-4 border-l-blue-500 shadow-sm border-t border-b border-r border-gray-100">
-                                <h4 className="text-xl font-bold text-gray-900 mb-2">3. Commercial Lead Qualification Engine</h4>
-                                <p className="text-gray-600">Integrated GoHighLevel & AI layers into Salesforce to automatically categorize inbound leads by property size and potential value. Warm leads auto-routed to nurture sequences while 'hot' leads instantly pinged commercial sales representatives.</p>
-                            </div>
-                        </div>
-
-                        <h2 className="text-3xl font-bold text-gray-900 mt-16 mb-6">Phase 3: Measurable Results at 6 Months</h2>
-                        
-                        <div className="overflow-x-auto rounded-xl border border-gray-200 mb-12">
-                            <table className="min-w-full divide-y divide-gray-200">
-                                <thead className="bg-gray-50">
-                                    <tr>
-                                        <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Key Metric</th>
-                                        <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Before PDS</th>
-                                        <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">After 6 Months</th>
-                                        <th className="px-6 py-4 text-left text-sm font-semibold text-green-600">Impact</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="bg-white divide-y divide-gray-200 text-sm">
-                                    <tr>
-                                        <td className="px-6 py-4 font-medium text-gray-900">Inbound Answer Rate</td>
-                                        <td className="px-6 py-4 text-gray-500">72%</td>
-                                        <td className="px-6 py-4 font-semibold text-gray-900">98.4%</td>
-                                        <td className="px-6 py-4 text-green-600 font-medium">+26.4%</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 font-medium text-gray-900">After-Hours Booking Rate</td>
-                                        <td className="px-6 py-4 text-gray-500">31%</td>
-                                        <td className="px-6 py-4 font-semibold text-gray-900">71%</td>
-                                        <td className="px-6 py-4 text-green-600 font-medium">+129%</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 font-medium text-gray-900">Avg. Lead Response</td>
-                                        <td className="px-6 py-4 text-gray-500">4.2 days</td>
-                                        <td className="px-6 py-4 font-semibold text-gray-900">11 minutes</td>
-                                        <td className="px-6 py-4 text-green-600 font-medium">-99.8%</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 font-medium text-gray-900">Sales Qual. Lead Ratio</td>
-                                        <td className="px-6 py-4 text-gray-500">45%</td>
-                                        <td className="px-6 py-4 font-semibold text-gray-900">78%</td>
-                                        <td className="px-6 py-4 text-green-600 font-medium">+73%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div className="bg-blue-600 text-white rounded-3xl p-8 lg:p-12 text-center mt-16 mb-8 shadow-2xl">
-                            <h3 className="text-2xl font-bold mb-4">The Exit Valuation Math</h3>
-                            <p className="text-blue-100 text-lg mb-6 max-w-2xl mx-auto">
-                                The PE sponsor tracked a concrete increase of <strong className="text-white">$148,000 per month</strong> in AI-attributable EBITDA contribution. 
-                            </p>
-                            <div className="bg-blue-700/50 rounded-2xl p-6 inline-block">
-                                <div className="text-xl font-medium mb-1">Total EBITDA Improvement</div>
-                                <div className="text-4xl lg:text-5xl font-extrabold text-white mb-2">$1.78M <span className="text-xl font-normal">Annualized</span></div>
-                                <div className="text-blue-200">Adding ~$15.3M of Enterprise Value at targeted 8.5x exit</div>
+                                <Link
+                                    href="/contact"
+                                    className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-4 rounded-2xl transition-colors text-sm"
+                                >
+                                    Start Your AI Assessment →
+                                </Link>
+                                <Link
+                                    href="/case-studies"
+                                    className="block w-full text-center border border-gray-200 hover:border-gray-300 text-gray-500 hover:text-gray-700 font-medium px-6 py-3 rounded-2xl transition-colors text-sm"
+                                >
+                                    ← All Case Studies
+                                </Link>
                             </div>
                         </div>
 

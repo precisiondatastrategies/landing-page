@@ -134,7 +134,7 @@ export default function PrivateEquityPage() {
                             <div className="flex flex-col md:flex-row gap-8 lg:gap-12 relative z-0">
                                 <div className="md:w-1/3">
                                     <div className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2">Industry: HVAC / Plumbing</div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">Greenline Mechanical</h3>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">Apex Mechanical <span className="text-sm font-normal text-gray-400">(Illustrative)</span></h3>
                                     <div className="space-y-4">
                                         <div className="flex items-center gap-2 text-gray-700">
                                             <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
@@ -155,7 +155,7 @@ export default function PrivateEquityPage() {
                                     </p>
                                     <div className="pt-2">
                                         <span className="inline-flex items-center text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">
-                                            Read the Full Greenline Case Study <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                                            Read the Full Case Study <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                                         </span>
                                     </div>
                                 </div>

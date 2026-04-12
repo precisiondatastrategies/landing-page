@@ -28,12 +28,12 @@ export default function CaseStudyBanner() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
           {/* Left */}
           <div className="max-w-xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-blue-400 mb-4">Case Study</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-blue-400 mb-4">Illustrative Example</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
               $110K engagement. $15.3M added to exit valuation.
             </h2>
             <p className="text-white/60 text-lg leading-relaxed mb-8">
-              Greenline Mechanical Services — a $48M commercial HVAC platform backed by Ridgecrest Capital Partners. PDS deployed AI across all 8 locations in 12 weeks. The result: $1.8M in annualized EBITDA improvement and a portfolio-wide Master Services Agreement.
+              An illustrative example: a $48M commercial HVAC platform. PDS deployed AI across all 8 locations in 12 weeks. The projected result: $1.8M in annualized EBITDA improvement and a portfolio-wide Master Services Agreement.
             </p>
             <Link
               href="/case-studies/greenline-mechanical"
