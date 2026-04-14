@@ -11,7 +11,7 @@ const caseStudies = [
         label: "Illustrative Example",
         number: "01",
         industry: "Commercial HVAC & Plumbing",
-        company: "Apex Mechanical Services",
+        company: "Apex Mechanical Services (Illustrative Example)",
         sponsor: "Ridgecrest Capital Partners",
         headline: "$1.8M Annual EBITDA Added in 6 Months",
         description:

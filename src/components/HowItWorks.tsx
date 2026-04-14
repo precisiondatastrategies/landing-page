@@ -7,7 +7,7 @@ const steps = [
   {
     number: "01",
     title: "AI Readiness Assessment",
-    duration: "3 weeks · $15K–$25K",
+    duration: "30-45 days · $15K–$25K",
     description:
       "We conduct a deep operational audit of one portfolio company — call recordings, CSR workflows, sales pipeline, dispatch operations. You receive a 32-page report with a prioritized AI opportunity matrix, projected EBITDA impact for each use case, and a 90-day implementation roadmap. Formatted for your investment committee.",
     deliverables: [

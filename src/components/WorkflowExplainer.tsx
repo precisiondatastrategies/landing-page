@@ -8,7 +8,7 @@ export default function WorkflowExplainer() {
             number: "01",
             icon: FileSearch,
             title: "AI Readiness Assessment",
-            description: "We audit one portfolio company in 3 weeks. Call recordings, CSR workflows, sales pipeline, dispatch operations. You get a 90-day roadmap with projected EBITDA impact for every AI opportunity — formatted for your investment committee."
+            description: "We audit one portfolio company in 30-45 days. Call recordings, CSR workflows, sales pipeline, dispatch operations. You get a 90-day roadmap with projected EBITDA impact for every AI opportunity — formatted for your investment committee."
         },
         {
             number: "02",

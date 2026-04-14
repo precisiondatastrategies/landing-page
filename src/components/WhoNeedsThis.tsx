@@ -67,7 +67,7 @@ const PinnedScrollSections = () => {
         {
             title: 'Upper Mid-Market Funds',
             subtitle: '$5B–$100B AUM',
-            description: 'You have a Technology Operating Partner and a value creation mandate. We integrate with your existing team as the hands-on AI implementation partner your strategy requires.',
+            description: 'You have a Technology Operating Partner and a value creation mandate. We integrate with your existing team as the remote AI implementation partner your strategy requires.',
             features: ['Plug into existing value creation teams', 'Multi-portfolio deployment playbooks', 'Investment committee-ready reporting'],
             bgColor: 'bg-green-200',
             textColor: 'text-slate-900',
@@ -88,7 +88,7 @@ const PinnedScrollSections = () => {
             title: 'PE Operating Partners',
             subtitle: 'Your Direct Buyer',
             description: 'You were hired to deploy AI across the portfolio. The Big 4 quoted you $300K–$500K per company and a 6-month timeline. We deliver a working AI system in 4 weeks at a fraction of the cost.',
-            features: ['AI Readiness Assessment in 3 weeks', 'Implementation sprint in 8–12 weeks', 'One partner, entire portfolio'],
+            features: ['AI Readiness Assessment in 30-45 days', 'Implementation sprint in 8–12 weeks', 'One partner, entire portfolio'],
             bgColor: 'bg-yellow-200',
             textColor: 'text-slate-900',
             imageSrc: '/industries/home_service.png',

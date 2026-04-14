@@ -39,7 +39,7 @@ export default function PrivateEquityPage() {
                                 transition={{ delay: 0.1 }}
                                 className="text-lg text-gray-300 leading-relaxed max-w-2xl"
                             >
-                                We partner with private equity firms and institutional leaders to drive measurable efficiency across mid-sized businesses. From in-person technical audits to hands-on rollout, we maximize EBITDA without disrupting core operations.
+                                We partner with private equity firms and institutional leaders to drive measurable efficiency across mid-sized businesses. From in person audits to hands-on roll out, we maximize EBITDA without disrupting core operations.
                             </motion.p>
                             <motion.div
                                 {...fadeInUp}
@@ -74,8 +74,8 @@ export default function PrivateEquityPage() {
                         {[
                             {
                                 icon: Building,
-                                title: "In-Person Audits",
-                                desc: "We travel on-site to meet with your portfolio management and tech teams. We map bottlenecks and find immediate automation opportunities."
+                                title: "AI Readiness Audits",
+                                desc: "We remotely meet with your portfolio management and tech teams. We map bottlenecks and find immediate automation opportunities."
                             },
                             {
                                 icon: Shield,
@@ -117,7 +117,7 @@ export default function PrivateEquityPage() {
                                 <span className="text-blue-600">Mid-Sized Portfolios</span>
                             </motion.h2>
                             <motion.p {...fadeInUp} className="text-gray-600 text-lg leading-relaxed">
-                                We work quietly behind the scenes to deliver massive operational wins. Here are examples of recent transformations in our institutional pipeline.
+                                We work quietly behind the scenes to deliver massive operational wins. The following are illustrative examples of recent transformations.
                             </motion.p>
                         </div>
                     </div>
@@ -134,7 +134,7 @@ export default function PrivateEquityPage() {
                             <div className="flex flex-col md:flex-row gap-8 lg:gap-12 relative z-0">
                                 <div className="md:w-1/3">
                                     <div className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2">Industry: HVAC / Plumbing</div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">Apex Mechanical <span className="text-sm font-normal text-gray-400">(Illustrative)</span></h3>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">Apex Mechanical <span className="text-sm font-normal text-gray-400">(Illustrative Example)</span></h3>
                                     <div className="space-y-4">
                                         <div className="flex items-center gap-2 text-gray-700">
                                             <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
@@ -151,7 +151,7 @@ export default function PrivateEquityPage() {
                                         <strong>Challenge:</strong> Answering service was only booking 31% of after-hours calls, abandoning $952K/mo in revenue exposure. The commercial sales team wasted 40% of their time on unqualified leads.
                                     </p>
                                     <p>
-                                        <strong>Solution:</strong> We conducted an on-site audit and deployed a 24/7 AI Voice Agent, automated scheduling across their ServiceTitan ERP, and a Salesforce AI routing layer. This bypassed legacy friction points while generating a 139x ROI on our engagement over 6 months.
+                                        <strong>Solution:</strong> We conducted an AI readiness audit and deployed a 24/7 AI Voice Agent, automated scheduling across their ServiceTitan ERP, and a Salesforce AI routing layer. This bypassed legacy friction points while generating a 139x ROI on our engagement over 6 months.
                                     </p>
                                     <div className="pt-2">
                                         <span className="inline-flex items-center text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">

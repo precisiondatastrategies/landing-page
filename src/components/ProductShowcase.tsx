@@ -21,7 +21,7 @@ const features: Feature[] = [
         tag: "AI Readiness Assessment",
         title: "Know Exactly Where the EBITDA Is Before You Spend a Dollar",
         description:
-            "We audit every portfolio company's operations in 3 weeks and deliver a prioritized roadmap of AI opportunities — each one mapped to a projected EBITDA impact. Investment committee-ready.",
+            "We audit every portfolio company's operations and deliver a prioritized roadmap in 30-45 days — each one mapped to a projected EBITDA impact. Investment committee-ready.",
         videoFile: "step_1.mp4",
         points: [
             "Call recording analysis & revenue leak identification",

@@ -116,7 +116,7 @@ export default function GreenlineCaseStudyPage() {
                                     </div>
                                     <div className="border border-gray-200 rounded-2xl p-6 bg-white">
                                         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">The Portfolio Company</p>
-                                        <p className="text-base font-bold text-gray-900 mb-2">Apex Mechanical Services</p>
+                                        <p className="text-base font-bold text-gray-900 mb-2">Apex Mechanical Services (Illustrative Example)</p>
                                         <p className="text-gray-500 text-sm leading-relaxed">$48M commercial HVAC &amp; plumbing platform. 8 locations across AZ, NV, NM. 310 employees. Grown from $22M through 3 add-on acquisitions. Target exit: 8–9x EBITDA in 18–24 months.</p>
                                     </div>
                                 </div>
@@ -175,7 +175,7 @@ export default function GreenlineCaseStudyPage() {
                             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                                 <div className="flex items-center gap-3 mb-3">
                                     <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold shrink-0">1</div>
-                                    <p className="text-xs font-semibold uppercase tracking-widest text-blue-600">Phase 1 · 3 Weeks · $15K</p>
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-blue-600">Phase 1 · 30-45 Days · $15K</p>
                                 </div>
                                 <h2 className="text-3xl font-bold text-gray-900 mb-4">AI Readiness Assessment</h2>
                                 <p className="text-gray-500 leading-relaxed mb-8">
@@ -390,7 +390,7 @@ export default function GreenlineCaseStudyPage() {
                                             { label: "Industry", value: "Commercial HVAC" },
                                             { label: "Revenue", value: "$48M" },
                                             { label: "Locations", value: "8 branches" },
-                                            { label: "Phase 1", value: "3 weeks · $15K" },
+                                            { label: "Phase 1", value: "30-45 days · $15K" },
                                             { label: "Phase 2", value: "12 weeks · $95K" },
                                             { label: "Total Cost", value: "$110,000" },
                                             { label: "EBITDA Added", value: "$1.78M/yr" },

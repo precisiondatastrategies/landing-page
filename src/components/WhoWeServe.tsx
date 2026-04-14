@@ -23,7 +23,7 @@ const segments = [
     title: "Upper Mid-Market Funds",
     subtitle: "$5B – $100B AUM",
     description:
-      "You have a Technology Operating Partner and a value creation mandate. We integrate with your existing team as the hands-on AI implementation partner your strategy requires.",
+      "You have a Technology Operating Partner and a value creation mandate. We integrate with your existing team as the remote AI implementation partner your strategy requires.",
     points: [
       "Plug into existing value creation teams",
       "Multi-portfolio deployment playbooks",

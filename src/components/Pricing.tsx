@@ -7,7 +7,7 @@ const tiers = [
   {
     name: "AI Readiness Assessment",
     price: "$15K – $25K",
-    timeline: "3 weeks",
+    timeline: "30-45 days",
     description:
       "The door-opener. Audit one portfolio company, identify every AI opportunity, and deliver a 90-day roadmap with projected EBITDA impact. Formatted for your investment committee.",
     features: [

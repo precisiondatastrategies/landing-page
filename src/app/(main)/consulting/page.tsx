@@ -233,7 +233,7 @@ export default function ConsultingPage() {
                                 {...fadeInUp}
                                 className="text-lg text-gray-600 leading-relaxed"
                             >
-                                We partner with private equity firms and mid-sized companies to drive measurable efficiency across portfolios. From deep-dive technical audits to on-site execution, we implement AI and automation workflows that maximize EBITDA safely and confidentially.
+                                We partner with private equity firms and mid-sized companies to drive measurable efficiency across portfolios. From deep-dive AI readiness audits to remote execution, we implement AI and automation workflows that maximize EBITDA safely and confidentially.
                             </motion.p>
                             <motion.div {...fadeInUp} className="pt-2">
                                 <Link href="/private-equity" className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-800 transition-colors text-lg">
