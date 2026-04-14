@@ -1,40 +1,42 @@
 
 # PRECISION DATA STRATEGIES
 
-> Precision Data Strategies is a technology consultancy empowering businesses with Artificial Intelligence, automation, and digital innovation. We specialize in AI voice agents, business process automation, and strategic AI consulting.
+> Precision Data Strategies is an AI implementation partner for private equity portfolio companies and mid-sized businesses. We deploy AI systems that improve EBITDA and drive measurable operational efficiency — not slide decks.
 
 ## Guidance
 
-For detailed information on our services, solutions, and AI implementations, please refer to the links below. Our content covers:
+For detailed information on our services, AI implementations, and results for portfolio companies, please refer to the links below. Our content covers:
 
-*   **AI Services**: Voice receptionists, chatbot agents, and process automation.
-*   **Consulting**: Strategic AI roadmap planning and audits.
-*   **Industries**: Tailored solutions for specific business sectors.
+*   **AI Services**: Voice agents, scheduling automation, lead qualification, and CRM/Pipeline AI.
+*   **Private Equity**: AI readiness audits, EBITDA expansion, and confidential execution.
+*   **Case Studies**: Real-world results and ROI from mid-market AI deployments.
+*   **Consulting**: Strategic roadmap planning for institutional and business leaders.
 
-## Services
+## Core Solutions
 
-- [AI Voice Receptionist](/main/services): Automated voice agents for handling calls, booking appointments, and 24/7 customer support.
-- [Business Process Automation](/main/services): Streamlining workflows and reducing manual tasks through intelligent automation.
-- [CRM & Lead Systems](/main/services): Integrated customer relationship management and automated lead nurturing systems.
-- [Answer Engine Optimization](/main/services): Strategies to optimize content for AI-driven search engines and answer engines.
-- [Database Reactivation](/main/services): Re-engaging dormant leads and customers through automated outreach campaigns.
-- [Social Content Autopilot](/main/services): Automated generation and scheduling of social media content.
-- [Digital Clone Studio](/main/services): Creating digital avatars and clones for consistent brand representation.
-- [Web Development](/main/services): Custom website creation and sales funnel optimization.
+- [AI Voice Agent](/services#voice): 24/7 call handling and booking for field services and retail.
+- [Lead Qualification AI](/services#leads): Instant scoring and routing to maximize revenue exposure.
+- [Scheduling Automation](/services#scheduling): Zero-touch dispatch and appointment booking synced with industry ERPs (ServiceTitan, etc.).
+- [CRM & Pipeline AI](/services#crm): Integrated automation for Salesforce, HubSpot, and GoHighLevel.
+- [PE Performance Dashboard](/services#dashboard): Live reporting on AI-driven EBITDA impact and efficiency gains.
+- [Workflow & Back-Office AI](/services#workflow): Automated handling of contracts, tickets, and knowledge bases.
 
 ## Resources
 
-- [Home](/): The main landing page for Precision Data.
-- [About Us](/main/about-us): Information about our company mission and team.
-- [Contact](/main/contact): Get in touch with our team for consultations.
-- [Blog](/main/blog): Articles and insights on AI trends and technology.
-- [AI Consulting](/main/consulting): Details on our strategic consulting services.
+- [Home](https://precisiondatastrategies.com/): The main hub for Precision Data.
+- [Private Equity](/private-equity): Specialized AI services for PE firms and portfolio companies.
+- [Case Studies](/case-studies): Browse our portfolio of automation success stories.
+- [Greenline Mechanical Case Study](/case-studies/greenline-mechanical): $1.8M EBITDA impact through AI voice and scheduling.
+- [Consulting](/consulting): Partner with us for AI readiness audits and execution strategy.
+- [Blog](/blog): Insights on AI implementation and EBITDA expansion.
+- [About Us](/about-us): Our mission to modernize mid-market operations.
+- [Contact](/contact): Schedule an AI Readiness Assessment.
 
 ## Industries
 
-- [Automotive](/industries/): AI solutions for automotive dealerships and services.
-- [Healthcare](/industries/): Automation for healthcare providers and clinics.
-- [Real Estate](/industries/): Lead qualification and follow-up for real estate professionals.
-- [Professional Firms](/industries/): Automation for law firms and professional services.
+- **Private Equity**: Performance-driven AI for portfolio management.
+- **Field Services**: Plumbers, HVAC, and Electrical contractors.
+- **Professional Firms**: Law firms, clinics, and B2B services.
+- **Real Estate**: Lead qualification and automated follow-up.
 
 ---

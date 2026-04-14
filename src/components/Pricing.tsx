@@ -11,7 +11,7 @@ const tiers = [
     description:
       "The door-opener. Audit one portfolio company, identify every AI opportunity, and deliver a 90-day roadmap with projected EBITDA impact. Formatted for your investment committee.",
     features: [
-      "3-week operational audit",
+      "30-45 day operational audit",
       "Call recording & revenue leak analysis",
       "CSR workflow & labor cost review",
       "Sales pipeline efficiency assessment",
@@ -93,7 +93,7 @@ export default function Pricing() {
                 </span>
               )}
 
-              <h3 className={`text-xl font-bold mb-2 ${tier.highlight ? "text-white" : "text-gray-900"}`}>
+              <h3 className={`text-xl font-bold mb-2 ${tier.highlight ? "!text-white" : "text-gray-900"}`}>
                 {tier.name}
               </h3>
               <div className="flex items-baseline gap-2 mb-1">

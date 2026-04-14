@@ -29,7 +29,7 @@ export default function CaseStudyBanner() {
           {/* Left */}
           <div className="max-w-xl">
             <p className="text-sm font-semibold uppercase tracking-widest text-blue-400 mb-4">Illustrative Example</p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white! leading-tight mb-6">
               $110K engagement. $15.3M added to exit valuation.
             </h2>
             <p className="text-white/60 text-lg leading-relaxed mb-8">

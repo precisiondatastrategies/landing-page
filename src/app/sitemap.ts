@@ -9,10 +9,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '',
     '/about-us',
     '/blog',
+    '/case-studies',
+    '/case-studies/greenline-mechanical',
     '/consulting',
     '/contact',
     '/cookie-policy',
     '/privacy-policy',
+    '/private-equity',
     '/services',
     '/terms-of-service',
   ].map((route) => ({

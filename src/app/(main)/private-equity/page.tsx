@@ -39,7 +39,7 @@ export default function PrivateEquityPage() {
                                 transition={{ delay: 0.1 }}
                                 className="text-lg text-gray-300 leading-relaxed max-w-2xl"
                             >
-                                We partner with private equity firms and institutional leaders to drive measurable efficiency across mid-sized businesses. From in person audits to hands-on roll out, we maximize EBITDA without disrupting core operations.
+                                We partner with private equity firms and institutional leaders to drive measurable efficiency across mid-sized businesses. From AI readiness audits to remote execution, we maximize EBITDA without disrupting core operations.
                             </motion.p>
                             <motion.div
                                 {...fadeInUp}
