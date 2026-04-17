@@ -18,7 +18,6 @@ const sections = [
             "98.4% inbound call answer rate",
             "After-hours booking: 31% → 71%",
             "Integrated with ServiceTitan, RingCentral, and major dispatch platforms",
-            "Live in 4 weeks",
         ],
         image: "/services/voice2.png",
         cta: "Start with a Voice Agent Assessment",

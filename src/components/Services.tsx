@@ -9,7 +9,7 @@ const services = [
     title: "AI Voice Agent",
     description:
       "Replaces answering services entirely. Books jobs, handles emergency triage, qualifies leads, and sends confirmations — 24/7, integrated with ServiceTitan, RingCentral, and your dispatch system.",
-    metrics: ["98.4% answer rate", "After-hours booking: 31% → 71%", "Live in 4 weeks"],
+    metrics: ["98.4% answer rate", "After-hours booking: 31% → 71%"],
     color: "blue",
   },
   {

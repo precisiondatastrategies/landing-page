@@ -116,7 +116,7 @@ export default function GreenlineCaseStudyPage() {
                                     </div>
                                     <div className="border border-gray-200 rounded-2xl p-6 bg-white">
                                         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">The Portfolio Company</p>
-                                        <p className="text-base font-bold text-gray-900 mb-2">Apex Mechanical Services (Illustrative Example)</p>
+                                        <p className="text-base font-bold text-gray-900 mb-2">Apex Mechanical Services <span className="text-red-600 font-bold">— PORTFOLIO ILLUSTRATION ONLY</span></p>
                                         <p className="text-gray-500 text-sm leading-relaxed">$48M commercial HVAC &amp; plumbing platform. 8 locations across AZ, NV, NM. 310 employees. Grown from $22M through 3 add-on acquisitions. Target exit: 8–9x EBITDA in 18–24 months.</p>
                                     </div>
                                 </div>
