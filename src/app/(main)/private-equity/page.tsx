@@ -171,16 +171,16 @@ export default function PrivateEquityPage() {
                         >
                             <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
                                 <div className="md:w-1/3">
-                                    <div className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2">Industry: B2B Services</div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Regional Service Group</h3>
+                                    <div className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2">Industry: B2B Services - Illustrative Example</div>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Regional Service Group <span className="text-base font-bold text-red-600">- ILLUSTRATION ONLY</span></h3>
                                     <div className="space-y-4">
                                         <div className="flex items-center gap-2 text-gray-700">
                                             <CheckCircle2 className="w-5 h-5 text-green-500" />
-                                            <span className="font-medium">Zero missed leads</span>
+                                            <span className="font-medium">Projected reduction in missed leads</span>
                                         </div>
                                         <div className="flex items-center gap-2 text-gray-700">
                                             <CheckCircle2 className="w-5 h-5 text-green-500" />
-                                            <span className="font-medium">35% increase in conversion</span>
+                                            <span className="font-medium">Projected conversion lift</span>
                                         </div>
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@ export default function PrivateEquityPage() {
                                         <strong>Challenge:</strong> Multiple regional branches acquired by the PE firm were operating on disparate systems, losing track of inbound leads outside of business hours.
                                     </p>
                                     <p>
-                                        <strong>Solution:</strong> We deployed a unified, customized AI Voice Receptionist & CRM pipeline across all branches. The AI handled initial qualification and syncing instantly, allowing the consolidated sales team to focus purely on closing high-value accounts.
+                                        <strong>Illustrative Solution:</strong> A unified AI Voice Receptionist and CRM pipeline across all branches, with automated qualification and syncing to help the consolidated sales team focus on high-value accounts.
                                     </p>
                                 </div>
                             </div>

@@ -311,9 +311,9 @@ export default function ConsultingPage() {
                         {/* 3 Images Row */}
                         <div className="grid md:grid-cols-3 gap-8">
                             {[
-                                { src: "/team/ronald.jpeg", name: "Ronald Parent", role: "Senior Consultant" },
+                                { src: "/team/ronald.jpeg", name: "Ronald Parent", role: "CEO & Founder" },
                                 { src: "/team/hilal.jpeg", name: "Hilal Aziz", role: "Senior Consultant" },
-                                { src: "/team/shafique.jpeg", name: "Shafique Ur Rehman", role: "Junior Consultant" }
+                                { src: "/team/shafique.jpeg", name: "Shafique Ur Rehman", role: "Product Manager" }
                             ].map((member, idx) => (
                                 <motion.div
                                     key={idx}

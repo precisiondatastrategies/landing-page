@@ -32,12 +32,19 @@ const secondaryLinks = [
 const lightHeroPaths = ["/services", "/about-us", "/privacy-policy", "/cookie-policy", "/terms-of-service", "/contact", "/consulting", "/blog", "/case-studies"]
 const isLightPage = (path: string) => lightHeroPaths.some(p => path === p || path.startsWith(p + "/"))
 
+// Blog posts live at /[slug], so treat one-segment routes as light pages too.
+const isBlogPostPage = (path: string) => {
+    const segments = path.split("/").filter(Boolean)
+    return segments.length === 1 && path !== "/blog"
+}
+
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
     const [servicesOpen, setServicesOpen] = useState(false)
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
     const pathname = usePathname()
+    const useLightNav = isLightPage(pathname) || isBlogPostPage(pathname)
 
     useEffect(() => {
         if (typeof window === "undefined") return
@@ -60,8 +67,8 @@ export default function Navbar() {
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
                 scrolled
                     ? "bg-[#0A192F]/95 backdrop-blur-md border-white/10"
-                    : isLightPage(pathname)
-                        ? "bg-white/95 backdrop-blur-md border-gray-200"
+                    : useLightNav
+                        ? "bg-white/98 backdrop-blur-md border-gray-200 shadow-sm shadow-slate-900/5"
                         : "bg-transparent border-white/10"
             }`}
         >
@@ -76,7 +83,7 @@ export default function Navbar() {
                             src="/pds-logo.png"
                             alt="Precision Data Strategies Logo"
                             className={`w-auto h-10 object-contain transition-all duration-300 ${
-                                !scrolled && isLightPage(pathname)
+                                !scrolled && useLightNav
                                     ? "brightness-0" // dark logo on light background
                                     : "brightness-0 invert" // white logo on dark background
                             }`}
@@ -97,8 +104,8 @@ export default function Navbar() {
                                     <Link
                                         href={link.href}
                                         className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
-                                            !scrolled && isLightPage(pathname)
-                                                ? "text-gray-700 hover:text-gray-900"
+                                            !scrolled && useLightNav
+                                                ? "text-gray-800 hover:text-gray-950"
                                                 : "text-white/80 hover:text-white"
                                         }`}
                                     >
@@ -156,8 +163,8 @@ export default function Navbar() {
                                     key={link.name}
                                     href={link.href}
                                     className={`px-4 py-2 text-sm font-medium transition-colors ${
-                                        !scrolled && isLightPage(pathname)
-                                            ? "text-gray-700 hover:text-gray-900"
+                                        !scrolled && useLightNav
+                                            ? "text-gray-800 hover:text-gray-950"
                                             : "text-white/80 hover:text-white"
                                     }`}
                                 >
@@ -173,8 +180,8 @@ export default function Navbar() {
                     <Link
                         href="/contact"
                         className={`px-5 py-3 rounded-full text-sm font-semibold transition-colors ${
-                            !scrolled && isLightPage(pathname)
-                                ? "bg-gray-900 text-white hover:bg-gray-700"
+                            !scrolled && useLightNav
+                                ? "bg-gray-950 text-white hover:bg-gray-800 shadow-sm"
                                 : "bg-white text-black hover:bg-gray-100"
                         }`}
                     >
@@ -186,8 +193,8 @@ export default function Navbar() {
                 <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     className={`lg:hidden p-2 transition-colors ${
-                        !scrolled && isLightPage(pathname)
-                            ? "text-gray-700 hover:text-gray-900"
+                        !scrolled && useLightNav
+                            ? "text-gray-800 hover:text-gray-950"
                             : "text-white/80 hover:text-white"
                     }`}
                     aria-label="Toggle menu"

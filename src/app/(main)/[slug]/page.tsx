@@ -119,8 +119,12 @@ export default async function BlogPostPage({ params }: Props) {
 
                 {/* Social Share Section */}
                 <SocialShare
-                  title={post.title.rendered.replace(/\u003c[^\u003e]*\u003e/g, '')}
-                  url={`/${slug}`}
+                  title={post.title.rendered
+                    .replace(/\u003c[^\u003e]*\u003e/g, '')
+                    .replace(/&nbsp;|&#160;/gi, ' ')
+                    .replace(/\s+/g, ' ')
+                    .trim()}
+                  url={`https://www.precisiondatastrategies.com/${slug}`}
                 />
               </div>
             </article>

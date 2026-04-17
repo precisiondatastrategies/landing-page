@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Linkedin, Twitter, Instagram } from "lucide-react";
 
 const teamMembers = [
@@ -27,7 +27,7 @@ const teamMembers = [
   },
   {
     name: "Shafique Ur Rehman",
-    role: "Technical Lead",
+    role: "Product Manager",
     image: "/team/shafique.jpeg",
     socials: {
       linkedin: "https://www.linkedin.com/in/shafique-ur-rehman-b7b859299/",
