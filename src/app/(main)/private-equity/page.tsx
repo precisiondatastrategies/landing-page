@@ -39,7 +39,7 @@ export default function PrivateEquityPage() {
                                 transition={{ delay: 0.1 }}
                                 className="text-lg text-gray-300 leading-relaxed max-w-2xl"
                             >
-                                We partner with private equity firms and institutional leaders to drive measurable efficiency across mid-sized businesses. From AI readiness audits to remote execution, we maximize EBITDA without disrupting core operations.
+                                We partner with private equity firms and institutional leaders to drive measurable efficiency across mid-sized businesses. From AI readiness audits to hands-on execution, we maximize EBITDA without disrupting core operations.
                             </motion.p>
                             <motion.div
                                 {...fadeInUp}
@@ -75,7 +75,7 @@ export default function PrivateEquityPage() {
                             {
                                 icon: Building,
                                 title: "AI Readiness Audits",
-                                desc: "We remotely meet with your portfolio management and tech teams. We map bottlenecks and find immediate automation opportunities."
+                                desc: "We meet with your portfolio management and tech teams. We map bottlenecks and identify high-leverage automation opportunities."
                             },
                             {
                                 icon: Shield,
@@ -142,16 +142,16 @@ export default function PrivateEquityPage() {
                                         </div>
                                         <div className="flex items-center gap-2 text-gray-700">
                                             <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
-                                            <span className="font-medium">11-min lead response (down from 4 days)</span>
+                                            <span className="font-medium">Lead response dramatically improved</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="md:w-2/3 space-y-4 text-gray-600">
                                     <p>
-                                        <strong>Challenge:</strong> Answering service was only booking 31% of after-hours calls, abandoning $952K/mo in revenue exposure. The commercial sales team wasted 40% of their time on unqualified leads.
+                                        <strong>Challenge:</strong> Answering service was only booking 31% of after-hours calls, abandoning $952K in revenue exposure. The commercial sales team wasted 40% of their time on unqualified leads.
                                     </p>
                                     <p>
-                                        <strong>Solution:</strong> We conducted an AI readiness audit and deployed a 24/7 AI Voice Agent, automated scheduling across their ServiceTitan ERP, and a Salesforce AI routing layer. This bypassed legacy friction points while generating a 139x ROI on our engagement over 6 months.
+                                        <strong>Solution:</strong> We conducted an AI readiness audit and deployed a 24/7 AI Voice Agent, automated scheduling across their ServiceTitan ERP, and a Salesforce AI routing layer. This bypassed legacy friction points while generating a 139x ROI on our engagement.
                                     </p>
                                     <div className="pt-2">
                                         <span className="inline-flex items-center text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">

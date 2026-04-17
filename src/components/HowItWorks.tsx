@@ -7,9 +7,9 @@ const steps = [
   {
     number: "01",
     title: "AI Readiness Assessment",
-    duration: "30-45 days · $15K–$25K",
+    duration: "$15K–$25K fee",
     description:
-      "We conduct a deep operational audit of one portfolio company — call recordings, CSR workflows, sales pipeline, dispatch operations. You receive a 32-page report with a prioritized AI opportunity matrix, projected EBITDA impact for each use case, and a 90-day implementation roadmap. Formatted for your investment committee.",
+      "We conduct a deep operational audit of one portfolio company — call recordings, CSR workflows, sales pipeline, dispatch operations. You receive a 32-page report with a prioritized AI opportunity matrix, projected EBITDA impact for each use case, and a prioritized implementation roadmap. Formatted for your investment committee.",
     deliverables: [
       "Call recording analysis & revenue leak quantification",
       "CSR workflow audit with labor redeployment plan",
@@ -20,9 +20,9 @@ const steps = [
   {
     number: "02",
     title: "AI Implementation Sprint",
-    duration: "8–12 weeks · $50K–$150K fixed fee",
+    duration: "$50K–$150K fee",
     description:
-      "We deploy the highest-impact AI systems identified in the assessment. Voice agents, scheduling automation, lead qualification, CRM integrations. Fixed project fee — no scope creep, no hourly billing. A working AI system in your portfolio company's stack, not a slide deck.",
+      "We deploy the highest-impact AI systems identified in the assessment. Voice agents, scheduling automation, lead qualification, CRM integrations. Project fee — no scope creep, no variable billing. A working AI system in your portfolio company's stack, not a slide deck.",
     deliverables: [
       "AI voice agent live across all locations",
       "Automated scheduling & dispatch engine",
@@ -33,13 +33,13 @@ const steps = [
   {
     number: "03",
     title: "Portfolio Expansion",
-    duration: "Ongoing · $5K–$15K/mo per company",
+    duration: "$5K–$15K per company",
     description:
       "Once you see the EBITDA impact at company one, we roll the same playbook across your portfolio. One operating partner relationship. One proven system. Deployed at scale across every company before your exit window closes. The per-company sales cycle for companies 2–7 is essentially zero.",
     deliverables: [
-      "Managed AI operations & monthly optimization",
-      "Monthly EBITDA impact reporting for IC review",
-      "Quarterly strategy reviews with operating partner",
+      "Managed AI operations & continuous optimization",
+      "Recurring EBITDA impact reporting for IC review",
+      "Strategic reviews with operating partner",
       "New use case identification as portfolio evolves",
     ],
   },
@@ -53,7 +53,7 @@ export default function HowItWorks() {
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 mb-4">How We Work</p>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              Three phases. Fixed fees. Measurable EBITDA at every step.
+              Three phases. Clear fees. Measurable EBITDA at every step.
             </h2>
           </div>
           <Link

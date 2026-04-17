@@ -7,17 +7,17 @@ const tiers = [
   {
     name: "AI Readiness Assessment",
     price: "$15K – $25K",
-    timeline: "30-45 days",
+    timeline: "Assessment-led entry",
     description:
-      "The door-opener. Audit one portfolio company, identify every AI opportunity, and deliver a 90-day roadmap with projected EBITDA impact. Formatted for your investment committee.",
+      "The door-opener. Audit one portfolio company, identify every AI opportunity, and deliver a prioritized roadmap with projected EBITDA impact. Formatted for your investment committee.",
     features: [
-      "30-45 day operational audit",
+      "Operational audit and workflow mapping",
       "Call recording & revenue leak analysis",
       "CSR workflow & labor cost review",
       "Sales pipeline efficiency assessment",
       "Prioritized AI opportunity matrix",
       "Investment committee-ready report",
-      "90-day implementation roadmap",
+      "Prioritized implementation roadmap",
     ],
     cta: "Start with an Assessment",
     href: "/contact",
@@ -26,7 +26,7 @@ const tiers = [
   {
     name: "AI Implementation Sprint",
     price: "$50K – $150K",
-    timeline: "8–12 weeks",
+    timeline: "Scope-based engagement",
     description:
       "Deploy voice agents, scheduling automation, lead qualification, and CRM integrations. Fixed project fee. No scope creep. A working AI system in your portfolio company's stack.",
     features: [
@@ -36,7 +36,7 @@ const tiers = [
       "CRM integration & pipeline automation",
       "Review generation workflow",
       "PE performance dashboard",
-      "Fixed fee — no hourly billing",
+      "Fixed fee — no variable billing",
     ],
     cta: "Book a Discovery Call",
     href: "/contact",
@@ -44,14 +44,14 @@ const tiers = [
   },
   {
     name: "Managed AI Operations",
-    price: "$5K – $15K/mo",
-    timeline: "Ongoing",
+    price: "$5K – $15K per company",
+    timeline: "Ongoing optimization",
     description:
-      "Ongoing monitoring, optimization, and reporting across your portfolio companies. Monthly EBITDA impact reporting for your operating partner and investment committee.",
+      "Ongoing monitoring, optimization, and reporting across your portfolio companies. Recurring EBITDA impact reporting for your operating partner and investment committee.",
     features: [
       "AI system monitoring & tuning",
-      "Monthly EBITDA impact reporting",
-      "Quarterly strategy reviews",
+      "Recurring EBITDA impact reporting",
+      "Strategic review sessions",
       "Voice agent retraining & optimization",
       "New use case identification",
       "Portfolio-wide benchmarking",
@@ -93,7 +93,7 @@ export default function Pricing() {
                 </span>
               )}
 
-              <h3 className={`text-xl font-bold mb-2 ${tier.highlight ? "!text-white" : "text-gray-900"}`}>
+              <h3 className={`text-xl font-bold mb-2 ${tier.highlight ? "text-white!" : "text-gray-900"}`}>
                 {tier.name}
               </h3>
               <div className="flex items-baseline gap-2 mb-1">

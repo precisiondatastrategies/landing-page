@@ -7,9 +7,9 @@ import Link from "next/link"
 import { BookingModal } from "./BookingModal"
 
 const stats = [
-    { icon: Clock, value: "30-45 Days", label: "To first deliverable" },
+    { icon: Clock, value: "Assessment-Led", label: "Engagement model" },
     { icon: TrendingUp, value: "10–15%", label: "Avg. EBITDA lift" },
-    { icon: Shield, value: "NDA", label: "Signed on day one" },
+    { icon: Shield, value: "NDA", label: "Confidential by default" },
 ]
 
 
@@ -68,7 +68,7 @@ export default function FinalCTA() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-base text-white/50 leading-relaxed mb-10 max-w-xl mx-auto"
                 >
-                    Start with a $15K AI Readiness Assessment. 30-45 days. One portfolio company.
+                    Start with a $15K AI Readiness Assessment for one portfolio company.
                     A prioritized roadmap with projected EBITDA impact — formatted for your investment committee.
                 </motion.p>
 

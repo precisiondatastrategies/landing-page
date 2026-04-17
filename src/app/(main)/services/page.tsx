@@ -30,7 +30,7 @@ const sections = [
         headline: "Stop wasting your sales team on tire kickers.",
         description: "AI scores every inbound lead in real time and routes hot prospects to your sales team in seconds — with a full dossier. Cold leads enter automated nurture. Your team stops spending 40% of their time on unqualified inquiries.",
         bullets: [
-            "Lead response time: 4.2 days → 11 minutes",
+            "Faster lead response and routing",
             "Qualified lead ratio: 45% → 78%",
             "Native Salesforce, HubSpot, and GoHighLevel integration",
             "Hot lead alerts via SMS and email",
@@ -44,10 +44,10 @@ const sections = [
         icon: Calendar,
         title: "Scheduling Automation",
         headline: "Zero-touch dispatch. Zero scheduling gaps.",
-        description: "Processes appointment requests from voice, web, and email. Auto-schedules based on technician skills, location, and availability. Sends reminders and enables one-tap rescheduling — eliminating 2–3 hours of daily manual dispatch per location.",
+        description: "Processes appointment requests from voice, web, and email. Auto-schedules based on technician skills, location, and availability. Sends reminders and enables one-tap rescheduling while reducing manual dispatch workload per location.",
         bullets: [
             "Instant text and email confirmations",
-            "24-hour and 2-hour automated reminders",
+            "Automated reminder sequences",
             "Multi-location and multi-branch support",
             "One-tap rescheduling via SMS",
         ],
@@ -75,7 +75,7 @@ const sections = [
         label: "PE Dashboard",
         icon: BarChart3,
         title: "PE Performance Dashboard",
-        headline: "One number. Monthly AI-attributable EBITDA.",
+        headline: "One number. AI-attributable EBITDA.",
         description: "Real-time EBITDA impact reporting built for operating partners and portfolio CEOs. Every AI metric tied to a financial outcome — not vanity tech stats. IC-ready reporting that makes your operating partner look good to the partners.",
         bullets: [
             "Live EBITDA contribution view",
@@ -142,7 +142,7 @@ export default function ServicesPage() {
                                 <span className="text-blue-600">service-industry portfolios.</span>
                             </h1>
                             <p className="text-xl text-gray-500 max-w-2xl leading-relaxed">
-                                Six core systems. Each one tied to a measurable EBITDA outcome. Deployed in weeks, not months.
+                                Six core systems. Each one tied to a measurable EBITDA outcome.
                             </p>
                         </motion.div>
 
@@ -176,7 +176,7 @@ export default function ServicesPage() {
                                 >
                                     {/* Image */}
                                     <div className="w-full lg:w-2/5 shrink-0">
-                                        <div className="relative rounded-3xl overflow-hidden aspect-[4/3] bg-gray-100 shadow-lg">
+                                            <div className="relative rounded-3xl overflow-hidden aspect-4/3 bg-gray-100 shadow-lg">
                                             <Image
                                                 src={s.image}
                                                 alt={s.title}

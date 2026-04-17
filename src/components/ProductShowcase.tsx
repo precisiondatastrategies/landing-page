@@ -21,13 +21,13 @@ const features: Feature[] = [
         tag: "AI Readiness Assessment",
         title: "Know Exactly Where the EBITDA Is Before You Spend a Dollar",
         description:
-            "We audit every portfolio company's operations and deliver a prioritized roadmap in 30-45 days — each one mapped to a projected EBITDA impact. Investment committee-ready.",
+            "We audit every portfolio company's operations and deliver a prioritized roadmap mapped to projected EBITDA impact. Investment committee-ready.",
         videoFile: "step_1.mp4",
         points: [
             "Call recording analysis & revenue leak identification",
             "CSR workflow and labor cost audit",
             "Sales pipeline efficiency review",
-            "Prioritized 90-day implementation roadmap",
+            "Prioritized implementation roadmap",
         ],
         bg: "#FFF7ED",
     },
@@ -37,13 +37,13 @@ const features: Feature[] = [
         tag: "AI Voice Agent",
         title: "24/7 AI Voice Agent That Books Jobs and Captures Revenue",
         description:
-            "Replace your answering service with an AI agent that answers every call, books appointments directly into your dispatch system, and handles emergency triage — all in under 2 seconds.",
+            "Replace your answering service with an AI agent that answers every call, books appointments directly into your dispatch system, and handles emergency triage.",
         videoFile: "voice.mp4",
         points: [
             "After-hours booking rate from 31% to 71%",
             "Inbound call answer rate from 72% to 98.4%",
             "Integrated with ServiceTitan, Salesforce, HubSpot",
-            "Answering service contract eliminated on day one",
+            "Answering service contract eliminated",
         ],
         bg: "#F6F3FF",
     },
@@ -53,7 +53,7 @@ const features: Feature[] = [
         tag: "Sales & Lead Qualification",
         title: "Stop Your Sales Team From Wasting 40% of Their Time",
         description:
-            "AI lead scoring and routing that instantly separates hot commercial prospects from tire-kickers. Average lead response time drops from 4.2 days to 11 minutes.",
+            "AI lead scoring and routing that instantly separates hot commercial prospects from tire-kickers. Lead response speed improves dramatically.",
         videoFile: "step_2.mp4",
         points: [
             "AI lead scoring with instant hot-lead routing",
@@ -67,7 +67,7 @@ const features: Feature[] = [
         id: 4,
         icon: BarChart3,
         tag: "PE Performance Dashboard",
-        title: "One Number: Monthly AI-Attributable EBITDA Contribution",
+        title: "One Number: AI-Attributable EBITDA Contribution",
         description:
             "A real-time dashboard built for operating partners, not portfolio company CEOs. Every metric connects directly to EBITDA — the number your LPs are tracking.",
         videoFile: "dash.mp4",
@@ -75,7 +75,7 @@ const features: Feature[] = [
             "Revenue capture from AI-booked jobs",
             "Cost savings vs. previous labor and vendor spend",
             "Sales pipeline conversion by lead score tier",
-            "Monthly EBITDA impact updated in real time",
+            "EBITDA impact updated in real time",
         ],
         bg: "#F0F9FF",
     },

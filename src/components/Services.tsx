@@ -17,7 +17,7 @@ const services = [
     title: "Lead Qualification & Routing",
     description:
       "AI scores every inbound lead and routes hot prospects to sales in seconds. Commercial leads get a full dossier. Cold leads enter automated nurture. Your team stops wasting 40% of their time.",
-    metrics: ["Response time: 4.2 days → 11 min", "Qualified lead ratio: 45% → 78%", "Salesforce & HubSpot native"],
+    metrics: ["Faster lead response", "Qualified lead ratio: 45% → 78%", "Salesforce & HubSpot native"],
     color: "indigo",
   },
   {
@@ -32,7 +32,7 @@ const services = [
     icon: BarChart3,
     title: "PE Performance Dashboard",
     description:
-      "Real-time EBITDA impact reporting built for operating partners. Every AI metric tied to a financial outcome. Monthly AI-attributable EBITDA contribution — the one number your LPs are tracking.",
+      "Real-time EBITDA impact reporting built for operating partners. Every AI metric tied to a financial outcome. AI-attributable EBITDA contribution — the one number your LPs are tracking.",
     metrics: ["Live EBITDA view", "IC-ready reporting", "Portfolio benchmarking"],
     color: "blue",
   },

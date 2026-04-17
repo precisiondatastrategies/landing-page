@@ -39,7 +39,7 @@ function CountUp({ end, suffix = "", duration = 2, className }: { end: number; s
 
 const testimonials = [
   {
-    quote: "The Big 4 quoted us $400K and six months. PDS had a working voice agent live at our first portfolio company in four weeks. The EBITDA impact showed up in month two.",
+    quote: "The Big 4 quoted us $400K. PDS delivered a working voice agent at our first portfolio company at a fraction of that cost. The EBITDA impact was clear and measurable.",
     author: "David K.",
     role: "AI Operating Partner, Mid-Market PE Fund",
     rating: 5,
@@ -51,25 +51,25 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: "After-hours booking rate went from 31% to 71% in the first month. The answering service contract was canceled on day one. That alone saved $24K annually.",
+    quote: "After-hours booking rate went from 31% to 71%. The answering service contract was canceled, which alone delivered $24K in cost savings.",
     author: "Tom A.",
     role: "COO, Multi-Location Home Services Company",
     rating: 5,
   },
   {
-    quote: "PDS never recommended laying off our CSRs. They redeployed them into revenue-generating roles. That approach got buy-in from the portfolio company CEO immediately.",
+    quote: "PDS never recommended laying off our CSRs. They redeployed them into revenue-generating roles. That approach got buy-in from the portfolio company CEO.",
     author: "Rachel G.",
     role: "Operating Partner, Service Industry Fund",
     rating: 5,
   },
   {
-    quote: "We signed a Master Services Agreement covering our entire Fund III portfolio after the first engagement. PDS is now our preferred AI implementation partner across all 14 companies.",
+    quote: "We signed a Master Services Agreement covering our entire Fund III portfolio, and PDS is now our preferred AI implementation partner across all 14 companies.",
     author: "Maria S.",
     role: "Partner, Mid-Market PE Firm",
     rating: 5,
   },
   {
-    quote: "Commercial lead response time dropped from 4.2 days to 11 minutes. That single change added a measurable lift to our close rate within 60 days of deployment.",
+    quote: "Commercial lead response speed improved significantly. That single change added a measurable lift to our close rate.",
     author: "Chris B.",
     role: "Commercial Sales Director, HVAC Platform",
     rating: 5,
@@ -135,7 +135,7 @@ export default function Testimonials() {
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <div>
                 <p className="text-white font-semibold text-lg">$1.8M annualized EBITDA improvement</p>
-                <p className="text-white/40 text-sm">Delivered at a single portfolio company in under 6 months. At 8.5x exit multiple, that is $15.3M in exit value created.</p>
+                <p className="text-white/40 text-sm">Delivered at a single portfolio company. At 8.5x exit multiple, that is $15.3M in exit value created.</p>
               </div>
             </div>
           </div>

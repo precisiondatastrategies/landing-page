@@ -10,7 +10,7 @@ type HighLevelWindow = Window & {
 const steps = [
   "We can sign an NDA for complete confidentiality",
   "Discuss your portfolio company's specific challenges",
-  "Receive a custom AI opportunity overview within 24 hours",
+  "Receive a custom AI opportunity overview",
   "Agree on scope and kick off the AI Readiness Assessment",
 ]
 
@@ -43,7 +43,7 @@ export default function Contact() {
               Ready to see the EBITDA impact across your portfolio?
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed mb-10">
-              Start with a conversation. Tell us about your portfolio, your timeline, and your exit targets. We will show you exactly where the AI opportunities are and what they are worth.
+              Start with a conversation. Tell us about your portfolio and your exit targets. We will show you exactly where the AI opportunities are and what they are worth.
             </p>
 
             <div className="space-y-4 mb-10">

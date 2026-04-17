@@ -102,7 +102,7 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
                                                 <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                                             </div>
                                             <div>
-                                                <p className="text-sm sm:text-base text-white leading-[150%]">Start with a $15K AI Readiness Assessment — a 3-week deep audit with a prioritized EBITDA impact roadmap, formatted for your investment committee.</p>
+                                                <p className="text-sm sm:text-base text-white leading-[150%]">Start with a $15K AI Readiness Assessment — a deep operational audit with a prioritized EBITDA impact roadmap, formatted for your investment committee.</p>
                                             </div>
                                         </div>
                                         <div className="flex gap-3 sm:gap-4">
@@ -115,7 +115,7 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
                                         </div>
                                     </div>
                                     <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-white/20">
-                                        <p className="text-lg sm:text-xl lg:text-2xl text-white leading-[150%] mb-4">"PDS delivered a working voice agent in 4 weeks at a fraction of what the Big 4 quoted. Every month saved is a month of additional value creation before exit."</p>
+                                        <p className="text-lg sm:text-xl lg:text-2xl text-white leading-[150%] mb-4">"PDS delivered a working voice agent at a fraction of what the Big 4 quoted. The value creation impact was clear and measurable."</p>
                                     </div>
                                 </div>
                                 <div className="lg:w-3/5 w-full h-[570px]">
@@ -158,9 +158,9 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
                         >
                             <div className="flex-1 flex flex-col justify-center items-start bg-linear-to-br from-blue-100 via-white to-indigo-50 p-8 md:p-12">
                                 <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2 animate-slidein">Book Your Appointment</h2>
-                                <p className="text-lg text-blue-700 mb-6 text-left animate-fadein-slow">Schedule a 30-minute call with our expert. Pick a time that works for you and let's accelerate your growth!</p>
+                                <p className="text-lg text-blue-700 mb-6 text-left animate-fadein-slow">Schedule a strategy call with our expert. Pick a time that works for you and let&apos;s accelerate your growth.</p>
                                 <ul className="text-blue-700 text-base mb-6 space-y-2 animate-fadein-slow">
-                                    <li className="flex items-center gap-2"><span className="inline-block w-2 h-2 bg-blue-500 rounded-full"></span> Free 30-min consultation</li>
+                                    <li className="flex items-center gap-2"><span className="inline-block w-2 h-2 bg-blue-500 rounded-full"></span> Free consultation</li>
                                     <li className="flex items-center gap-2"><span className="inline-block w-2 h-2 bg-blue-500 rounded-full"></span> Personalized advice</li>
                                     <li className="flex items-center gap-2"><span className="inline-block w-2 h-2 bg-blue-500 rounded-full"></span> No obligation</li>
                                 </ul>

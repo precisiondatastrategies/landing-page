@@ -20,7 +20,7 @@ const services = [
         title: "AI Lead Qualification",
         description: "Scores and routes inbound leads instantly. Hot prospects go to sales in seconds. Cold leads enter automated nurture. No more wasted rep time.",
         tag: "Sales AI",
-        metric: "11-min response",
+        metric: "Priority response routing",
         image: "/services/chatbot1.jpg"
     },
     {
@@ -67,7 +67,7 @@ const services = [
     },
     {
         title: "Review Generation Workflow",
-        description: "Post-service text workflow that routes happy customers to Google reviews and flags unhappy ones for immediate follow-up before they post publicly.",
+        description: "Post-service text workflow that routes happy customers to Google reviews and flags unhappy ones for priority follow-up before they post publicly.",
         tag: "Reputation",
         metric: "3.6 → 4.4 stars",
         image: "/services/bot.jpg"
@@ -101,7 +101,7 @@ export default function AIServices({ showAll = false }: AIServicesProps) {
                             The AI Stack We Deploy Across Your Portfolio
                         </TextReveal>
                         <p className="text-lg text-gray-600">
-                            Every tool is purpose-built for service-industry portfolio companies. We integrate with your existing tech stack — ServiceTitan, Salesforce, HubSpot, RingCentral — and go live in weeks, not months.
+                            Every tool is purpose-built for service-industry portfolio companies. We integrate with your existing tech stack — ServiceTitan, Salesforce, HubSpot, RingCentral — and execute against measurable operating outcomes.
                         </p>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react"
 const metrics = [
   { before: "72%", after: "98.4%", label: "Inbound call answer rate" },
   { before: "31%", after: "71%", label: "After-hours booking rate" },
-  { before: "4.2 days", after: "11 min", label: "Commercial lead response time" },
+  { before: "Delayed", after: "Prioritized", label: "Commercial lead response" },
   { before: "$5.8M", after: "$7.6M", label: "Portfolio company EBITDA" },
 ]
 
@@ -33,7 +33,7 @@ export default function CaseStudyBanner() {
               $110K engagement. $15.3M added to exit valuation.
             </h2>
             <p className="text-white/60 text-lg leading-relaxed mb-8">
-              An illustrative example: a $48M commercial HVAC platform. PDS deployed AI across all 8 locations in 12 weeks. The projected result: $1.8M in annualized EBITDA improvement and a portfolio-wide Master Services Agreement.
+              An illustrative example: a $48M commercial HVAC platform. PDS deployed AI across all 8 locations. The projected result: $1.8M in annualized EBITDA improvement and a portfolio-wide Master Services Agreement.
             </p>
             <Link
               href="/case-studies/greenline-mechanical"

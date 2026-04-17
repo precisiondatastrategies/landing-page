@@ -21,7 +21,7 @@ export default function ConfirmationEmailLottie({ className = "" }: Confirmation
       <div className="relative z-10 flex h-full w-full flex-col gap-4">
         <div className="flex items-center justify-between text-[7px] font-semibold text-slate-500">
           <div className="flex items-center gap-2">
-            <span className="rounded-full border border-blue-100 bg-white/80 px-3 py-1 text-blue-600">Send in 30s</span>
+            <span className="rounded-full border border-blue-100 bg-white/80 px-3 py-1 text-blue-600">Send now</span>
             <span className="rounded-full border border-emerald-100 bg-white/80 px-3 py-1 text-emerald-600 flex items-center gap-1">
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
               99% deliverability

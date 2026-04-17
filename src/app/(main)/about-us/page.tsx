@@ -324,7 +324,7 @@ export default function AboutUsPage() {
 
             <div className="max-w-4xl mx-auto mt-12 text-center text-gray-500 leading-relaxed">
               <p>
-                We believe that AI should be accessible, practical, and immediately impactful. Whether simple chatbots or complex multi-channel lead capture hubs, our solutions are built to deliver rigorous efficiency and measurable growth. We partner with you to uncover hidden opportunities in your data and operations, turning potential into performance.
+                We believe that AI should be accessible, practical, and genuinely impactful. Whether simple chatbots or complex multi-channel lead capture hubs, our solutions are built to deliver rigorous efficiency and measurable growth. We partner with you to uncover hidden opportunities in your data and operations, turning potential into performance.
               </p>
             </div>
           </div>

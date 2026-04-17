@@ -23,7 +23,7 @@ const segments = [
     title: "Upper Mid-Market Funds",
     subtitle: "$5B – $100B AUM",
     description:
-      "You have a Technology Operating Partner and a value creation mandate. We integrate with your existing team as the remote AI implementation partner your strategy requires.",
+      "You have a Technology Operating Partner and a value creation mandate. We integrate with your existing team as the AI implementation partner your strategy requires.",
     points: [
       "Plug into existing value creation teams",
       "Multi-portfolio deployment playbooks",
@@ -37,9 +37,9 @@ const segments = [
     title: "Service Industry Portfolios",
     subtitle: "HVAC, Plumbing, Pest Control, Healthcare Services",
     description:
-      "These portfolio companies bleed revenue through missed calls and manual scheduling. We fix both problems in a single sprint — and the EBITDA impact shows up in month two.",
+      "These portfolio companies bleed revenue through missed calls and manual scheduling. We fix both problems with focused implementation tied to measurable EBITDA impact.",
     points: [
-      "AI voice agents replace answering services on day one",
+      "AI voice agents replace answering services",
       "Automated scheduling eliminates manual dispatch",
       "$1M+ EBITDA impact per company is achievable",
     ],

@@ -13,7 +13,7 @@ const pillars = [
     icon: Clock,
     title: "Speed Is the Moat",
     description:
-      "The Big 4 quote 6 months and $300K–$500K per company. We deliver a working AI system in 4 weeks at a fraction of the cost. In PE, every month saved on implementation is a month of additional value creation before exit.",
+      "The Big 4 quote $300K–$500K per company. We deliver working AI systems at a fraction of the cost with execution tied directly to measurable value creation.",
   },
   {
     icon: Users,
@@ -25,7 +25,7 @@ const pillars = [
     icon: BarChart3,
     title: "Built for Operating Partners",
     description:
-      "Our dashboards are built for you, not the portfolio company CEO. One number: monthly AI-attributable EBITDA contribution. Make the operating partner look good to the partners, and the partners open every door.",
+      "Our dashboards are built for you, not the portfolio company CEO. One number: AI-attributable EBITDA contribution. Make the operating partner look good to the partners, and the partners open every door.",
   },
 ]
 

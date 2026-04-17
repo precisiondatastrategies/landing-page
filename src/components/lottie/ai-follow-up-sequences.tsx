@@ -86,7 +86,7 @@ export default function AIFollowUpSequencesLottie({ className = "" }: FollowUpSe
           Steps
           <span className="text-purple-500">3</span>
           <span className="flex items-center gap-1 text-emerald-500">
-            Ready in 90s
+            Ready to send
             <motion.span
               className="h-2 w-2 rounded-full bg-emerald-400"
               animate={{ opacity: [0.3, 1, 0.3] }}

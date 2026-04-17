@@ -31,7 +31,7 @@ export default function Consulting() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="text-lg text-gray-600 leading-relaxed max-w-xl"
                         >
-                            The Big 4 do strategy. We do the build. Fixed fees, fast timelines, and every deliverable formatted for your investment committee. One relationship that scales across your entire portfolio.
+                            The Big 4 do strategy. We do the build. Fixed fees and every deliverable formatted for your investment committee. One relationship that scales across your entire portfolio.
                         </motion.p>
 
                         <motion.div

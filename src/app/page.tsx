@@ -12,7 +12,7 @@ import Contact from "@/components/Contact";
 export const metadata = {
   title: "Precision Data Strategies | AI Implementation for PE Portfolio Companies",
   description:
-    "PDS deploys AI across private equity portfolio companies — voice agents, scheduling automation, lead qualification, and EBITDA-impact dashboards. Fixed fees. 4-week deployment.",
+    "PDS deploys AI across private equity portfolio companies — voice agents, scheduling automation, lead qualification, and EBITDA-impact dashboards. Fixed fees and measurable execution.",
 };
 
 export default function Home() {

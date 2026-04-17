@@ -35,7 +35,7 @@ export default function Contact() {
 	}, [])
 
 	return (
-		<section className="section-padding bg-[#FFFFFFFF] relative overflow-hidden">
+		<section className="section-padding pt-28 md:pt-32 bg-white relative overflow-x-clip">
 			{/* Dot Pattern Background */}
 			<div className="absolute inset-0 opacity-5">
 				<div className="absolute inset-0" style={{
@@ -44,15 +44,15 @@ export default function Contact() {
 				}}></div>
 			</div>
 
-			<div className="sm:max-w-7xl mx-auto relative z-10">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 				<div className="grid lg:grid-cols-5 gap-12 items-start">
 					{/* Left Column */}
 					<div className="space-y-8 lg:col-span-2">
 						<div>
 							<p className="text-blue-600 font-semibold mb-4">Contact Us</p>
 							<h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-								This is what will happen, after you{" "}
-								<span className="bg-linear-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">submit form</span>
+								This is what will happen after you{" "}
+								<span className="bg-linear-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">submit the form</span>
 							</h2>
 						</div>
 
@@ -73,13 +73,13 @@ export default function Contact() {
 							<div className="flex items-start gap-3">
 								<CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
 								<p className="text-gray-700">
-									PDS experts <span className="font-semibold">contact you within 24h</span>
+									PDS experts <span className="font-semibold">contact you</span>
 								</p>
 							</div>
 							<div className="flex items-start gap-3">
 								<CheckCircle className="w-6 h-6 text-blue-600 shrink-0 mt-1" />
 								<p className="text-gray-700">
-									Submit a <span className="font-semibold">comprehensive project proposal</span> with estimates, timelines, team composition, etc
+									Submit a <span className="font-semibold">comprehensive project proposal</span> with scope, team composition, and execution details
 								</p>
 							</div>
 						</div>
