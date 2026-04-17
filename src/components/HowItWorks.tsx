@@ -9,7 +9,7 @@ const steps = [
     title: "AI Readiness Assessment",
     duration: "$15K–$25K fee",
     description:
-      "We conduct a deep operational audit of one portfolio company — call recordings, CSR workflows, sales pipeline, dispatch operations. You receive a 32-page report with a prioritized AI opportunity matrix, projected EBITDA impact for each use case, and a prioritized implementation roadmap. Formatted for your investment committee.",
+      "We conduct a deep operational audit of one portfolio company  -  call recordings, CSR workflows, sales pipeline, dispatch operations. You receive a 32-page report with a prioritized AI opportunity matrix, projected EBITDA impact for each use case, and a prioritized implementation roadmap. Formatted for your investment committee.",
     deliverables: [
       "Call recording analysis & revenue leak quantification",
       "CSR workflow audit with labor redeployment plan",
@@ -22,7 +22,7 @@ const steps = [
     title: "AI Implementation Sprint",
     duration: "$50K–$150K fee",
     description:
-      "We deploy the highest-impact AI systems identified in the assessment. Voice agents, scheduling automation, lead qualification, CRM integrations. Project fee — no scope creep, no variable billing. A working AI system in your portfolio company's stack, not a slide deck.",
+      "We deploy the highest-impact AI systems identified in the assessment. Voice agents, scheduling automation, lead qualification, CRM integrations. Project fee  -  no scope creep, no variable billing. A working AI system in your portfolio company's stack, not a slide deck.",
     deliverables: [
       "AI voice agent live across all locations",
       "Automated scheduling & dispatch engine",

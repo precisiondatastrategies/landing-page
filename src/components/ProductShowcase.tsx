@@ -69,7 +69,7 @@ const features: Feature[] = [
         tag: "PE Performance Dashboard",
         title: "One Number: AI-Attributable EBITDA Contribution",
         description:
-            "A real-time dashboard built for operating partners, not portfolio company CEOs. Every metric connects directly to EBITDA — the number your LPs are tracking.",
+            "A real-time dashboard built for operating partners, not portfolio company CEOs. Every metric connects directly to EBITDA  -  the number your LPs are tracking.",
         videoFile: "dash.mp4",
         points: [
             "Revenue capture from AI-booked jobs",

@@ -31,7 +31,7 @@ export default function GreenlineCaseStudyPage() {
             <div className="bg-amber-50 border-b border-amber-100 py-3 px-6 text-center">
                 <span className="inline-flex items-center justify-center gap-2 text-amber-700 text-sm">
                     <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
-                    <span><strong>Illustrative Example:</strong> Company name and figures are fictional — projected outcomes based on PDS methodology, not an actual client engagement.</span>
+                    <span><strong>Illustrative Example:</strong> Company name and figures are fictional  -  projected outcomes based on PDS methodology, not an actual client engagement.</span>
                 </span>
             </div>
 
@@ -116,7 +116,7 @@ export default function GreenlineCaseStudyPage() {
                                     </div>
                                     <div className="border border-gray-200 rounded-2xl p-6 bg-white">
                                         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">The Portfolio Company</p>
-                                        <p className="text-base font-bold text-gray-900 mb-2">Apex Mechanical Services <span className="text-red-600 font-bold">— PORTFOLIO ILLUSTRATION ONLY</span></p>
+                                        <p className="text-base font-bold text-gray-900 mb-2">Apex Mechanical Services <span className="text-red-600 font-bold"> -  PORTFOLIO ILLUSTRATION ONLY</span></p>
                                         <p className="text-gray-500 text-sm leading-relaxed">$48M commercial HVAC &amp; plumbing platform. 8 locations across AZ, NV, NM. 310 employees. Grown from $22M through 3 add-on acquisitions. Target exit multiple: 8–9x EBITDA.</p>
                                     </div>
                                 </div>
@@ -155,7 +155,7 @@ export default function GreenlineCaseStudyPage() {
                                     {[
                                         { icon: Phone, title: "28% of inbound calls abandoned", desc: "Sent to voicemail or an answering service that booked appointments only 31% of the time. ~340 missed new-customer calls created significant revenue exposure estimated at $952K." },
                                         { icon: Clock, title: "Lead response lagged materially", desc: "A property manager with a 200-unit complex called after hours and booked a competitor before follow-up. Estimated lost revenue: $41,000 from one call." },
-                                        { icon: Users, title: "Sales team wasting 40% of their time", desc: "55% of inbound leads were unqualified — residential callers, out-of-area, tire kickers. The 6-person commercial team was doing manual lead triage instead of closing deals." },
+                                        { icon: Users, title: "Sales team wasting 40% of their time", desc: "55% of inbound leads were unqualified  -  residential callers, out-of-area, tire kickers. The 6-person commercial team was doing manual lead triage instead of closing deals." },
                                         { icon: Building2, title: "Manual dispatch across 8 locations", desc: "Office managers spent substantial time manually scheduling technicians in ServiceTitan. Wrong-skilled techs were dispatched to jobs. Scheduling gaps cost billable hours." },
                                     ].map(item => (
                                         <div key={item.title} className="flex gap-4 border border-gray-200 rounded-2xl p-5 bg-white hover:border-gray-300 transition-colors">
@@ -179,14 +179,14 @@ export default function GreenlineCaseStudyPage() {
                                 </div>
                                 <h2 className="text-3xl font-bold text-gray-900 mb-4">AI Readiness Assessment</h2>
                                 <p className="text-gray-500 leading-relaxed mb-8">
-                                    PDS conducted a deep operational audit — not a technology audit. The goal: find where the business loses money, misses revenue, or wastes labor hours, then map each problem to an AI solution with a projected financial impact.
+                                    PDS conducted a deep operational audit  -  not a technology audit. The goal: find where the business loses money, misses revenue, or wastes labor hours, then map each problem to an AI solution with a projected financial impact.
                                 </p>
 
                                 <div className="space-y-3 mb-8">
                                     {[
                                         { week: "Stage A", title: "Discovery & Data Collection", desc: "Transcribed RingCentral call recordings using Deepgram. Classified 4,218 calls by type. Performed dedicated on-site observation of CSR workflows at Phoenix HQ. Reviewed Salesforce pipeline data." },
-                                        { week: "Stage B", title: "Opportunity Mapping & ROI Modeling", desc: "Built a detailed opportunity matrix mapping each AI use case to a projected financial impact — grounded in actual data, not industry benchmarks. Every number had a confidence rating and complexity score." },
-                                        { week: "Stage C", title: "IC-Ready Deliverable", desc: "Delivered a 32-page AI Readiness Assessment formatted for investment committee review — including sensitivity analysis, implementation risk factors, and a projected aggregate EBITDA impact of $1.4M–$2.1M." },
+                                        { week: "Stage B", title: "Opportunity Mapping & ROI Modeling", desc: "Built a detailed opportunity matrix mapping each AI use case to a projected financial impact  -  grounded in actual data, not industry benchmarks. Every number had a confidence rating and complexity score." },
+                                        { week: "Stage C", title: "IC-Ready Deliverable", desc: "Delivered a 32-page AI Readiness Assessment formatted for investment committee review  -  including sensitivity analysis, implementation risk factors, and a projected aggregate EBITDA impact of $1.4M–$2.1M." },
                                     ].map(item => (
                                         <div key={item.week} className="flex gap-4">
                                             <div className="w-16 shrink-0 text-xs font-semibold text-gray-400 pt-4">{item.week}</div>
@@ -231,7 +231,7 @@ export default function GreenlineCaseStudyPage() {
                                             title: "Scheduling Automation + Lead Qualification",
                                             icon: Zap,
                                             result: "Lead response significantly improved",
-                                            desc: "Built an n8n scheduling engine that auto-slots appointments from voice, web, and email into ServiceTitan based on technician skills, location, and availability. Added an AI lead qualification layer to Salesforce — hot leads routed instantly to sales reps with a full dossier. 2 of 3 CSRs redeployed into revenue-generating roles.",
+                                            desc: "Built an n8n scheduling engine that auto-slots appointments from voice, web, and email into ServiceTitan based on technician skills, location, and availability. Added an AI lead qualification layer to Salesforce  -  hot leads routed instantly to sales reps with a full dossier. 2 of 3 CSRs redeployed into revenue-generating roles.",
                                             stack: ["n8n", "Salesforce", "GoHighLevel", "ServiceTitan"],
                                         },
                                         {
@@ -239,7 +239,7 @@ export default function GreenlineCaseStudyPage() {
                                             title: "PE Performance Dashboard + Optimization",
                                             icon: BarChart3,
                                             result: "Escalation rate: 14% → 9% after retraining",
-                                            desc: "Built a real-time dashboard for the operating partner and portfolio CEO showing AI performance tied directly to financial outcomes — not vanity metrics. Every number connects to EBITDA. Added a post-service review workflow routing happy customers to Google reviews and unhappy customers to the Customer Success Coordinator.",
+                                            desc: "Built a real-time dashboard for the operating partner and portfolio CEO showing AI performance tied directly to financial outcomes  -  not vanity metrics. Every number connects to EBITDA. Added a post-service review workflow routing happy customers to Google reviews and unhappy customers to the Customer Success Coordinator.",
                                             stack: ["PDS Dashboard", "n8n", "ServiceTitan", "Salesforce"],
                                         },
                                     ].map(item => (
@@ -338,7 +338,7 @@ export default function GreenlineCaseStudyPage() {
                                 <div className="space-y-3 mb-10">
                                     {[
                                         { month: "Update A", event: "David presented results at the Ridgecrest portfolio review. Partners asked one question: 'Which portfolio companies are next?'" },
-                                        { month: "Update B", event: "PDS signed a Master Services Agreement with Ridgecrest covering the entire Fund III portfolio — additional AI Readiness Assessments were authorized." },
+                                        { month: "Update B", event: "PDS signed a Master Services Agreement with Ridgecrest covering the entire Fund III portfolio  -  additional AI Readiness Assessments were authorized." },
                                         { month: "Update C", event: "Assessments began at more portfolio companies: regional pest control (12 locations), commercial cleaning (18 locations), and a dental DSO (9 practices). All converted to full implementations." },
                                         { month: "Update D", event: "David mentioned PDS by name at a PE Operating Partners Forum. Two operating partners from different PE firms approached Ronald after the panel and requested intro calls." },
                                     ].map(item => (
@@ -354,15 +354,15 @@ export default function GreenlineCaseStudyPage() {
                                 {/* Revenue table */}
                                 <div className="border border-gray-200 rounded-2xl overflow-hidden">
                                     <div className="px-6 py-3.5 border-b border-gray-100 bg-gray-50">
-                                        <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">Ridgecrest Relationship — Year 1 Revenue</span>
+                                        <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">Ridgecrest Relationship  -  Year 1 Revenue</span>
                                     </div>
                                     <table className="w-full text-sm">
                                         <tbody className="divide-y divide-gray-100">
                                             {[
-                                                { line: "AI Readiness Assessments (7 × $15K)", amount: "$105,000" },
-                                                { line: "Implementation Sprints (4 completed × avg. $95K)", amount: "$380,000" },
+                                                { line: "AI Readiness Assessments (7 � -  $15K)", amount: "$105,000" },
+                                                { line: "Implementation Sprints (4 completed � -  avg. $95K)", amount: "$380,000" },
                                                 { line: "Implementation Sprints (3 in progress, partial)", amount: "$142,500" },
-                                                { line: "Managed AI Services (4 companies × avg. $8K/mo)", amount: "$160,000" },
+                                                { line: "Managed AI Services (4 companies � -  avg. $8K/mo)", amount: "$160,000" },
                                             ].map(r => (
                                                 <tr key={r.line} className="bg-white">
                                                     <td className="px-6 py-4 text-gray-500">{r.line}</td>

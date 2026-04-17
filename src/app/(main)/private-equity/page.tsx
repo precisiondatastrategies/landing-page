@@ -66,7 +66,7 @@ export default function PrivateEquityPage() {
                             How We Partner With Private Equity
                         </h2>
                         <p className="text-gray-600">
-                            We don't just advise—we execute. Our team works directly with portfolio companies' technical staff to identify and implement high-leverage automation.
+                            We don't just advise - we execute. Our team works directly with portfolio companies' technical staff to identify and implement high-leverage automation.
                         </p>
                     </div>
 
@@ -134,7 +134,7 @@ export default function PrivateEquityPage() {
                             <div className="flex flex-col md:flex-row gap-8 lg:gap-12 relative z-0">
                                 <div className="md:w-1/3">
                                     <div className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2">Industry: HVAC / Plumbing</div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">Apex Mechanical <span className="text-base font-bold text-red-600">— ILLUSTRATION ONLY</span></h3>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">Apex Mechanical <span className="text-base font-bold text-red-600"> -  ILLUSTRATION ONLY</span></h3>
                                     <div className="space-y-4">
                                         <div className="flex items-center gap-2 text-gray-700">
                                             <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />

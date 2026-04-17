@@ -13,7 +13,7 @@ const slides = [
         AI that moves <br /> your multiple
       </>
     ),
-    subheadline: "We deploy AI across PE portfolio companies and measure everything in EBITDA — not technology vanity metrics.",
+    subheadline: "We deploy AI across PE portfolio companies and measure everything in EBITDA  -  not technology vanity metrics.",
     videoUrl: "/videos/h2.mp4",
   },
   {
@@ -33,7 +33,7 @@ const slides = [
   //       One firm. <br /> Entire portfolio.
   //     </>
   //   ),
-  //   subheadline: "Land one PE firm, deploy across every portfolio company. The portfolio multiplier is real — and it compounds fast.",
+  //   subheadline: "Land one PE firm, deploy across every portfolio company. The portfolio multiplier is real  -  and it compounds fast.",
   //   videoUrl: "https://cdn.pixabay.com/video/2020/01/21/31422-386008544_large.mp4",
   // }
 ]

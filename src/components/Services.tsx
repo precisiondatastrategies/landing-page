@@ -8,7 +8,7 @@ const services = [
     icon: Phone,
     title: "AI Voice Agent",
     description:
-      "Replaces answering services entirely. Books jobs, handles emergency triage, qualifies leads, and sends confirmations — 24/7, integrated with ServiceTitan, RingCentral, and your dispatch system.",
+      "Replaces answering services entirely. Books jobs, handles emergency triage, qualifies leads, and sends confirmations  -  24/7, integrated with ServiceTitan, RingCentral, and your dispatch system.",
     metrics: ["98.4% answer rate", "After-hours booking: 31% → 71%"],
     color: "blue",
   },
@@ -32,7 +32,7 @@ const services = [
     icon: BarChart3,
     title: "PE Performance Dashboard",
     description:
-      "Real-time EBITDA impact reporting built for operating partners. Every AI metric tied to a financial outcome. AI-attributable EBITDA contribution — the one number your LPs are tracking.",
+      "Real-time EBITDA impact reporting built for operating partners. Every AI metric tied to a financial outcome. AI-attributable EBITDA contribution  -  the one number your LPs are tracking.",
     metrics: ["Live EBITDA view", "IC-ready reporting", "Portfolio benchmarking"],
     color: "blue",
   },

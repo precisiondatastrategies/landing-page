@@ -43,7 +43,7 @@ export default function CaseStudyBanner() {
             </Link>
           </div>
 
-          {/* Right — metrics */}
+          {/* Right  -  metrics */}
           <div className="grid grid-cols-2 gap-4 lg:w-[480px] shrink-0">
             {metrics.map((m) => (
               <div key={m.label} className="bg-white/5 border border-white/10 rounded-xl p-6">

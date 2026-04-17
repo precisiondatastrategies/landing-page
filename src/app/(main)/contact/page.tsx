@@ -86,11 +86,11 @@ export default function Contact() {
 					</div>
 
 					{/* Right Column - Contact Form */}
-					<div className="lg:col-span-3">
-						<div className="rounded-2xl overflow-hidden" style={{ minHeight: "502px" }}>
+					<div className="lg:col-span-3 flex justify-center">
+						<div className="w-full max-w-md sm:max-w-none rounded-2xl overflow-hidden border border-gray-100" style={{ minHeight: "502px" }}>
 					    <iframe
                                 src="https://links.precisiondatastrategies.com/widget/form/YlUfjXQoR2QqxQfaK3g6"
-                                style={{width:'100%',height:'100%',border:'none',borderRadius:'15px'}}
+                                style={{width:'100%',height:'620px',border:'none',borderRadius:'15px'}}
                                 id="inline-YlUfjXQoR2QqxQfaK3g6"
                                 data-layout="{'id':'INLINE'}"
                                 data-trigger-type="alwaysShow"

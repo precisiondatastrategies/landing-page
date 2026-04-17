@@ -69,7 +69,7 @@ export default function FinalCTA() {
                     className="text-base text-white/50 leading-relaxed mb-10 max-w-xl mx-auto"
                 >
                     Start with a $15K AI Readiness Assessment for one portfolio company.
-                    A prioritized roadmap with projected EBITDA impact — formatted for your investment committee.
+                    A prioritized roadmap with projected EBITDA impact  -  formatted for your investment committee.
                 </motion.p>
 
                 {/* Stats row */}

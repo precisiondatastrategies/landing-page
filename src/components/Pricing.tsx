@@ -36,7 +36,7 @@ const tiers = [
       "CRM integration & pipeline automation",
       "Review generation workflow",
       "PE performance dashboard",
-      "Fixed fee — no variable billing",
+      "Fixed fee  -  no variable billing",
     ],
     cta: "Book a Discovery Call",
     href: "/contact",

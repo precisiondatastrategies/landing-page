@@ -102,7 +102,7 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
                                                 <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                                             </div>
                                             <div>
-                                                <p className="text-sm sm:text-base text-white leading-[150%]">Start with a $15K AI Readiness Assessment — a deep operational audit with a prioritized EBITDA impact roadmap, formatted for your investment committee.</p>
+                                                <p className="text-sm sm:text-base text-white leading-[150%]">Start with a $15K AI Readiness Assessment  -  a deep operational audit with a prioritized EBITDA impact roadmap, formatted for your investment committee.</p>
                                             </div>
                                         </div>
                                         <div className="flex gap-3 sm:gap-4">
@@ -110,7 +110,7 @@ export const BookingModal = ({ isOpen, onClose, layoutId }: BookingModalProps) =
                                                 <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                                             </div>
                                             <div>
-                                                <p className="text-sm sm:text-base text-white leading-[150%]">PDS deploys AI voice agents, scheduling automation, and lead qualification systems that move the EBITDA number — not just the tech stack.</p>
+                                                <p className="text-sm sm:text-base text-white leading-[150%]">PDS deploys AI voice agents, scheduling automation, and lead qualification systems that move the EBITDA number  -  not just the tech stack.</p>
                                             </div>
                                         </div>
                                     </div>

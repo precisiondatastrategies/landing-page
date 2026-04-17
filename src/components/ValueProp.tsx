@@ -7,7 +7,7 @@ const pillars = [
     icon: TrendingUp,
     title: "EBITDA-First Thinking",
     description:
-      "Every AI use case we identify is mapped to a projected financial outcome. We speak the language of your investment committee — margin expansion, cost reduction, revenue capture — not technology buzzwords.",
+      "Every AI use case we identify is mapped to a projected financial outcome. We speak the language of your investment committee  -  margin expansion, cost reduction, revenue capture  -  not technology buzzwords.",
   },
   {
     icon: Clock,
@@ -40,7 +40,7 @@ export default function ValueProp() {
             The implementation partner PE firms have been looking for
           </h2>
           <p className="text-lg text-gray-500 leading-relaxed">
-            Most AI vendors sell tools. We deploy systems. There is a difference — and it shows up in your EBITDA.
+            Most AI vendors sell tools. We deploy systems. There is a difference  -  and it shows up in your EBITDA.
           </p>
         </div>
 

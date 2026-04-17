@@ -9,7 +9,7 @@ const segments = [
     title: "Mid-Market PE Firms",
     subtitle: "$500M – $5B AUM",
     description:
-      "You have the mandate to drive AI value creation across your portfolio but no internal implementation team. We are your execution arm — from the first assessment to portfolio-wide deployment.",
+      "You have the mandate to drive AI value creation across your portfolio but no internal implementation team. We are your execution arm  -  from the first assessment to portfolio-wide deployment.",
     points: [
       "AI Readiness Assessments at $15K–$25K per company",
       "Implementation sprints at fixed fees, no scope creep",
@@ -58,7 +58,7 @@ export default function WhoWeServe() {
             Built for PE firms that cannot afford to leave EBITDA on the table
           </h2>
           <p className="text-lg text-gray-500 leading-relaxed">
-            From mid-market funds to upper mid-market platforms — we deploy AI across your portfolio companies and measure everything in the language your LPs speak.
+            From mid-market funds to upper mid-market platforms  -  we deploy AI across your portfolio companies and measure everything in the language your LPs speak.
           </p>
         </div>
 

@@ -77,7 +77,7 @@ const PinnedScrollSections = () => {
         {
             title: 'Service Industry Portfolios',
             subtitle: 'Highest ROI Vertical',
-            description: 'HVAC, plumbing, pest control, home services, healthcare services — these portfolio companies bleed revenue through missed calls and manual scheduling. We fix that with disciplined implementation and measurable operational gains.',
+            description: 'HVAC, plumbing, pest control, home services, healthcare services  -  these portfolio companies bleed revenue through missed calls and manual scheduling. We fix that with disciplined implementation and measurable operational gains.',
             features: ['AI voice agents replace answering services', 'Automated scheduling & dispatch', '$1M+ EBITDA impact per company'],
             bgColor: 'bg-gradient-to-br from-purple-900 to-indigo-900',
             textColor: 'text-white',
@@ -104,7 +104,7 @@ const PinnedScrollSections = () => {
                     Built for PE firms that cannot afford to leave EBITDA on the table
                 </h2>
                 <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-                    From mid-market funds to upper mid-market platforms — we deploy AI across your portfolio companies and measure everything in the language your LPs speak.
+                    From mid-market funds to upper mid-market platforms  -  we deploy AI across your portfolio companies and measure everything in the language your LPs speak.
                 </p>
             </div>
 

@@ -251,7 +251,7 @@ export default function PrivacyPolicyPage() {
                 9. International Data Transfers
               </h2>
               <p>
-                Your information, including personal data, may be transferred to — and maintained on — computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction. If you are located outside the United States and choose to provide information to us, please note that we transfer the data, including personal data, to the United States and process it there.
+                Your information, including personal data, may be transferred to  -  and maintained on  -  computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction. If you are located outside the United States and choose to provide information to us, please note that we transfer the data, including personal data, to the United States and process it there.
               </p>
             </div>
 

@@ -11,7 +11,7 @@ type AIServicesProps = {
 const services = [
     {
         title: "AI Voice Agent",
-        description: "Replaces answering services. Books jobs, handles emergency triage, and qualifies leads 24/7 — integrated with your dispatch system.",
+        description: "Replaces answering services. Books jobs, handles emergency triage, and qualifies leads 24/7  -  integrated with your dispatch system.",
         tag: "Voice",
         metric: "98.4% answer rate",
         image: "/services/voice2.png"
@@ -32,7 +32,7 @@ const services = [
     },
     {
         title: "PE Performance Dashboard",
-        description: "Real-time EBITDA impact reporting for operating partners. Every AI metric tied to a financial outcome — built for investment committee review.",
+        description: "Real-time EBITDA impact reporting for operating partners. Every AI metric tied to a financial outcome  -  built for investment committee review.",
         tag: "Reporting",
         metric: "Live EBITDA view",
         image: "/services/mini.jpg"
@@ -101,7 +101,7 @@ export default function AIServices({ showAll = false }: AIServicesProps) {
                             The AI Stack We Deploy Across Your Portfolio
                         </TextReveal>
                         <p className="text-lg text-gray-600">
-                            Every tool is purpose-built for service-industry portfolio companies. We integrate with your existing tech stack — ServiceTitan, Salesforce, HubSpot, RingCentral — and execute against measurable operating outcomes.
+                            Every tool is purpose-built for service-industry portfolio companies. We integrate with your existing tech stack  -  ServiceTitan, Salesforce, HubSpot, RingCentral  -  and execute against measurable operating outcomes.
                         </p>
                     </div>
                 </div>

@@ -8,13 +8,13 @@ export default function WorkflowExplainer() {
             number: "01",
             icon: FileSearch,
             title: "AI Readiness Assessment",
-            description: "We audit one portfolio company across call recordings, CSR workflows, sales pipeline, and dispatch operations. You get a prioritized roadmap with projected EBITDA impact for every AI opportunity — formatted for your investment committee."
+            description: "We audit one portfolio company across call recordings, CSR workflows, sales pipeline, and dispatch operations. You get a prioritized roadmap with projected EBITDA impact for every AI opportunity  -  formatted for your investment committee."
         },
         {
             number: "02",
             icon: Zap,
             title: "Implementation Sprint",
-            description: "We deploy voice agents, scheduling automation, lead qualification, and CRM integrations. Fixed project fee. No scope creep. A working AI system in your portfolio company's stack — not a slide deck."
+            description: "We deploy voice agents, scheduling automation, lead qualification, and CRM integrations. Fixed project fee. No scope creep. A working AI system in your portfolio company's stack  -  not a slide deck."
         },
         {
             number: "03",

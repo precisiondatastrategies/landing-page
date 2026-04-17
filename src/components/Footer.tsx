@@ -56,7 +56,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm leading-relaxed text-gray-500 max-w-xs mb-6">
-              AI implementation partner for private equity portfolio companies. We deploy AI systems that improve EBITDA — not slide decks.
+              AI implementation partner for private equity portfolio companies. We deploy AI systems that improve EBITDA  -  not slide decks.
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-2.5 text-gray-500">

@@ -23,7 +23,7 @@ export default function Integrations() {
                         Works Seamlessly With Your Existing Tools
                     </h2>
                     <p className="sm:text-xl text-sm text-gray-600 max-w-3xl mx-auto mb-4">
-                        Connect your automations to the platforms you already use — from scheduling and CRM to communication apps.
+                        Connect your automations to the platforms you already use  -  from scheduling and CRM to communication apps.
                     </p>
                 </div>
 

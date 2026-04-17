@@ -45,7 +45,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: "The assessment report alone was worth the $15K. It gave us a prioritized roadmap with projected EBITDA impact for every AI opportunity — formatted for our investment committee.",
+    quote: "The assessment report alone was worth the $15K. It gave us a prioritized roadmap with projected EBITDA impact for every AI opportunity  -  formatted for our investment committee.",
     author: "Sarah L.",
     role: "Technology Operating Partner",
     rating: 5,
@@ -93,7 +93,7 @@ export default function Testimonials() {
             What PE operating partners are saying
           </h2>
           <p className="text-lg text-gray-500">
-            From first assessment to portfolio-wide deployment — results measured in EBITDA, not vanity metrics.
+            From first assessment to portfolio-wide deployment  -  results measured in EBITDA, not vanity metrics.
           </p>
         </div>
 

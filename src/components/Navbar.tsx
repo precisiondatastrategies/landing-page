@@ -28,7 +28,7 @@ const secondaryLinks = [
     { name: "Blog", href: "/blog" },
 ]
 
-// Pages where the hero/top section has a light background — logo must be dark (visible)
+// Pages where the hero/top section has a light background  -  logo must be dark (visible)
 const lightHeroPaths = ["/services", "/about-us", "/privacy-policy", "/cookie-policy", "/terms-of-service", "/contact", "/consulting", "/blog", "/case-studies"]
 const isLightPage = (path: string) => lightHeroPaths.some(p => path === p || path.startsWith(p + "/"))
 

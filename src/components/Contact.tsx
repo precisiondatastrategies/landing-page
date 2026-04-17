@@ -73,12 +73,12 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — form */}
-          <div>
-            <div style={{ overflow: "hidden", margin: "0 -20px" }}>
+          {/* Right  -  form */}
+          <div className="flex justify-center">
+            <div className="w-full max-w-md sm:max-w-none overflow-hidden rounded-2xl border border-gray-100">
             <iframe
               src="https://links.precisiondatastrategies.com/widget/form/YlUfjXQoR2QqxQfaK3g6"
-              style={{ width: "calc(100% + 40px)", height: "569px", border: "none", borderRadius: "0px" }}
+              style={{ width: "100%", height: "620px", border: "none", borderRadius: "0px" }}
               id="inline-YlUfjXQoR2QqxQfaK3g6"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"

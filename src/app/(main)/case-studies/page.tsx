@@ -11,11 +11,11 @@ const caseStudies = [
         label: "Illustrative Example",
         number: "01",
         industry: "Commercial HVAC & Plumbing",
-        company: "Apex Mechanical Services — PORTFOLIO ILLUSTRATION ONLY",
+        company: "Apex Mechanical Services  -  PORTFOLIO ILLUSTRATION ONLY",
         sponsor: "Ridgecrest Capital Partners",
         headline: "$1.8M Annual EBITDA Added",
         description:
-            "A $48M PE-backed HVAC platform was bleeding revenue through missed calls and manual dispatch. PDS deployed a 24/7 AI voice agent, automated scheduling, and a commercial lead qualification engine — adding $15.3M to the projected exit valuation.",
+            "A $48M PE-backed HVAC platform was bleeding revenue through missed calls and manual dispatch. PDS deployed a 24/7 AI voice agent, automated scheduling, and a commercial lead qualification engine  -  adding $15.3M to the projected exit valuation.",
         metrics: [
             { label: "EBITDA Added", value: "$1.78M", sub: "annualized" },
             { label: "Lead Response", value: "Priority", sub: "from delayed follow-up" },
@@ -102,7 +102,7 @@ export default function CaseStudiesPage() {
                                             </div>
                                         </div>
 
-                                        {/* Right — metrics */}
+                                        {/* Right  -  metrics */}
                                         <div className="grid grid-cols-2 gap-4 lg:w-100 shrink-0">
                                             {cs.metrics.map(m => (
                                                 <div key={m.label} className="bg-white border border-slate-200 rounded-2xl p-6 min-h-[190px] shadow-sm group-hover:border-slate-300 transition-colors overflow-hidden flex flex-col">
@@ -135,7 +135,7 @@ export default function CaseStudiesPage() {
                         className="border border-dashed border-slate-300 rounded-3xl p-10 text-center bg-white"
                     >
                         <p className="text-xs font-semibold uppercase tracking-widest text-slate-300 mb-3">Coming Soon</p>
-                        <p className="text-slate-400 text-base">More case studies in progress — pest control, dental DSO, commercial cleaning.</p>
+                        <p className="text-slate-400 text-base">More case studies in progress  -  pest control, dental DSO, commercial cleaning.</p>
                     </motion.div>
                 </div>
             </section>

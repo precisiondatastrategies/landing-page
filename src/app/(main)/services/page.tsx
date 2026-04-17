@@ -13,7 +13,7 @@ const sections = [
         icon: Phone,
         title: "AI Voice Agent",
         headline: "Never miss a call. Never lose a booking.",
-        description: "Replaces your answering service entirely. Our AI voice agent answers every call 24/7, books appointments directly into your dispatch system, handles emergency triage, qualifies leads, and sends instant text confirmations — all without a human CSR.",
+        description: "Replaces your answering service entirely. Our AI voice agent answers every call 24/7, books appointments directly into your dispatch system, handles emergency triage, qualifies leads, and sends instant text confirmations  -  all without a human CSR.",
         bullets: [
             "98.4% inbound call answer rate",
             "After-hours booking: 31% → 71%",
@@ -28,7 +28,7 @@ const sections = [
         icon: Zap,
         title: "Lead Qualification AI",
         headline: "Stop wasting your sales team on tire kickers.",
-        description: "AI scores every inbound lead in real time and routes hot prospects to your sales team in seconds — with a full dossier. Cold leads enter automated nurture. Your team stops spending 40% of their time on unqualified inquiries.",
+        description: "AI scores every inbound lead in real time and routes hot prospects to your sales team in seconds  -  with a full dossier. Cold leads enter automated nurture. Your team stops spending 40% of their time on unqualified inquiries.",
         bullets: [
             "Faster lead response and routing",
             "Qualified lead ratio: 45% → 78%",
@@ -60,7 +60,7 @@ const sections = [
         icon: MessageSquare,
         title: "CRM & Pipeline Automation",
         headline: "Your CRM should work for you, not the other way around.",
-        description: "Full Salesforce, HubSpot, and GoHighLevel integrations with automated lead scoring, follow-up sequences, and pipeline analytics. Capture leads from every channel — web, phone, email, WhatsApp, Instagram — into one unified pipeline.",
+        description: "Full Salesforce, HubSpot, and GoHighLevel integrations with automated lead scoring, follow-up sequences, and pipeline analytics. Capture leads from every channel  -  web, phone, email, WhatsApp, Instagram  -  into one unified pipeline.",
         bullets: [
             "Multi-channel lead capture: 6+ sources",
             "Automated follow-up sequences across SMS, email, and chat",
@@ -76,7 +76,7 @@ const sections = [
         icon: BarChart3,
         title: "PE Performance Dashboard",
         headline: "One number. AI-attributable EBITDA.",
-        description: "Real-time EBITDA impact reporting built for operating partners and portfolio CEOs. Every AI metric tied to a financial outcome — not vanity tech stats. IC-ready reporting that makes your operating partner look good to the partners.",
+        description: "Real-time EBITDA impact reporting built for operating partners and portfolio CEOs. Every AI metric tied to a financial outcome  -  not vanity tech stats. IC-ready reporting that makes your operating partner look good to the partners.",
         bullets: [
             "Live EBITDA contribution view",
             "Revenue capture, cost savings, and pipeline metrics",
@@ -115,7 +115,7 @@ export default function ServicesPage() {
             "url": "https://precisiondatastrategies.com"
         },
         "areaServed": "US",
-        "description": "AI automation services for PE-backed service companies — voice agents, lead qualification, scheduling automation, CRM integration, and EBITDA dashboards."
+        "description": "AI automation services for PE-backed service companies  -  voice agents, lead qualification, scheduling automation, CRM integration, and EBITDA dashboards."
     }
 
     return (
