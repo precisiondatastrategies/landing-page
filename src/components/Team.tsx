@@ -16,6 +16,14 @@ const teamMembers = [
     },
   },
   {
+    name: "Taylor Posey",
+    role: "Co-Founder",
+    image: "/team/taylor.png",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/taylor-posey-173b893b7/",
+    },
+  },
+  {
     name: "Hilal Aziz",
     role: "CTO & Strategy Head",
     image: "/team/hilal.jpeg",
@@ -32,16 +40,6 @@ const teamMembers = [
     socials: {
       linkedin: "https://www.linkedin.com/in/shafique-ur-rehman-b7b859299/",
       twitter: "https://x.com/shafique_ur_r",
-      instagram: "#",
-    },
-  },
-  {
-    name: "Talha Farooq",
-    role: "Senior AI & Automation Engineer",
-    image: "/team/talha.png",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/talha-farooq-49038823a/",
-      twitter: "#",
       instagram: "#",
     },
   },
@@ -82,15 +80,21 @@ export default function Team() {
                 />
                 {/* Social Overlay - appears on hover */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <a href={member.socials.linkedin} className="p-2 bg-white rounded-full hover:bg-blue-500 hover:text-white transition-colors">
-                    <Linkedin size={18} />
-                  </a>
-                  <a href={member.socials.twitter} className="p-2 bg-white rounded-full hover:bg-sky-500 hover:text-white transition-colors">
-                    <Twitter size={18} />
-                  </a>
-                  <a href={member.socials.instagram} className="p-2 bg-white rounded-full hover:bg-pink-500 hover:text-white transition-colors">
-                    <Instagram size={18} />
-                  </a>
+                  {member.socials.linkedin && member.socials.linkedin !== "#" && (
+                    <a href={member.socials.linkedin} className="p-2 bg-white rounded-full hover:bg-blue-500 hover:text-white transition-colors">
+                      <Linkedin size={18} />
+                    </a>
+                  )}
+                  {member.socials.twitter && member.socials.twitter !== "#" && (
+                    <a href={member.socials.twitter} className="p-2 bg-white rounded-full hover:bg-sky-500 hover:text-white transition-colors">
+                      <Twitter size={18} />
+                    </a>
+                  )}
+                  {member.socials.instagram && member.socials.instagram !== "#" && (
+                    <a href={member.socials.instagram} className="p-2 bg-white rounded-full hover:bg-pink-500 hover:text-white transition-colors">
+                      <Instagram size={18} />
+                    </a>
+                  )}
                 </div>
               </div>
               <h3 className="text-lg font-bold text-gray-900">{member.name}</h3>
