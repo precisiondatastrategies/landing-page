@@ -104,7 +104,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-5">Get Started</p>
             <p className="text-sm text-gray-500 mb-4 leading-relaxed">
-              Start with a $15K AI Readiness Assessment for one portfolio company.
+              Start with an AI Readiness Assessment for one portfolio company.
             </p>
             <Link
               href="/contact"
